@@ -1,14 +1,14 @@
 //
-//  DemoVerisoulSDKApp.swift
-//  DemoVerisoulSDK
+//  ExampleApp.swift
+//  Example
 //
-//  Created by TOxIC on 12/12/2024.
+//  Created by Ivan Divljak on 23.1.25..
 //
 
 import SwiftUI
 
 @main
-struct DemoVerisoulSDKApp: App {
+struct ExampleApp: App {
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     

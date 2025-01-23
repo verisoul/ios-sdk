@@ -7,146 +7,136 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		30A143C02D42269E00BC3916 /* VerisoulSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 30A143BF2D42269E00BC3916 /* VerisoulSDK */; };
-		30A1448F2D42308000BC3916 /* VerisoulSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 30A1448E2D42308000BC3916 /* VerisoulSDK */; };
-		30A144922D42308D00BC3916 /* VerisoulSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 30A144912D42308D00BC3916 /* VerisoulSDK */; };
-		AA3652142D0B085E00DA34E6 /* VerisoulSDK in Frameworks */ = {isa = PBXBuildFile; productRef = AA3652132D0B085E00DA34E6 /* VerisoulSDK */; };
+		30F6D9102D4232C000E3596F /* VerisoulSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30F6D90F2D4232C000E3596F /* VerisoulSDK.xcframework */; };
+		30F6D9112D4232C000E3596F /* VerisoulSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 30F6D90F2D4232C000E3596F /* VerisoulSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		30F6D9122D4232C000E3596F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				30F6D9112D4232C000E3596F /* VerisoulSDK.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		3079693F2D42230700FEFF7C /* VerisoulSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = VerisoulSDK.xcframework; path = ../Sources/VerisoulSDK.xcframework; sourceTree = "<group>"; };
-		AA3652012D0B082800DA34E6 /* DemoVerisoulSDK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoVerisoulSDK.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		30F6D8FA2D42325C00E3596F /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		30F6D90F2D4232C000E3596F /* VerisoulSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = VerisoulSDK.xcframework; path = ../Sources/VerisoulSDK.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		AA3652162D0B0B1500DA34E6 /* Exceptions for "DemoVerisoulSDK" folder in "DemoVerisoulSDK" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = AA3652002D0B082800DA34E6 /* DemoVerisoulSDK */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		AA3652032D0B082900DA34E6 /* DemoVerisoulSDK */ = {
+		30F6D8FC2D42325C00E3596F /* Example */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				AA3652162D0B0B1500DA34E6 /* Exceptions for "DemoVerisoulSDK" folder in "DemoVerisoulSDK" target */,
-			);
-			path = DemoVerisoulSDK;
+			path = Example;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		AA3651FE2D0B082800DA34E6 /* Frameworks */ = {
+		30F6D8F72D42325C00E3596F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30A1448F2D42308000BC3916 /* VerisoulSDK in Frameworks */,
-				30A143C02D42269E00BC3916 /* VerisoulSDK in Frameworks */,
-				30A144922D42308D00BC3916 /* VerisoulSDK in Frameworks */,
-				AA3652142D0B085E00DA34E6 /* VerisoulSDK in Frameworks */,
+				30F6D9102D4232C000E3596F /* VerisoulSDK.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3079693E2D42230700FEFF7C /* Frameworks */ = {
+		30F6D8F12D42325C00E3596F = {
 			isa = PBXGroup;
 			children = (
-				3079693F2D42230700FEFF7C /* VerisoulSDK.xcframework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		AA3651F82D0B082800DA34E6 = {
-			isa = PBXGroup;
-			children = (
-				AA3652032D0B082900DA34E6 /* DemoVerisoulSDK */,
-				3079693E2D42230700FEFF7C /* Frameworks */,
-				AA3652022D0B082800DA34E6 /* Products */,
+				30F6D8FC2D42325C00E3596F /* Example */,
+				30F6D90E2D4232C000E3596F /* Frameworks */,
+				30F6D8FB2D42325C00E3596F /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		AA3652022D0B082800DA34E6 /* Products */ = {
+		30F6D8FB2D42325C00E3596F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AA3652012D0B082800DA34E6 /* DemoVerisoulSDK.app */,
+				30F6D8FA2D42325C00E3596F /* Example.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		30F6D90E2D4232C000E3596F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				30F6D90F2D4232C000E3596F /* VerisoulSDK.xcframework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AA3652002D0B082800DA34E6 /* DemoVerisoulSDK */ = {
+		30F6D8F92D42325C00E3596F /* Example */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AA36520F2D0B082B00DA34E6 /* Build configuration list for PBXNativeTarget "DemoVerisoulSDK" */;
+			buildConfigurationList = 30F6D9092D42325C00E3596F /* Build configuration list for PBXNativeTarget "Example" */;
 			buildPhases = (
-				AA3651FD2D0B082800DA34E6 /* Sources */,
-				AA3651FE2D0B082800DA34E6 /* Frameworks */,
-				AA3651FF2D0B082800DA34E6 /* Resources */,
+				30F6D8F62D42325C00E3596F /* Sources */,
+				30F6D8F72D42325C00E3596F /* Frameworks */,
+				30F6D8F82D42325C00E3596F /* Resources */,
+				30F6D9122D4232C000E3596F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				AA3652032D0B082900DA34E6 /* DemoVerisoulSDK */,
+				30F6D8FC2D42325C00E3596F /* Example */,
 			);
-			name = DemoVerisoulSDK;
+			name = Example;
 			packageProductDependencies = (
-				AA3652132D0B085E00DA34E6 /* VerisoulSDK */,
-				30A143BF2D42269E00BC3916 /* VerisoulSDK */,
-				30A1448E2D42308000BC3916 /* VerisoulSDK */,
-				30A144912D42308D00BC3916 /* VerisoulSDK */,
 			);
-			productName = DemoVerisoulSDK;
-			productReference = AA3652012D0B082800DA34E6 /* DemoVerisoulSDK.app */;
+			productName = Example;
+			productReference = 30F6D8FA2D42325C00E3596F /* Example.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		AA3651F92D0B082800DA34E6 /* Project object */ = {
+		30F6D8F22D42325C00E3596F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1610;
-				LastUpgradeCheck = 1610;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1620;
 				TargetAttributes = {
-					AA3652002D0B082800DA34E6 = {
-						CreatedOnToolsVersion = 16.1;
+					30F6D8F92D42325C00E3596F = {
+						CreatedOnToolsVersion = 16.2;
 					};
 				};
 			};
-			buildConfigurationList = AA3651FC2D0B082800DA34E6 /* Build configuration list for PBXProject "DemoVerisoulSDK" */;
+			buildConfigurationList = 30F6D8F52D42325C00E3596F /* Build configuration list for PBXProject "Example" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = AA3651F82D0B082800DA34E6;
+			mainGroup = 30F6D8F12D42325C00E3596F;
 			minimizedProjectReferenceProxies = 1;
-			packageReferences = (
-				30A144902D42308D00BC3916 /* XCLocalSwiftPackageReference "../../native-ios-sdk" */,
-			);
 			preferredProjectObjectVersion = 77;
-			productRefGroup = AA3652022D0B082800DA34E6 /* Products */;
+			productRefGroup = 30F6D8FB2D42325C00E3596F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AA3652002D0B082800DA34E6 /* DemoVerisoulSDK */,
+				30F6D8F92D42325C00E3596F /* Example */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		AA3651FF2D0B082800DA34E6 /* Resources */ = {
+		30F6D8F82D42325C00E3596F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -156,7 +146,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		AA3651FD2D0B082800DA34E6 /* Sources */ = {
+		30F6D8F62D42325C00E3596F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -166,7 +156,7 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		AA36520D2D0B082B00DA34E6 /* Debug */ = {
+		30F6D9072D42325C00E3596F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -218,18 +208,16 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		AA36520E2D0B082B00DA34E6 /* Release */ = {
+		30F6D9082D42325C00E3596F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -275,128 +263,115 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
-				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		AA3652102D0B082B00DA34E6 /* Debug */ = {
+		30F6D90A2D42325C00E3596F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = DemoVerisoulSDK/DemoVerisoulSDK.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Example/Example.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "DemoVerisoulSDK/Preview\\ Content";
+				DEVELOPMENT_ASSET_PATHS = "\"Example/Preview Content\"";
 				DEVELOPMENT_TEAM = 3KL9338JP6;
+				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = DemoVerisoulSDK/Info.plist;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 15.2;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.verisoul.sdk.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
+				XROS_DEPLOYMENT_TARGET = 2.2;
 			};
 			name = Debug;
 		};
-		AA3652112D0B082B00DA34E6 /* Release */ = {
+		30F6D90B2D42325C00E3596F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = DemoVerisoulSDK/DemoVerisoulSDK.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Example/Example.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "DemoVerisoulSDK/Preview\\ Content";
+				DEVELOPMENT_ASSET_PATHS = "\"Example/Preview Content\"";
 				DEVELOPMENT_TEAM = 3KL9338JP6;
+				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = DemoVerisoulSDK/Info.plist;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 15.2;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.verisoul.sdk.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
+				XROS_DEPLOYMENT_TARGET = 2.2;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AA3651FC2D0B082800DA34E6 /* Build configuration list for PBXProject "DemoVerisoulSDK" */ = {
+		30F6D8F52D42325C00E3596F /* Build configuration list for PBXProject "Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AA36520D2D0B082B00DA34E6 /* Debug */,
-				AA36520E2D0B082B00DA34E6 /* Release */,
+				30F6D9072D42325C00E3596F /* Debug */,
+				30F6D9082D42325C00E3596F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AA36520F2D0B082B00DA34E6 /* Build configuration list for PBXNativeTarget "DemoVerisoulSDK" */ = {
+		30F6D9092D42325C00E3596F /* Build configuration list for PBXNativeTarget "Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AA3652102D0B082B00DA34E6 /* Debug */,
-				AA3652112D0B082B00DA34E6 /* Release */,
+				30F6D90A2D42325C00E3596F /* Debug */,
+				30F6D90B2D42325C00E3596F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCLocalSwiftPackageReference section */
-		30A144902D42308D00BC3916 /* XCLocalSwiftPackageReference "../../native-ios-sdk" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = "../../native-ios-sdk";
-		};
-/* End XCLocalSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		30A143BF2D42269E00BC3916 /* VerisoulSDK */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = VerisoulSDK;
-		};
-		30A1448E2D42308000BC3916 /* VerisoulSDK */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = VerisoulSDK;
-		};
-		30A144912D42308D00BC3916 /* VerisoulSDK */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = VerisoulSDK;
-		};
-		AA3652132D0B085E00DA34E6 /* VerisoulSDK */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = VerisoulSDK;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = AA3651F92D0B082800DA34E6 /* Project object */;
+	rootObject = 30F6D8F22D42325C00E3596F /* Project object */;
 }

@@ -1,0 +1,106 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.0.3 effective-5.10 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)
+// swift-module-flags: -target x86_64-apple-ios14.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name VerisoulSDK
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface
+import CFNetwork
+import CoreFoundation
+import CoreLocation
+import CoreMotion
+import CryptoKit
+import Darwin
+import DeviceCheck
+import Foundation
+import LocalAuthentication
+import MessageUI
+import Metal
+import Network
+import Security
+import Swift
+import SwiftUI
+import SystemConfiguration
+import UIKit
+import WebKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+import os
+public class DeviceAttest {
+  public init(networkManager: VerisoulSDK.VerisoulNetworkingClient, bundleIdentifier: Swift.String, projectId: Swift.String)
+  public func getKeyId() async throws -> Swift.String
+  public func getNewKeyId() async throws -> Swift.String
+  public func getChallange() async throws -> Swift.String
+  public func verifyAttestation(_ data: Foundation.Data, challenge: Swift.String, keyId: Swift.String) async throws -> Swift.String
+  public func generateAttestation(keyId: Swift.String, challenge: Foundation.Data) async throws -> Foundation.Data
+  public func generateAssertion(keyId: Swift.String, requestData: Foundation.Data) async throws -> Foundation.Data
+  @objc deinit
+}
+public class DeviceCheck {
+  public init()
+  public func generateDeviceToken() async throws -> Foundation.Data
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class DeviceInfo : ObjectiveC.NSObject {
+  public func fetchDeviceInfo() async throws -> [Swift.String : Any]
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers public class FraudDetection : ObjectiveC.NSObject {
+  public func setSessionId(sessionId: Swift.String)
+  public func startGlobalCapture()
+  public func stop()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class KeychainHelper {
+  public func set(_ value: Swift.String, key: Swift.String)
+  public func get(key: Swift.String) -> Swift.String?
+  @discardableResult
+  public func remove(key: Swift.String) -> Swift.Bool
+  @objc deinit
+}
+public struct MTLSizeCodable : Swift.Codable {
+  public var width: Swift.Int
+  public var height: Swift.Int
+  public var depth: Swift.Int
+  public init(mtlSize: Metal.MTLSize)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public protocol VerisoulNetworkingClientInterface {
+  func postDeviceData(sessionId: Swift.String, data: [Swift.String : Any], attestation: [Swift.String : Any], deviceCheck: Swift.String) async throws -> Swift.String
+  func getChallange() async throws -> Swift.String
+  func verifyAttestation(_ data: Foundation.Data, challenge: Swift.String, keyId: Swift.String) async throws -> Swift.String
+}
+@_hasMissingDesignatedInitializers public class VerisoulNetworkingClient : VerisoulSDK.VerisoulNetworkingClientInterface {
+  public func postDeviceData(sessionId: Swift.String, data: [Swift.String : Any], attestation: [Swift.String : Any], deviceCheck: Swift.String) async throws -> Swift.String
+  public func getChallange() async throws -> Swift.String
+  public func sendAccelometerData(payload: inout [Swift.String : Any]) async throws
+  public func verifyAttestation(_ data: Foundation.Data, challenge: Swift.String, keyId: Swift.String) async throws -> Swift.String
+  @objc deinit
+}
+public enum VerisoulEnvironment : Swift.String {
+  case dev, staging, sandbox, prod
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers final public class Verisoul : ObjectiveC.NSObject {
+  public static let shared: VerisoulSDK.Verisoul
+  final public func configure(env: VerisoulSDK.VerisoulEnvironment, projectId: Swift.String, bundleIdentifier: Swift.String)
+  final public func session() async throws -> Swift.String
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency public class VerisoulWebView : WebKit.WKWebView {
+  @_Concurrency.MainActor @preconcurrency public func setup()
+  @_Concurrency.MainActor @preconcurrency public func startSession(env: VerisoulSDK.VerisoulEnvironment, projectId: Swift.String, completion: @escaping ((Swift.String) -> Swift.Void))
+  @objc deinit
+}
+extension VerisoulSDK.VerisoulWebView : WebKit.WKScriptMessageHandler {
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func userContentController(_ userContentController: WebKit.WKUserContentController, didReceive message: WebKit.WKScriptMessage)
+  @_Concurrency.MainActor @preconcurrency public func getSessionId() -> Swift.String?
+}
+extension VerisoulSDK.VerisoulEnvironment : Swift.Equatable {}
+extension VerisoulSDK.VerisoulEnvironment : Swift.Hashable {}
+extension VerisoulSDK.VerisoulEnvironment : Swift.RawRepresentable {}

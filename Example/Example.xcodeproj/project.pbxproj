@@ -7,27 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		30F6D9102D4232C000E3596F /* VerisoulSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30F6D90F2D4232C000E3596F /* VerisoulSDK.xcframework */; };
-		30F6D9112D4232C000E3596F /* VerisoulSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 30F6D90F2D4232C000E3596F /* VerisoulSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		305FE4CF2D423BDE00A1CF23 /* VerisoulSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 305FE4CE2D423BDE00A1CF23 /* VerisoulSDK */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		30F6D9122D4232C000E3596F /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				30F6D9112D4232C000E3596F /* VerisoulSDK.xcframework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		30F6D8FA2D42325C00E3596F /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		30F6D90F2D4232C000E3596F /* VerisoulSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = VerisoulSDK.xcframework; path = ../Sources/VerisoulSDK.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -43,7 +27,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30F6D9102D4232C000E3596F /* VerisoulSDK.xcframework in Frameworks */,
+				305FE4CF2D423BDE00A1CF23 /* VerisoulSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,7 +54,6 @@
 		30F6D90E2D4232C000E3596F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				30F6D90F2D4232C000E3596F /* VerisoulSDK.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -85,7 +68,6 @@
 				30F6D8F62D42325C00E3596F /* Sources */,
 				30F6D8F72D42325C00E3596F /* Frameworks */,
 				30F6D8F82D42325C00E3596F /* Resources */,
-				30F6D9122D4232C000E3596F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -96,6 +78,7 @@
 			);
 			name = Example;
 			packageProductDependencies = (
+				305FE4CE2D423BDE00A1CF23 /* VerisoulSDK */,
 			);
 			productName = Example;
 			productReference = 30F6D8FA2D42325C00E3596F /* Example.app */;
@@ -125,6 +108,9 @@
 			);
 			mainGroup = 30F6D8F12D42325C00E3596F;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				305FE4CD2D423BDE00A1CF23 /* XCRemoteSwiftPackageReference "ios-sdk" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 30F6D8FB2D42325C00E3596F /* Products */;
 			projectDirPath = "";
@@ -372,6 +358,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		305FE4CD2D423BDE00A1CF23 /* XCRemoteSwiftPackageReference "ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/verisoul/ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		305FE4CE2D423BDE00A1CF23 /* VerisoulSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 305FE4CD2D423BDE00A1CF23 /* XCRemoteSwiftPackageReference "ios-sdk" */;
+			productName = VerisoulSDK;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 30F6D8F22D42325C00E3596F /* Project object */;
 }

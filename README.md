@@ -20,15 +20,15 @@ To integrate VerisoulSDK with CocoaPods:
 1. Ensure CocoaPods is installed on your machine. If not, run:
    ```swift
    sudo gem install cocoapods
-   ```swift
+   ```
 2. Add VerisoulSDK to your Podfile:
     ```swift
     pod 'VerisoulSDK', '~> 0.1'
-     ```swift
+     ```
 3. Run the following command to install the SDK:
     ```swift
     pod install
-     ```swift
+     ```
 4. Open the .xcworkspace file in Xcode and start using the SDK.
 
 

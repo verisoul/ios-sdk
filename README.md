@@ -42,7 +42,7 @@ Go to File > Add Packages.
 Enter the repository URL for VerisoulSDK:
 ```swift
     https://github.com/verisoul/ios-sdk.git
-```swift
+```
 Choose the version you wish to use and add the package.
 
 The SDK will automatically integrate into your project.
@@ -61,7 +61,7 @@ bundleIdentifier (String): The app's bundle identifier.
 ```swift
     VerisoulSDK.shared.configure(env: .prod, projectId: "your-project-id", 
     bundleIdentifier: "com.example.app")
-```swift
+```
 SDK Configuration: The configure(env:projectId:bundleIdentifier:) method should be called once, typically during the app's initialization process (e.g., in the AppDelegate or SceneDelegate)
 
 2. session() async throws -> String
@@ -79,4 +79,4 @@ do {
 } catch {
     print("Failed to retrieve session ID: \(error)")
 }
-```swift
+```

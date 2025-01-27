@@ -305,12 +305,6 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 #if defined(__OBJC__)
 
-SWIFT_CLASS("_TtC11VerisoulSDK10DeviceInfo")
-@interface DeviceInfo : NSObject
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
 SWIFT_CLASS("_TtC11VerisoulSDK14FraudDetection")
 @interface FraudDetection : NSObject
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
@@ -654,12 +648,6 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #endif
 
 #if defined(__OBJC__)
-
-SWIFT_CLASS("_TtC11VerisoulSDK10DeviceInfo")
-@interface DeviceInfo : NSObject
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
 
 SWIFT_CLASS("_TtC11VerisoulSDK14FraudDetection")
 @interface FraudDetection : NSObject

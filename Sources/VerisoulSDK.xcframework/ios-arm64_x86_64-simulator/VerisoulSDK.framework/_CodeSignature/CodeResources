@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/VerisoulSDK-Swift.h</key>
 		<data>
-		qRKrV8xu8dPFV5+10kfzmJrNkrc=
+		mYAHsKVQncPKnUTn7mzrrosqA2E=
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -14,43 +14,43 @@
 		</data>
 		<key>Modules/VerisoulSDK.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		1ojdnkNckEptnX0v+7pe6kDcNag=
+		K3GWXl4PB9/gIabzDiwg90PAGhQ=
 		</data>
 		<key>Modules/VerisoulSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		nO1QMovoDohdhBvk6kdgOfSyP4o=
+		tnZWpssxfXwnyCf92dWnUj7na+k=
 		</data>
 		<key>Modules/VerisoulSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		WZBE+f1wyGEoQ1XhlTt1m6ov36Y=
+		Jwg8qveuN8I27wlEQGWczv6wrM8=
 		</data>
 		<key>Modules/VerisoulSDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		nO1QMovoDohdhBvk6kdgOfSyP4o=
+		tnZWpssxfXwnyCf92dWnUj7na+k=
 		</data>
 		<key>Modules/VerisoulSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		ALelgUDnbLGsV5uZ3c1gwKbYBn4=
+		8CCw2NHiUjRqz7m8Gl0Vqx4YOiI=
 		</data>
 		<key>Modules/VerisoulSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		1ojdnkNckEptnX0v+7pe6kDcNag=
+		K3GWXl4PB9/gIabzDiwg90PAGhQ=
 		</data>
 		<key>Modules/VerisoulSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		SBEpq+cENQtIRayKsyvciWuQ0g4=
+		kKnqqcVnbhO1M7g66w0ObUAttR0=
 		</data>
 		<key>Modules/VerisoulSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		TNdR3CFjEQ7KoXUWY9ert/2uuCA=
+		UfamcvEl1SC5tQJ7YhLP0JQ/Gn0=
 		</data>
 		<key>Modules/VerisoulSDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		SBEpq+cENQtIRayKsyvciWuQ0g4=
+		kKnqqcVnbhO1M7g66w0ObUAttR0=
 		</data>
 		<key>Modules/VerisoulSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		jM1M5793kzoXHDVAp5VV63OR31o=
+		NI+VSXv8cEuZ299ssG08EixUcoA=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -59,77 +59,77 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			RGQqZIEKer9BZYbucYbKqmFyg8TX90SoCYdnZCvO22A=
+			2LRhsWtbLIWA6X4u/N9QzNrwEbtGFUXaeOypAIDH+1U=
 			</data>
 		</dict>
 		<key>Modules/VerisoulSDK.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			45pO9c/GEtJmHj5XEeu2bAFFXTja5gL5bYtHY2NtlOI=
+			0XqLrkUWIQKonfgc63uEc8vN0fmeIW4b5bg4hXzc4iA=
 			</data>
 		</dict>
 		<key>Modules/VerisoulSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			MtaHZ4aLeA2V/zQH9ms2uEfNSM3XyoZQr5BMB4qHiO8=
+			j9Jd+jKexFtRmlYfFGbYEHi4rIOc7+0SGqHtXYGPvm0=
 			</data>
 		</dict>
 		<key>Modules/VerisoulSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			R0mfJAl6KuDU9q/UWrb+I/P7BIX6K07zbnAiLbYQnwc=
+			TUZvu7CoRn/iI/AltZqBo4Y8I5wkk85gOuYU9rUjOHg=
 			</data>
 		</dict>
 		<key>Modules/VerisoulSDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			MtaHZ4aLeA2V/zQH9ms2uEfNSM3XyoZQr5BMB4qHiO8=
+			j9Jd+jKexFtRmlYfFGbYEHi4rIOc7+0SGqHtXYGPvm0=
 			</data>
 		</dict>
 		<key>Modules/VerisoulSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			PyVIl47aCHRMD9uu0+UAAK9+fwxnkReZfC29m2F1AnQ=
+			bI2aWRAya7vBhB3S+2r4Y73uCWIBn+R8PYTY6wCGffY=
 			</data>
 		</dict>
 		<key>Modules/VerisoulSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			45pO9c/GEtJmHj5XEeu2bAFFXTja5gL5bYtHY2NtlOI=
+			0XqLrkUWIQKonfgc63uEc8vN0fmeIW4b5bg4hXzc4iA=
 			</data>
 		</dict>
 		<key>Modules/VerisoulSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			bhktDbdwWN0XKocYQMzDOZrnCWVwcB/Hu8wPVTREcpk=
+			UIymWaiXx8BLNGx/fzKinKwmlaZ3tj/SLqQsYkq2WUg=
 			</data>
 		</dict>
 		<key>Modules/VerisoulSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			wJ89dYQ9I1SjHVzrX2LBJlbGdlX7BDqKsjllkLiCOTs=
+			fmPpHSBlAZMUqnGA3kMrCu85sKG+hDwVVk8w6hf3pAc=
 			</data>
 		</dict>
 		<key>Modules/VerisoulSDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			bhktDbdwWN0XKocYQMzDOZrnCWVwcB/Hu8wPVTREcpk=
+			UIymWaiXx8BLNGx/fzKinKwmlaZ3tj/SLqQsYkq2WUg=
 			</data>
 		</dict>
 		<key>Modules/VerisoulSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			4fOHWdU3cDVVckA0zIIHnZ8hT5O/sCjL3BCfHYxL1No=
+			BL7KEEX9gqLVjgEQdmiSzvLylu7hhr0uLy1Cib4kdUk=
 			</data>
 		</dict>
 	</dict>

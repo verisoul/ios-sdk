@@ -2,6 +2,7 @@
 // swift-compiler-version: Apple Swift version 6.0.3 effective-5.10 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)
 // swift-module-flags: -target arm64-apple-ios14.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name VerisoulSDK
 // swift-module-flags-ignorable: -no-verify-emitted-module-interface
+import AVKit
 import CFNetwork
 import CoreFoundation
 import CoreLocation
@@ -17,7 +18,6 @@ import Network
 import Security
 import Swift
 import SwiftUI
-import SystemConfiguration
 import UIKit
 import WebKit
 import _Concurrency
@@ -39,9 +39,8 @@ public class DeviceCheck {
   public func generateDeviceToken() async throws -> Foundation.Data
   @objc deinit
 }
-@objc @_inheritsConvenienceInitializers public class DeviceInfo : ObjectiveC.NSObject {
-  public func fetchDeviceInfo() async throws -> [Swift.String : Any]
-  @objc override dynamic public init()
+@_hasMissingDesignatedInitializers public class DebuggerChecker {
+  public static func amIDebugged() -> Swift.Bool
   @objc deinit
 }
 @objc @_hasMissingDesignatedInitializers public class FraudDetection : ObjectiveC.NSObject {
@@ -66,14 +65,16 @@ public struct MTLSizeCodable : Swift.Codable {
   public init(from decoder: any Swift.Decoder) throws
 }
 public protocol VerisoulNetworkingClientInterface {
-  func postDeviceData(sessionId: Swift.String, data: [Swift.String : Any], attestation: [Swift.String : Any], deviceCheck: Swift.String) async throws -> Swift.String
+  func postDeviceData(sessionId: Swift.String, data: [Swift.String : Any], deviceCheck: Swift.String) async throws -> Swift.String
   func getChallange() async throws -> Swift.String
   func verifyAttestation(_ data: Foundation.Data, challenge: Swift.String, keyId: Swift.String) async throws -> Swift.String
+  func verifyAssertion(_ data: [Swift.String : Any]) async throws -> Swift.String
 }
 @_hasMissingDesignatedInitializers public class VerisoulNetworkingClient : VerisoulSDK.VerisoulNetworkingClientInterface {
-  public func postDeviceData(sessionId: Swift.String, data: [Swift.String : Any], attestation: [Swift.String : Any], deviceCheck: Swift.String) async throws -> Swift.String
+  public func postDeviceData(sessionId: Swift.String, data: [Swift.String : Any], deviceCheck: Swift.String) async throws -> Swift.String
   public func getChallange() async throws -> Swift.String
-  public func sendAccelometerData(payload: inout [Swift.String : Any]) async throws
+  public func sendAccelometerData(payload: [Swift.String : Any]) async throws
+  public func verifyAssertion(_ data: [Swift.String : Any]) async throws -> Swift.String
   public func verifyAttestation(_ data: Foundation.Data, challenge: Swift.String, keyId: Swift.String) async throws -> Swift.String
   @objc deinit
 }

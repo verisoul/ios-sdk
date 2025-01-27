@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'VerisoulSDK'
-  s.version          = '0.1.0'
+  s.version          = '0.2.0'
   s.summary          = 'Verisoul helps businesses stop fake accounts and fraud'
 
 # This description is used to generate tags and improve search results.
@@ -29,7 +29,7 @@ The Verisoul platform provides an all-in-one fake user prevention solution that 
 3.Unique (not duplicates)
                        DESC
 
-  s.homepage         = 'https://github.com/verisoul/native-ios-sdk'
+  s.homepage         = 'https://www.verisoul.ai/'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Verisoul' => 'hello@verisoul.ai' }
   s.source           = { :git => 'https://github.com/verisoul/ios-sdk.git', :tag => s.version.to_s }

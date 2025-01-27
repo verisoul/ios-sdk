@@ -1417,146 +1417,81 @@
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
-        "moduleName": "VerisoulSDK"
-      },
-      {
-        "kind": "Import",
-        "name": "MessageUI",
-        "printedName": "MessageUI",
-        "declKind": "Import",
-        "moduleName": "VerisoulSDK"
-      },
-      {
-        "kind": "Import",
-        "name": "LocalAuthentication",
-        "printedName": "LocalAuthentication",
-        "declKind": "Import",
-        "moduleName": "VerisoulSDK"
-      },
-      {
-        "kind": "Import",
-        "name": "SystemConfiguration",
-        "printedName": "SystemConfiguration",
-        "declKind": "Import",
-        "moduleName": "VerisoulSDK"
-      },
-      {
-        "kind": "Import",
-        "name": "UIKit",
-        "printedName": "UIKit",
-        "declKind": "Import",
-        "moduleName": "VerisoulSDK"
-      },
-      {
-        "kind": "TypeDecl",
-        "name": "DeviceInfoInterface",
-        "printedName": "DeviceInfoInterface",
-        "children": [
-          {
-            "kind": "Function",
-            "name": "fetchDeviceInfo",
-            "printedName": "fetchDeviceInfo()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Dictionary",
-                "printedName": "[Swift.String : Any]",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "ProtocolComposition",
-                    "printedName": "Any"
-                  }
-                ],
-                "usr": "s:SD"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:11VerisoulSDK19DeviceInfoInterfaceP05fetchcD0SDySSypGyYaKF",
-            "mangledName": "$s11VerisoulSDK19DeviceInfoInterfaceP05fetchcD0SDySSypGyYaKF",
-            "moduleName": "VerisoulSDK",
-            "genericSig": "<τ_0_0 where τ_0_0 : VerisoulSDK.DeviceInfoInterface>",
-            "sugared_genericSig": "<Self where Self : VerisoulSDK.DeviceInfoInterface>",
-            "protocolReq": true,
-            "declAttributes": [
-              "RawDocComment"
-            ],
-            "throwing": true,
-            "reqNewWitnessTableEntry": true,
-            "funcSelfKind": "NonMutating"
-          }
-        ],
-        "declKind": "Protocol",
-        "usr": "s:11VerisoulSDK19DeviceInfoInterfaceP",
-        "mangledName": "$s11VerisoulSDK19DeviceInfoInterfaceP",
         "moduleName": "VerisoulSDK",
         "declAttributes": [
-          "AccessControl",
           "RawDocComment"
-        ],
-        "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Copyable",
-            "printedName": "Copyable",
-            "usr": "s:s8CopyableP",
-            "mangledName": "$ss8CopyableP"
-          }
         ]
       },
       {
         "kind": "TypeDecl",
-        "name": "DeviceInfo",
-        "printedName": "DeviceInfo",
+        "name": "DebuggerChecker",
+        "printedName": "DebuggerChecker",
         "children": [
           {
             "kind": "Function",
-            "name": "fetchDeviceInfo",
-            "printedName": "fetchDeviceInfo()",
+            "name": "amIDebugged",
+            "printedName": "amIDebugged()",
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "Dictionary",
-                "printedName": "[Swift.String : Any]",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "ProtocolComposition",
-                    "printedName": "Any"
-                  }
-                ],
-                "usr": "s:SD"
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
               }
             ],
             "declKind": "Func",
-            "usr": "s:11VerisoulSDK10DeviceInfoC05fetchcD0SDySSypGyYaKF",
-            "mangledName": "$s11VerisoulSDK10DeviceInfoC05fetchcD0SDySSypGyYaKF",
+            "usr": "s:11VerisoulSDK15DebuggerCheckerC11amIDebuggedSbyFZ",
+            "mangledName": "$s11VerisoulSDK15DebuggerCheckerC11amIDebuggedSbyFZ",
             "moduleName": "VerisoulSDK",
-            "isOpen": true,
+            "static": true,
             "declAttributes": [
+              "Final",
               "AccessControl",
               "RawDocComment"
             ],
-            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "denyDebugger",
+            "printedName": "denyDebugger()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11VerisoulSDK15DebuggerCheckerC04denyC0yyFZ",
+            "mangledName": "$s11VerisoulSDK15DebuggerCheckerC04denyC0yyFZ",
+            "moduleName": "VerisoulSDK",
+            "static": true,
+            "declAttributes": [
+              "Final"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "isParentPidUnexpected",
+            "printedName": "isParentPidUnexpected()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11VerisoulSDK15DebuggerCheckerC21isParentPidUnexpectedSbyFZ",
+            "mangledName": "$s11VerisoulSDK15DebuggerCheckerC21isParentPidUnexpectedSbyFZ",
+            "moduleName": "VerisoulSDK",
+            "static": true,
+            "declAttributes": [
+              "Final"
+            ],
             "funcSelfKind": "NonMutating"
           },
           {
@@ -1566,49 +1501,29 @@
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "DeviceInfo",
-                "printedName": "VerisoulSDK.DeviceInfo",
-                "usr": "c:@M@VerisoulSDK@objc(cs)DeviceInfo"
+                "name": "DebuggerChecker",
+                "printedName": "VerisoulSDK.DebuggerChecker",
+                "usr": "s:11VerisoulSDK15DebuggerCheckerC"
               }
             ],
             "declKind": "Constructor",
-            "usr": "c:@M@VerisoulSDK@objc(cs)DeviceInfo(im)init",
-            "mangledName": "$s11VerisoulSDK10DeviceInfoCACycfc",
+            "usr": "s:11VerisoulSDK15DebuggerCheckerCACycfc",
+            "mangledName": "$s11VerisoulSDK15DebuggerCheckerCACycfc",
             "moduleName": "VerisoulSDK",
-            "overriding": true,
             "implicit": true,
-            "objc_name": "init",
-            "declAttributes": [
-              "Dynamic",
-              "ObjC",
-              "Override"
-            ],
             "init_kind": "Designated"
           }
         ],
         "declKind": "Class",
-        "usr": "c:@M@VerisoulSDK@objc(cs)DeviceInfo",
-        "mangledName": "$s11VerisoulSDK10DeviceInfoC",
+        "usr": "s:11VerisoulSDK15DebuggerCheckerC",
+        "mangledName": "$s11VerisoulSDK15DebuggerCheckerC",
         "moduleName": "VerisoulSDK",
         "isOpen": true,
         "declAttributes": [
-          "AccessControl",
-          "RawDocComment",
-          "ObjC"
+          "AccessControl"
         ],
-        "superclassUsr": "c:objc(cs)NSObject",
-        "inheritsConvenienceInitializers": true,
-        "superclassNames": [
-          "ObjectiveC.NSObject"
-        ],
+        "hasMissingDesignatedInitializers": true,
         "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "DeviceInfoInterface",
-            "printedName": "DeviceInfoInterface",
-            "usr": "s:11VerisoulSDK19DeviceInfoInterfaceP",
-            "mangledName": "$s11VerisoulSDK19DeviceInfoInterfaceP"
-          },
           {
             "kind": "Conformance",
             "name": "Copyable",
@@ -1622,55 +1537,6 @@
             "printedName": "Escapable",
             "usr": "s:s9EscapableP",
             "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Equatable",
-            "printedName": "Equatable",
-            "usr": "s:SQ",
-            "mangledName": "$sSQ"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Hashable",
-            "printedName": "Hashable",
-            "usr": "s:SH",
-            "mangledName": "$sSH"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CVarArg",
-            "printedName": "CVarArg",
-            "usr": "s:s7CVarArgP",
-            "mangledName": "$ss7CVarArgP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "_KeyValueCodingAndObservingPublishing",
-            "printedName": "_KeyValueCodingAndObservingPublishing",
-            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
-            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "_KeyValueCodingAndObserving",
-            "printedName": "_KeyValueCodingAndObserving",
-            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
-            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CustomStringConvertible",
-            "printedName": "CustomStringConvertible",
-            "usr": "s:s23CustomStringConvertibleP",
-            "mangledName": "$ss23CustomStringConvertibleP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CustomDebugStringConvertible",
-            "printedName": "CustomDebugStringConvertible",
-            "usr": "s:s28CustomDebugStringConvertibleP",
-            "mangledName": "$ss28CustomDebugStringConvertibleP"
           }
         ]
       },
@@ -2051,14 +1917,22 @@
               },
               {
                 "kind": "TypeNominal",
-                "name": "CGPoint",
-                "printedName": "CoreFoundation.CGPoint",
-                "usr": "c:@S@CGPoint"
+                "name": "Optional",
+                "printedName": "CoreFoundation.CGPoint?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CGPoint",
+                    "printedName": "CoreFoundation.CGPoint",
+                    "usr": "c:@S@CGPoint"
+                  }
+                ],
+                "usr": "s:Sq"
               }
             ],
             "declKind": "Func",
-            "usr": "s:11VerisoulSDK14FraudDetectionC16handleTouchEnded5touchySo7CGPointV_tF",
-            "mangledName": "$s11VerisoulSDK14FraudDetectionC16handleTouchEnded5touchySo7CGPointV_tF",
+            "usr": "s:11VerisoulSDK14FraudDetectionC16handleTouchEnded5touchySo7CGPointVSg_tF",
+            "mangledName": "$s11VerisoulSDK14FraudDetectionC16handleTouchEnded5touchySo7CGPointVSg_tF",
             "moduleName": "VerisoulSDK",
             "isOpen": true,
             "declAttributes": [
@@ -5933,6 +5807,914 @@
       },
       {
         "kind": "TypeDecl",
+        "name": "VerifyAssertionREQUEST",
+        "printedName": "VerifyAssertionREQUEST",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "attestation",
+            "printedName": "attestation",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11VerisoulSDK22VerifyAssertionREQUESTV11attestationSSvp",
+            "mangledName": "$s11VerisoulSDK22VerifyAssertionREQUESTV11attestationSSvp",
+            "moduleName": "VerisoulSDK",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "fixedbinaryorder": 0,
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11VerisoulSDK22VerifyAssertionREQUESTV11attestationSSvg",
+                "mangledName": "$s11VerisoulSDK22VerifyAssertionREQUESTV11attestationSSvg",
+                "moduleName": "VerisoulSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "challenge",
+            "printedName": "challenge",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11VerisoulSDK22VerifyAssertionREQUESTV9challengeSSvp",
+            "mangledName": "$s11VerisoulSDK22VerifyAssertionREQUESTV9challengeSSvp",
+            "moduleName": "VerisoulSDK",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "fixedbinaryorder": 1,
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11VerisoulSDK22VerifyAssertionREQUESTV9challengeSSvg",
+                "mangledName": "$s11VerisoulSDK22VerifyAssertionREQUESTV9challengeSSvg",
+                "moduleName": "VerisoulSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "projectId",
+            "printedName": "projectId",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11VerisoulSDK22VerifyAssertionREQUESTV9projectIdSSvp",
+            "mangledName": "$s11VerisoulSDK22VerifyAssertionREQUESTV9projectIdSSvp",
+            "moduleName": "VerisoulSDK",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "fixedbinaryorder": 2,
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11VerisoulSDK22VerifyAssertionREQUESTV9projectIdSSvg",
+                "mangledName": "$s11VerisoulSDK22VerifyAssertionREQUESTV9projectIdSSvg",
+                "moduleName": "VerisoulSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "bundleIdentifier",
+            "printedName": "bundleIdentifier",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11VerisoulSDK22VerifyAssertionREQUESTV16bundleIdentifierSSvp",
+            "mangledName": "$s11VerisoulSDK22VerifyAssertionREQUESTV16bundleIdentifierSSvp",
+            "moduleName": "VerisoulSDK",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "fixedbinaryorder": 3,
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11VerisoulSDK22VerifyAssertionREQUESTV16bundleIdentifierSSvg",
+                "mangledName": "$s11VerisoulSDK22VerifyAssertionREQUESTV16bundleIdentifierSSvg",
+                "moduleName": "VerisoulSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "keyId",
+            "printedName": "keyId",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11VerisoulSDK22VerifyAssertionREQUESTV5keyIdSSvp",
+            "mangledName": "$s11VerisoulSDK22VerifyAssertionREQUESTV5keyIdSSvp",
+            "moduleName": "VerisoulSDK",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "fixedbinaryorder": 4,
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11VerisoulSDK22VerifyAssertionREQUESTV5keyIdSSvg",
+                "mangledName": "$s11VerisoulSDK22VerifyAssertionREQUESTV5keyIdSSvg",
+                "moduleName": "VerisoulSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "TypeDecl",
+            "name": "CodingKeys",
+            "printedName": "CodingKeys",
+            "children": [
+              {
+                "kind": "Var",
+                "name": "attestation",
+                "printedName": "attestation",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(VerisoulSDK.VerifyAssertionREQUEST.CodingKeys.Type) -> VerisoulSDK.VerifyAssertionREQUEST.CodingKeys",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CodingKeys",
+                        "printedName": "VerisoulSDK.VerifyAssertionREQUEST.CodingKeys",
+                        "usr": "s:11VerisoulSDK22VerifyAssertionREQUESTV10CodingKeysO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Metatype",
+                        "printedName": "VerisoulSDK.VerifyAssertionREQUEST.CodingKeys.Type",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "CodingKeys",
+                            "printedName": "VerisoulSDK.VerifyAssertionREQUEST.CodingKeys",
+                            "usr": "s:11VerisoulSDK22VerifyAssertionREQUESTV10CodingKeysO"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "declKind": "EnumElement",
+                "usr": "s:11VerisoulSDK22VerifyAssertionREQUESTV10CodingKeysO11attestationyA2EmF",
+                "mangledName": "$s11VerisoulSDK22VerifyAssertionREQUESTV10CodingKeysO11attestationyA2EmF",
+                "moduleName": "VerisoulSDK",
+                "fixedbinaryorder": 0
+              },
+              {
+                "kind": "Var",
+                "name": "challenge",
+                "printedName": "challenge",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(VerisoulSDK.VerifyAssertionREQUEST.CodingKeys.Type) -> VerisoulSDK.VerifyAssertionREQUEST.CodingKeys",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CodingKeys",
+                        "printedName": "VerisoulSDK.VerifyAssertionREQUEST.CodingKeys",
+                        "usr": "s:11VerisoulSDK22VerifyAssertionREQUESTV10CodingKeysO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Metatype",
+                        "printedName": "VerisoulSDK.VerifyAssertionREQUEST.CodingKeys.Type",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "CodingKeys",
+                            "printedName": "VerisoulSDK.VerifyAssertionREQUEST.CodingKeys",
+                            "usr": "s:11VerisoulSDK22VerifyAssertionREQUESTV10CodingKeysO"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "declKind": "EnumElement",
+                "usr": "s:11VerisoulSDK22VerifyAssertionREQUESTV10CodingKeysO9challengeyA2EmF",
+                "mangledName": "$s11VerisoulSDK22VerifyAssertionREQUESTV10CodingKeysO9challengeyA2EmF",
+                "moduleName": "VerisoulSDK",
+                "fixedbinaryorder": 1
+              },
+              {
+                "kind": "Var",
+                "name": "keyId",
+                "printedName": "keyId",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(VerisoulSDK.VerifyAssertionREQUEST.CodingKeys.Type) -> VerisoulSDK.VerifyAssertionREQUEST.CodingKeys",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CodingKeys",
+                        "printedName": "VerisoulSDK.VerifyAssertionREQUEST.CodingKeys",
+                        "usr": "s:11VerisoulSDK22VerifyAssertionREQUESTV10CodingKeysO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Metatype",
+                        "printedName": "VerisoulSDK.VerifyAssertionREQUEST.CodingKeys.Type",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "CodingKeys",
+                            "printedName": "VerisoulSDK.VerifyAssertionREQUEST.CodingKeys",
+                            "usr": "s:11VerisoulSDK22VerifyAssertionREQUESTV10CodingKeysO"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "declKind": "EnumElement",
+                "usr": "s:11VerisoulSDK22VerifyAssertionREQUESTV10CodingKeysO5keyIdyA2EmF",
+                "mangledName": "$s11VerisoulSDK22VerifyAssertionREQUESTV10CodingKeysO5keyIdyA2EmF",
+                "moduleName": "VerisoulSDK",
+                "fixedbinaryorder": 2
+              },
+              {
+                "kind": "Var",
+                "name": "projectId",
+                "printedName": "projectId",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(VerisoulSDK.VerifyAssertionREQUEST.CodingKeys.Type) -> VerisoulSDK.VerifyAssertionREQUEST.CodingKeys",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CodingKeys",
+                        "printedName": "VerisoulSDK.VerifyAssertionREQUEST.CodingKeys",
+                        "usr": "s:11VerisoulSDK22VerifyAssertionREQUESTV10CodingKeysO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Metatype",
+                        "printedName": "VerisoulSDK.VerifyAssertionREQUEST.CodingKeys.Type",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "CodingKeys",
+                            "printedName": "VerisoulSDK.VerifyAssertionREQUEST.CodingKeys",
+                            "usr": "s:11VerisoulSDK22VerifyAssertionREQUESTV10CodingKeysO"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "declKind": "EnumElement",
+                "usr": "s:11VerisoulSDK22VerifyAssertionREQUESTV10CodingKeysO9projectIdyA2EmF",
+                "mangledName": "$s11VerisoulSDK22VerifyAssertionREQUESTV10CodingKeysO9projectIdyA2EmF",
+                "moduleName": "VerisoulSDK",
+                "fixedbinaryorder": 3
+              },
+              {
+                "kind": "Var",
+                "name": "bundleIdentifier",
+                "printedName": "bundleIdentifier",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(VerisoulSDK.VerifyAssertionREQUEST.CodingKeys.Type) -> VerisoulSDK.VerifyAssertionREQUEST.CodingKeys",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CodingKeys",
+                        "printedName": "VerisoulSDK.VerifyAssertionREQUEST.CodingKeys",
+                        "usr": "s:11VerisoulSDK22VerifyAssertionREQUESTV10CodingKeysO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Metatype",
+                        "printedName": "VerisoulSDK.VerifyAssertionREQUEST.CodingKeys.Type",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "CodingKeys",
+                            "printedName": "VerisoulSDK.VerifyAssertionREQUEST.CodingKeys",
+                            "usr": "s:11VerisoulSDK22VerifyAssertionREQUESTV10CodingKeysO"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "declKind": "EnumElement",
+                "usr": "s:11VerisoulSDK22VerifyAssertionREQUESTV10CodingKeysO16bundleIdentifieryA2EmF",
+                "mangledName": "$s11VerisoulSDK22VerifyAssertionREQUESTV10CodingKeysO16bundleIdentifieryA2EmF",
+                "moduleName": "VerisoulSDK",
+                "fixedbinaryorder": 4
+              },
+              {
+                "kind": "Constructor",
+                "name": "init",
+                "printedName": "init(rawValue:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "VerisoulSDK.VerifyAssertionREQUEST.CodingKeys?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CodingKeys",
+                        "printedName": "VerisoulSDK.VerifyAssertionREQUEST.CodingKeys",
+                        "usr": "s:11VerisoulSDK22VerifyAssertionREQUESTV10CodingKeysO"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Constructor",
+                "usr": "s:11VerisoulSDK22VerifyAssertionREQUESTV10CodingKeysO8rawValueAESgSS_tcfc",
+                "mangledName": "$s11VerisoulSDK22VerifyAssertionREQUESTV10CodingKeysO8rawValueAESgSS_tcfc",
+                "moduleName": "VerisoulSDK",
+                "implicit": true,
+                "init_kind": "Designated"
+              },
+              {
+                "kind": "Var",
+                "name": "rawValue",
+                "printedName": "rawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:11VerisoulSDK22VerifyAssertionREQUESTV10CodingKeysO8rawValueSSvp",
+                "mangledName": "$s11VerisoulSDK22VerifyAssertionREQUESTV10CodingKeysO8rawValueSSvp",
+                "moduleName": "VerisoulSDK",
+                "implicit": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:11VerisoulSDK22VerifyAssertionREQUESTV10CodingKeysO8rawValueSSvg",
+                    "mangledName": "$s11VerisoulSDK22VerifyAssertionREQUESTV10CodingKeysO8rawValueSSvg",
+                    "moduleName": "VerisoulSDK",
+                    "implicit": true,
+                    "accessorKind": "get"
+                  }
+                ]
+              },
+              {
+                "kind": "Var",
+                "name": "stringValue",
+                "printedName": "stringValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:11VerisoulSDK22VerifyAssertionREQUESTV10CodingKeysO11stringValueSSvp",
+                "mangledName": "$s11VerisoulSDK22VerifyAssertionREQUESTV10CodingKeysO11stringValueSSvp",
+                "moduleName": "VerisoulSDK",
+                "implicit": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:11VerisoulSDK22VerifyAssertionREQUESTV10CodingKeysO11stringValueSSvg",
+                    "mangledName": "$s11VerisoulSDK22VerifyAssertionREQUESTV10CodingKeysO11stringValueSSvg",
+                    "moduleName": "VerisoulSDK",
+                    "implicit": true,
+                    "accessorKind": "get"
+                  }
+                ]
+              },
+              {
+                "kind": "Constructor",
+                "name": "init",
+                "printedName": "init(stringValue:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "VerisoulSDK.VerifyAssertionREQUEST.CodingKeys?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CodingKeys",
+                        "printedName": "VerisoulSDK.VerifyAssertionREQUEST.CodingKeys",
+                        "usr": "s:11VerisoulSDK22VerifyAssertionREQUESTV10CodingKeysO"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Constructor",
+                "usr": "s:11VerisoulSDK22VerifyAssertionREQUESTV10CodingKeysO11stringValueAESgSS_tcfc",
+                "mangledName": "$s11VerisoulSDK22VerifyAssertionREQUESTV10CodingKeysO11stringValueAESgSS_tcfc",
+                "moduleName": "VerisoulSDK",
+                "implicit": true,
+                "init_kind": "Designated"
+              },
+              {
+                "kind": "Var",
+                "name": "intValue",
+                "printedName": "intValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.Int?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Int",
+                        "printedName": "Swift.Int",
+                        "usr": "s:Si"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:11VerisoulSDK22VerifyAssertionREQUESTV10CodingKeysO8intValueSiSgvp",
+                "mangledName": "$s11VerisoulSDK22VerifyAssertionREQUESTV10CodingKeysO8intValueSiSgvp",
+                "moduleName": "VerisoulSDK",
+                "implicit": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "Swift.Int?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Int",
+                            "printedName": "Swift.Int",
+                            "usr": "s:Si"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:11VerisoulSDK22VerifyAssertionREQUESTV10CodingKeysO8intValueSiSgvg",
+                    "mangledName": "$s11VerisoulSDK22VerifyAssertionREQUESTV10CodingKeysO8intValueSiSgvg",
+                    "moduleName": "VerisoulSDK",
+                    "implicit": true,
+                    "accessorKind": "get"
+                  }
+                ]
+              },
+              {
+                "kind": "Constructor",
+                "name": "init",
+                "printedName": "init(intValue:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "VerisoulSDK.VerifyAssertionREQUEST.CodingKeys?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CodingKeys",
+                        "printedName": "VerisoulSDK.VerifyAssertionREQUEST.CodingKeys",
+                        "usr": "s:11VerisoulSDK22VerifyAssertionREQUESTV10CodingKeysO"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Constructor",
+                "usr": "s:11VerisoulSDK22VerifyAssertionREQUESTV10CodingKeysO8intValueAESgSi_tcfc",
+                "mangledName": "$s11VerisoulSDK22VerifyAssertionREQUESTV10CodingKeysO8intValueAESgSi_tcfc",
+                "moduleName": "VerisoulSDK",
+                "implicit": true,
+                "init_kind": "Designated"
+              }
+            ],
+            "declKind": "Enum",
+            "usr": "s:11VerisoulSDK22VerifyAssertionREQUESTV10CodingKeysO",
+            "mangledName": "$s11VerisoulSDK22VerifyAssertionREQUESTV10CodingKeysO",
+            "moduleName": "VerisoulSDK",
+            "enumRawTypeName": "String",
+            "isEnumExhaustive": true,
+            "conformances": [
+              {
+                "kind": "Conformance",
+                "name": "Copyable",
+                "printedName": "Copyable",
+                "usr": "s:s8CopyableP",
+                "mangledName": "$ss8CopyableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Escapable",
+                "printedName": "Escapable",
+                "usr": "s:s9EscapableP",
+                "mangledName": "$ss9EscapableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Equatable",
+                "printedName": "Equatable",
+                "usr": "s:SQ",
+                "mangledName": "$sSQ"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Hashable",
+                "printedName": "Hashable",
+                "usr": "s:SH",
+                "mangledName": "$sSH"
+              },
+              {
+                "kind": "Conformance",
+                "name": "RawRepresentable",
+                "printedName": "RawRepresentable",
+                "children": [
+                  {
+                    "kind": "TypeWitness",
+                    "name": "RawValue",
+                    "printedName": "RawValue",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:SY",
+                "mangledName": "$sSY"
+              },
+              {
+                "kind": "Conformance",
+                "name": "CodingKey",
+                "printedName": "CodingKey",
+                "usr": "s:s9CodingKeyP",
+                "mangledName": "$ss9CodingKeyP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "CustomDebugStringConvertible",
+                "printedName": "CustomDebugStringConvertible",
+                "usr": "s:s28CustomDebugStringConvertibleP",
+                "mangledName": "$ss28CustomDebugStringConvertibleP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "CustomStringConvertible",
+                "printedName": "CustomStringConvertible",
+                "usr": "s:s23CustomStringConvertibleP",
+                "mangledName": "$ss23CustomStringConvertibleP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Sendable",
+                "printedName": "Sendable",
+                "usr": "s:s8SendableP",
+                "mangledName": "$ss8SendableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "BitwiseCopyable",
+                "printedName": "BitwiseCopyable",
+                "usr": "s:s15BitwiseCopyableP",
+                "mangledName": "$ss15BitwiseCopyableP"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(attestation:challenge:projectId:bundleIdentifier:keyId:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "VerifyAssertionREQUEST",
+                "printedName": "VerisoulSDK.VerifyAssertionREQUEST",
+                "usr": "s:11VerisoulSDK22VerifyAssertionREQUESTV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:11VerisoulSDK22VerifyAssertionREQUESTV11attestation9challenge9projectId16bundleIdentifier03keyI0ACSS_S4Stcfc",
+            "mangledName": "$s11VerisoulSDK22VerifyAssertionREQUESTV11attestation9challenge9projectId16bundleIdentifier03keyI0ACSS_S4Stcfc",
+            "moduleName": "VerisoulSDK",
+            "implicit": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(from:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "VerifyAssertionREQUEST",
+                "printedName": "VerisoulSDK.VerifyAssertionREQUEST",
+                "usr": "s:11VerisoulSDK22VerifyAssertionREQUESTV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Decoder",
+                "printedName": "any Swift.Decoder",
+                "usr": "s:s7DecoderP"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:11VerisoulSDK22VerifyAssertionREQUESTV4fromACs7Decoder_p_tKcfc",
+            "mangledName": "$s11VerisoulSDK22VerifyAssertionREQUESTV4fromACs7Decoder_p_tKcfc",
+            "moduleName": "VerisoulSDK",
+            "implicit": true,
+            "throwing": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "encode",
+            "printedName": "encode(to:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Encoder",
+                "printedName": "any Swift.Encoder",
+                "usr": "s:s7EncoderP"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11VerisoulSDK22VerifyAssertionREQUESTV6encode2toys7Encoder_p_tKF",
+            "mangledName": "$s11VerisoulSDK22VerifyAssertionREQUESTV6encode2toys7Encoder_p_tKF",
+            "moduleName": "VerisoulSDK",
+            "implicit": true,
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:11VerisoulSDK22VerifyAssertionREQUESTV",
+        "mangledName": "$s11VerisoulSDK22VerifyAssertionREQUESTV",
+        "moduleName": "VerisoulSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Decodable",
+            "printedName": "Decodable",
+            "usr": "s:Se",
+            "mangledName": "$sSe"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Encodable",
+            "printedName": "Encodable",
+            "usr": "s:SE",
+            "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
         "name": "VerifyAttestationRequest",
         "printedName": "VerifyAttestationRequest",
         "children": [
@@ -7932,7 +8714,7 @@
           {
             "kind": "Function",
             "name": "request",
-            "printedName": "request(url:method:parameters:headers:responseType:)",
+            "printedName": "request(url:method:parameters:headers:retryNumber:responseType:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -8008,6 +8790,12 @@
               },
               {
                 "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              },
+              {
+                "kind": "TypeNominal",
                 "name": "Metatype",
                 "printedName": "τ_1_0.Type",
                 "children": [
@@ -8020,8 +8808,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:11VerisoulSDK22NetworkManagerProtocolP7request3url6method10parameters7headers12responseTypeqd__10Foundation3URLV_AA10HTTPMethodOSDySSypGSgSDyS2SGSgqd__mtYaKSeRd__lF",
-            "mangledName": "$s11VerisoulSDK22NetworkManagerProtocolP7request3url6method10parameters7headers12responseTypeqd__10Foundation3URLV_AA10HTTPMethodOSDySSypGSgSDyS2SGSgqd__mtYaKSeRd__lF",
+            "usr": "s:11VerisoulSDK22NetworkManagerProtocolP7request3url6method10parameters7headers11retryNumber12responseTypeqd__10Foundation3URLV_AA10HTTPMethodOSDySSypGSgSDyS2SGSgSiqd__mtYaKSeRd__lF",
+            "mangledName": "$s11VerisoulSDK22NetworkManagerProtocolP7request3url6method10parameters7headers11retryNumber12responseTypeqd__10Foundation3URLV_AA10HTTPMethodOSDySSypGSgSDyS2SGSgSiqd__mtYaKSeRd__lF",
             "moduleName": "VerisoulSDK",
             "genericSig": "<τ_0_0, τ_1_0 where τ_0_0 : VerisoulSDK.NetworkManagerProtocol, τ_1_0 : Swift.Decodable>",
             "sugared_genericSig": "<Self, T where Self : VerisoulSDK.NetworkManagerProtocol, T : Swift.Decodable>",
@@ -8036,7 +8824,7 @@
           {
             "kind": "Function",
             "name": "requestEmpty",
-            "printedName": "requestEmpty(url:method:parameters:headers:)",
+            "printedName": "requestEmpty(url:method:parameters:headers:retryNumber:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -8109,11 +8897,17 @@
                   }
                 ],
                 "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
               }
             ],
             "declKind": "Func",
-            "usr": "s:11VerisoulSDK22NetworkManagerProtocolP12requestEmpty3url6method10parameters7headersy10Foundation3URLV_AA10HTTPMethodOSDySSypGSgSDyS2SGSgtYaKF",
-            "mangledName": "$s11VerisoulSDK22NetworkManagerProtocolP12requestEmpty3url6method10parameters7headersy10Foundation3URLV_AA10HTTPMethodOSDySSypGSgSDyS2SGSgtYaKF",
+            "usr": "s:11VerisoulSDK22NetworkManagerProtocolP12requestEmpty3url6method10parameters7headers11retryNumbery10Foundation3URLV_AA10HTTPMethodOSDySSypGSgSDyS2SGSgSitYaKF",
+            "mangledName": "$s11VerisoulSDK22NetworkManagerProtocolP12requestEmpty3url6method10parameters7headers11retryNumbery10Foundation3URLV_AA10HTTPMethodOSDySSypGSgSDyS2SGSgSitYaKF",
             "moduleName": "VerisoulSDK",
             "genericSig": "<τ_0_0 where τ_0_0 : VerisoulSDK.NetworkManagerProtocol>",
             "sugared_genericSig": "<Self where Self : VerisoulSDK.NetworkManagerProtocol>",
@@ -8183,6 +8977,60 @@
             "hasStorage": true
           },
           {
+            "kind": "Var",
+            "name": "maxRetryNumber",
+            "printedName": "maxRetryNumber",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11VerisoulSDK14NetworkManagerC14maxRetryNumber33_553169D3A8B60300846A817B5D53E41DLLSivp",
+            "mangledName": "$s11VerisoulSDK14NetworkManagerC14maxRetryNumber33_553169D3A8B60300846A817B5D53E41DLLSivp",
+            "moduleName": "VerisoulSDK",
+            "isInternal": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "fixedbinaryorder": 1,
+            "isLet": true,
+            "hasStorage": true
+          },
+          {
+            "kind": "Var",
+            "name": "decoder",
+            "printedName": "decoder",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "JSONDecoder",
+                "printedName": "Foundation.JSONDecoder",
+                "usr": "s:10Foundation11JSONDecoderC"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11VerisoulSDK14NetworkManagerC7decoder33_553169D3A8B60300846A817B5D53E41DLL10Foundation11JSONDecoderCvp",
+            "mangledName": "$s11VerisoulSDK14NetworkManagerC7decoder33_553169D3A8B60300846A817B5D53E41DLL10Foundation11JSONDecoderCvp",
+            "moduleName": "VerisoulSDK",
+            "isInternal": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "fixedbinaryorder": 2,
+            "isLet": true,
+            "hasStorage": true
+          },
+          {
             "kind": "Constructor",
             "name": "init",
             "printedName": "init(session:)",
@@ -8210,7 +9058,7 @@
           {
             "kind": "Function",
             "name": "request",
-            "printedName": "request(url:method:parameters:headers:responseType:)",
+            "printedName": "request(url:method:parameters:headers:retryNumber:responseType:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -8289,6 +9137,13 @@
               },
               {
                 "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "hasDefaultArg": true,
+                "usr": "s:Si"
+              },
+              {
+                "kind": "TypeNominal",
                 "name": "Metatype",
                 "printedName": "τ_0_0.Type",
                 "children": [
@@ -8301,8 +9156,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:11VerisoulSDK14NetworkManagerC7request3url6method10parameters7headers12responseTypex10Foundation3URLV_AA10HTTPMethodOSDySSypGSgSDyS2SGSgxmtYaKSeRzlF",
-            "mangledName": "$s11VerisoulSDK14NetworkManagerC7request3url6method10parameters7headers12responseTypex10Foundation3URLV_AA10HTTPMethodOSDySSypGSgSDyS2SGSgxmtYaKSeRzlF",
+            "usr": "s:11VerisoulSDK14NetworkManagerC7request3url6method10parameters7headers11retryNumber12responseTypex10Foundation3URLV_AA10HTTPMethodOSDySSypGSgSDyS2SGSgSixmtYaKSeRzlF",
+            "mangledName": "$s11VerisoulSDK14NetworkManagerC7request3url6method10parameters7headers11retryNumber12responseTypex10Foundation3URLV_AA10HTTPMethodOSDySSypGSgSDyS2SGSgSixmtYaKSeRzlF",
             "moduleName": "VerisoulSDK",
             "genericSig": "<τ_0_0 where τ_0_0 : Swift.Decodable>",
             "sugared_genericSig": "<T where T : Swift.Decodable>",
@@ -8316,7 +9171,7 @@
           {
             "kind": "Function",
             "name": "requestEmpty",
-            "printedName": "requestEmpty(url:method:parameters:headers:)",
+            "printedName": "requestEmpty(url:method:parameters:headers:retryNumber:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -8392,11 +9247,18 @@
                 ],
                 "hasDefaultArg": true,
                 "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "hasDefaultArg": true,
+                "usr": "s:Si"
               }
             ],
             "declKind": "Func",
-            "usr": "s:11VerisoulSDK14NetworkManagerC12requestEmpty3url6method10parameters7headersy10Foundation3URLV_AA10HTTPMethodOSDySSypGSgSDyS2SGSgtYaKF",
-            "mangledName": "$s11VerisoulSDK14NetworkManagerC12requestEmpty3url6method10parameters7headersy10Foundation3URLV_AA10HTTPMethodOSDySSypGSgSDyS2SGSgtYaKF",
+            "usr": "s:11VerisoulSDK14NetworkManagerC12requestEmpty3url6method10parameters7headers11retryNumbery10Foundation3URLV_AA10HTTPMethodOSDySSypGSgSDyS2SGSgSitYaKF",
+            "mangledName": "$s11VerisoulSDK14NetworkManagerC12requestEmpty3url6method10parameters7headers11retryNumbery10Foundation3URLV_AA10HTTPMethodOSDySSypGSgSDyS2SGSgSitYaKF",
             "moduleName": "VerisoulSDK",
             "isOpen": true,
             "declAttributes": [
@@ -8453,7 +9315,7 @@
           {
             "kind": "Function",
             "name": "postDeviceData",
-            "printedName": "postDeviceData(sessionId:data:attestation:deviceCheck:)",
+            "printedName": "postDeviceData(sessionId:data:deviceCheck:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -8488,33 +9350,14 @@
               },
               {
                 "kind": "TypeNominal",
-                "name": "Dictionary",
-                "printedName": "[Swift.String : Any]",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "ProtocolComposition",
-                    "printedName": "Any"
-                  }
-                ],
-                "usr": "s:SD"
-              },
-              {
-                "kind": "TypeNominal",
                 "name": "String",
                 "printedName": "Swift.String",
                 "usr": "s:SS"
               }
             ],
             "declKind": "Func",
-            "usr": "s:11VerisoulSDK0A25NetworkingClientInterfaceP14postDeviceData9sessionId4data11attestation11deviceCheckS2S_SDySSypGAISStYaKF",
-            "mangledName": "$s11VerisoulSDK0A25NetworkingClientInterfaceP14postDeviceData9sessionId4data11attestation11deviceCheckS2S_SDySSypGAISStYaKF",
+            "usr": "s:11VerisoulSDK0A25NetworkingClientInterfaceP14postDeviceData9sessionId4data11deviceCheckS2S_SDySSypGSStYaKF",
+            "mangledName": "$s11VerisoulSDK0A25NetworkingClientInterfaceP14postDeviceData9sessionId4data11deviceCheckS2S_SDySSypGSStYaKF",
             "moduleName": "VerisoulSDK",
             "genericSig": "<τ_0_0 where τ_0_0 : VerisoulSDK.VerisoulNetworkingClientInterface>",
             "sugared_genericSig": "<Self where Self : VerisoulSDK.VerisoulNetworkingClientInterface>",
@@ -8595,6 +9438,48 @@
             "throwing": true,
             "reqNewWitnessTableEntry": true,
             "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "verifyAssertion",
+            "printedName": "verifyAssertion(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.String : Any]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:SD"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11VerisoulSDK0A25NetworkingClientInterfaceP15verifyAssertionySSSDySSypGYaKF",
+            "mangledName": "$s11VerisoulSDK0A25NetworkingClientInterfaceP15verifyAssertionySSSDySSypGYaKF",
+            "moduleName": "VerisoulSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : VerisoulSDK.VerisoulNetworkingClientInterface>",
+            "sugared_genericSig": "<Self where Self : VerisoulSDK.VerisoulNetworkingClientInterface>",
+            "protocolReq": true,
+            "throwing": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
           }
         ],
         "declKind": "Protocol",
@@ -8669,7 +9554,7 @@
           {
             "kind": "Function",
             "name": "postDeviceData",
-            "printedName": "postDeviceData(sessionId:data:attestation:deviceCheck:)",
+            "printedName": "postDeviceData(sessionId:data:deviceCheck:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -8704,33 +9589,14 @@
               },
               {
                 "kind": "TypeNominal",
-                "name": "Dictionary",
-                "printedName": "[Swift.String : Any]",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "ProtocolComposition",
-                    "printedName": "Any"
-                  }
-                ],
-                "usr": "s:SD"
-              },
-              {
-                "kind": "TypeNominal",
                 "name": "String",
                 "printedName": "Swift.String",
                 "usr": "s:SS"
               }
             ],
             "declKind": "Func",
-            "usr": "s:11VerisoulSDK0A16NetworkingClientC14postDeviceData9sessionId4data11attestation11deviceCheckS2S_SDySSypGAISStYaKF",
-            "mangledName": "$s11VerisoulSDK0A16NetworkingClientC14postDeviceData9sessionId4data11attestation11deviceCheckS2S_SDySSypGAISStYaKF",
+            "usr": "s:11VerisoulSDK0A16NetworkingClientC14postDeviceData9sessionId4data11deviceCheckS2S_SDySSypGSStYaKF",
+            "mangledName": "$s11VerisoulSDK0A16NetworkingClientC14postDeviceData9sessionId4data11deviceCheckS2S_SDySSypGSStYaKF",
             "moduleName": "VerisoulSDK",
             "isOpen": true,
             "declAttributes": [
@@ -8791,13 +9657,54 @@
                     "printedName": "Any"
                   }
                 ],
-                "paramValueOwnership": "InOut",
                 "usr": "s:SD"
               }
             ],
             "declKind": "Func",
-            "usr": "s:11VerisoulSDK0A16NetworkingClientC19sendAccelometerData7payloadySDySSypGz_tYaKF",
-            "mangledName": "$s11VerisoulSDK0A16NetworkingClientC19sendAccelometerData7payloadySDySSypGz_tYaKF",
+            "usr": "s:11VerisoulSDK0A16NetworkingClientC19sendAccelometerData7payloadySDySSypG_tYaKF",
+            "mangledName": "$s11VerisoulSDK0A16NetworkingClientC19sendAccelometerData7payloadySDySSypG_tYaKF",
+            "moduleName": "VerisoulSDK",
+            "isOpen": true,
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "verifyAssertion",
+            "printedName": "verifyAssertion(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.String : Any]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:SD"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11VerisoulSDK0A16NetworkingClientC15verifyAssertionySSSDySSypGYaKF",
+            "mangledName": "$s11VerisoulSDK0A16NetworkingClientC15verifyAssertionySSSDySSypGYaKF",
             "moduleName": "VerisoulSDK",
             "isOpen": true,
             "declAttributes": [
@@ -8887,6 +9794,27 @@
         "kind": "Import",
         "name": "UIKit",
         "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "VerisoulSDK"
+      },
+      {
+        "kind": "Import",
+        "name": "DeviceCheck",
+        "printedName": "DeviceCheck",
+        "declKind": "Import",
+        "moduleName": "VerisoulSDK"
+      },
+      {
+        "kind": "Import",
+        "name": "MessageUI",
+        "printedName": "MessageUI",
+        "declKind": "Import",
+        "moduleName": "VerisoulSDK"
+      },
+      {
+        "kind": "Import",
+        "name": "LocalAuthentication",
+        "printedName": "LocalAuthentication",
         "declKind": "Import",
         "moduleName": "VerisoulSDK"
       },
@@ -10092,6 +11020,111 @@
         "declKind": "Class",
         "usr": "s:11VerisoulSDK20ProcessInfoCollectorC",
         "mangledName": "$s11VerisoulSDK20ProcessInfoCollectorC",
+        "moduleName": "VerisoulSDK",
+        "isOpen": true,
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "CoreMotion",
+        "printedName": "CoreMotion",
+        "declKind": "Import",
+        "moduleName": "VerisoulSDK"
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "VerisoulSDK"
+      },
+      {
+        "kind": "Import",
+        "name": "AVKit",
+        "printedName": "AVKit",
+        "declKind": "Import",
+        "moduleName": "VerisoulSDK"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "SensorCollector",
+        "printedName": "SensorCollector",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "collect",
+            "printedName": "collect()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.String : Swift.Bool]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "usr": "s:SD"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11VerisoulSDK15SensorCollectorC7collectSDySSSbGyFZ",
+            "mangledName": "$s11VerisoulSDK15SensorCollectorC7collectSDySSSbGyFZ",
+            "moduleName": "VerisoulSDK",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "SensorCollector",
+                "printedName": "VerisoulSDK.SensorCollector",
+                "usr": "s:11VerisoulSDK15SensorCollectorC"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:11VerisoulSDK15SensorCollectorCACycfc",
+            "mangledName": "$s11VerisoulSDK15SensorCollectorCACycfc",
+            "moduleName": "VerisoulSDK",
+            "implicit": true,
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:11VerisoulSDK15SensorCollectorC",
+        "mangledName": "$s11VerisoulSDK15SensorCollectorC",
         "moduleName": "VerisoulSDK",
         "isOpen": true,
         "conformances": [
@@ -12192,6 +13225,62 @@
       "value": "\"attest_key_id\""
     },
     {
+      "filePath": "\/Users\/ivandivljak\/Desktop\/native-ios-sdk\/Sources\/VerisoulSDK\/DeviceDebugger\/DebuggerChecker.swift",
+      "kind": "IntegerLiteral",
+      "offset": 931,
+      "length": 2,
+      "value": "-2"
+    },
+    {
+      "filePath": "\/Users\/ivandivljak\/Desktop\/native-ios-sdk\/Sources\/VerisoulSDK\/DeviceDebugger\/DebuggerChecker.swift",
+      "kind": "StringLiteral",
+      "offset": 978,
+      "length": 8,
+      "value": "\"ptrace\""
+    },
+    {
+      "filePath": "\/Users\/ivandivljak\/Desktop\/native-ios-sdk\/Sources\/VerisoulSDK\/DeviceDebugger\/DebuggerChecker.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1187,
+      "length": 2,
+      "value": "31"
+    },
+    {
+      "filePath": "\/Users\/ivandivljak\/Desktop\/native-ios-sdk\/Sources\/VerisoulSDK\/DeviceDebugger\/DebuggerChecker.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1191,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/ivandivljak\/Desktop\/native-ios-sdk\/Sources\/VerisoulSDK\/DeviceDebugger\/DebuggerChecker.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1194,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/ivandivljak\/Desktop\/native-ios-sdk\/Sources\/VerisoulSDK\/DeviceDebugger\/DebuggerChecker.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1197,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/ivandivljak\/Desktop\/native-ios-sdk\/Sources\/VerisoulSDK\/DeviceDebugger\/DebuggerChecker.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1225,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/ivandivljak\/Desktop\/native-ios-sdk\/Sources\/VerisoulSDK\/DeviceDebugger\/DebuggerChecker.swift",
+      "kind": "StringLiteral",
+      "offset": 1241,
+      "length": 75,
+      "value": "\"Error occured when calling ptrace(). Denying debugger may not be reliable\""
+    },
+    {
       "filePath": "\/Users\/ivandivljak\/Desktop\/native-ios-sdk\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "IntegerLiteral",
       "offset": 415,
@@ -12207,36 +13296,50 @@
     },
     {
       "filePath": "\/Users\/ivandivljak\/Desktop\/native-ios-sdk\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
+      "kind": "FloatLiteral",
+      "offset": 736,
+      "length": 3,
+      "value": "1.0"
+    },
+    {
+      "filePath": "\/Users\/ivandivljak\/Desktop\/native-ios-sdk\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
+      "kind": "FloatLiteral",
+      "offset": 742,
+      "length": 4,
+      "value": "50.0"
+    },
+    {
+      "filePath": "\/Users\/ivandivljak\/Desktop\/native-ios-sdk\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "IntegerLiteral",
-      "offset": 2928,
+      "offset": 2996,
       "length": 3,
       "value": "200"
     },
     {
       "filePath": "\/Users\/ivandivljak\/Desktop\/native-ios-sdk\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "StringLiteral",
-      "offset": 3026,
+      "offset": 3094,
       "length": 36,
       "value": "\"com.fraudDetection.dataAccessQueue\""
     },
     {
       "filePath": "\/Users\/ivandivljak\/Desktop\/native-ios-sdk\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "StringLiteral",
-      "offset": 3182,
+      "offset": 3250,
       "length": 39,
       "value": "\"com.fraudDetection.motionManagerQueue\""
     },
     {
       "filePath": "\/Users\/ivandivljak\/Desktop\/native-ios-sdk\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "IntegerLiteral",
-      "offset": 8805,
+      "offset": 9553,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ivandivljak\/Desktop\/native-ios-sdk\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "IntegerLiteral",
-      "offset": 8831,
+      "offset": 9579,
       "length": 1,
       "value": "0"
     },
@@ -12297,6 +13400,27 @@
       "value": "\"key_id\""
     },
     {
+      "filePath": "\/Users\/ivandivljak\/Desktop\/native-ios-sdk\/Sources\/VerisoulSDK\/Networking\/DTO\/VerifyAssertionREQUEST.swift",
+      "kind": "StringLiteral",
+      "offset": 393,
+      "length": 8,
+      "value": "\"key_id\""
+    },
+    {
+      "filePath": "\/Users\/ivandivljak\/Desktop\/native-ios-sdk\/Sources\/VerisoulSDK\/Networking\/DTO\/VerifyAssertionREQUEST.swift",
+      "kind": "StringLiteral",
+      "offset": 427,
+      "length": 12,
+      "value": "\"project_id\""
+    },
+    {
+      "filePath": "\/Users\/ivandivljak\/Desktop\/native-ios-sdk\/Sources\/VerisoulSDK\/Networking\/DTO\/VerifyAssertionREQUEST.swift",
+      "kind": "StringLiteral",
+      "offset": 472,
+      "length": 19,
+      "value": "\"bundle_identifier\""
+    },
+    {
       "filePath": "\/Users\/ivandivljak\/Desktop\/native-ios-sdk\/Sources\/VerisoulSDK\/Networking\/DTO\/VerifyAttestationREQUEST.swift",
       "kind": "StringLiteral",
       "offset": 395,
@@ -12318,9 +13442,30 @@
       "value": "\"bundle_identifier\""
     },
     {
+      "filePath": "\/Users\/ivandivljak\/Desktop\/native-ios-sdk\/Sources\/VerisoulSDK\/Networking\/NetworkManager.swift",
+      "kind": "IntegerLiteral",
+      "offset": 939,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/ivandivljak\/Desktop\/native-ios-sdk\/Sources\/VerisoulSDK\/Networking\/NetworkManager.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1363,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/ivandivljak\/Desktop\/native-ios-sdk\/Sources\/VerisoulSDK\/Networking\/NetworkManager.swift",
+      "kind": "IntegerLiteral",
+      "offset": 4250,
+      "length": 1,
+      "value": "0"
+    },
+    {
       "filePath": "\/Users\/ivandivljak\/Desktop\/native-ios-sdk\/Sources\/VerisoulSDK\/Networking\/VerisoulNetworkingClient.swift",
       "kind": "StringLiteral",
-      "offset": 1029,
+      "offset": 1053,
       "length": 16,
       "value": "\"session_id_key\""
     },
@@ -12386,6 +13531,13 @@
       "offset": 1001,
       "length": 16,
       "value": "\"session_id_key\""
+    },
+    {
+      "filePath": "\/Users\/ivandivljak\/Desktop\/native-ios-sdk\/Sources\/VerisoulSDK\/Verisoul.swift",
+      "kind": "FloatLiteral",
+      "offset": 1056,
+      "length": 4,
+      "value": "20.0"
     },
     {
       "filePath": "\/Users\/ivandivljak\/Desktop\/native-ios-sdk\/Sources\/VerisoulSDK\/VerisoulWebView.swift",

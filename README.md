@@ -1,4 +1,6 @@
-# VerisoulSDK v0.1
+![Verisoul Logo](6e94465-Verisoul-logo-main-vector.svg)
+
+# VerisoulSDK
 
 VerisoulSDK is an iOS SDK designed to help detect and prevent fake users, bots, multi-accounting, fraud, and other malicious activities on your platform. It provides a seamless and easy-to-integrate solution to ensure that every user is legitimate, trusted, and unique.
 

@@ -14,43 +14,43 @@
 		</data>
 		<key>Modules/VerisoulSDK.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		K3GWXl4PB9/gIabzDiwg90PAGhQ=
+		Av17d77Dy+LlZqzOX+XD4zrCYVo=
 		</data>
 		<key>Modules/VerisoulSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		tnZWpssxfXwnyCf92dWnUj7na+k=
+		RIEXpbOSmaO66DGwh69AI/SKBWo=
 		</data>
 		<key>Modules/VerisoulSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		Jwg8qveuN8I27wlEQGWczv6wrM8=
+		GZ6B5ORClgpxCXiFmfQczDdSWdY=
 		</data>
 		<key>Modules/VerisoulSDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		tnZWpssxfXwnyCf92dWnUj7na+k=
+		RIEXpbOSmaO66DGwh69AI/SKBWo=
 		</data>
 		<key>Modules/VerisoulSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		8CCw2NHiUjRqz7m8Gl0Vqx4YOiI=
+		hYfmoAdWi+O7qzrMgw/VPGr2XPg=
 		</data>
 		<key>Modules/VerisoulSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		K3GWXl4PB9/gIabzDiwg90PAGhQ=
+		Av17d77Dy+LlZqzOX+XD4zrCYVo=
 		</data>
 		<key>Modules/VerisoulSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		kKnqqcVnbhO1M7g66w0ObUAttR0=
+		OILBgDvleA94osc/pvQ1+NtwusY=
 		</data>
 		<key>Modules/VerisoulSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		UfamcvEl1SC5tQJ7YhLP0JQ/Gn0=
+		exuPQP9pNBJKcMTXJzBD8nDkORA=
 		</data>
 		<key>Modules/VerisoulSDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		kKnqqcVnbhO1M7g66w0ObUAttR0=
+		OILBgDvleA94osc/pvQ1+NtwusY=
 		</data>
 		<key>Modules/VerisoulSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		NI+VSXv8cEuZ299ssG08EixUcoA=
+		urgrkwKkBLez7jY8H3SOr+lOYjc=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -66,70 +66,70 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			0XqLrkUWIQKonfgc63uEc8vN0fmeIW4b5bg4hXzc4iA=
+			CB3zfryn0b0UCD3X846aowAcoJsxQR0i0opiz110Z84=
 			</data>
 		</dict>
 		<key>Modules/VerisoulSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			j9Jd+jKexFtRmlYfFGbYEHi4rIOc7+0SGqHtXYGPvm0=
+			Zloj++7nqkhCcGnt5xpcXJ31PLmjxICMAWDvq38HacE=
 			</data>
 		</dict>
 		<key>Modules/VerisoulSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			TUZvu7CoRn/iI/AltZqBo4Y8I5wkk85gOuYU9rUjOHg=
+			Yr2netqkPCPdQ/aYkOh3zODqO/26ePyrHWW2TGYG588=
 			</data>
 		</dict>
 		<key>Modules/VerisoulSDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			j9Jd+jKexFtRmlYfFGbYEHi4rIOc7+0SGqHtXYGPvm0=
+			Zloj++7nqkhCcGnt5xpcXJ31PLmjxICMAWDvq38HacE=
 			</data>
 		</dict>
 		<key>Modules/VerisoulSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			bI2aWRAya7vBhB3S+2r4Y73uCWIBn+R8PYTY6wCGffY=
+			SWBagxWUDJan+EDXKpeS+BP0XlIBA0eM6qqAoV55m2Y=
 			</data>
 		</dict>
 		<key>Modules/VerisoulSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			0XqLrkUWIQKonfgc63uEc8vN0fmeIW4b5bg4hXzc4iA=
+			CB3zfryn0b0UCD3X846aowAcoJsxQR0i0opiz110Z84=
 			</data>
 		</dict>
 		<key>Modules/VerisoulSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			UIymWaiXx8BLNGx/fzKinKwmlaZ3tj/SLqQsYkq2WUg=
+			skmI+kIgiqlN3pUrpiJYYQMPbrqmuFVlKJDPQxBOHK4=
 			</data>
 		</dict>
 		<key>Modules/VerisoulSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			fmPpHSBlAZMUqnGA3kMrCu85sKG+hDwVVk8w6hf3pAc=
+			qf6DTgmfmK0fOCc78rlbDfbuq4MMgKHBYPCUuWTReEs=
 			</data>
 		</dict>
 		<key>Modules/VerisoulSDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			UIymWaiXx8BLNGx/fzKinKwmlaZ3tj/SLqQsYkq2WUg=
+			skmI+kIgiqlN3pUrpiJYYQMPbrqmuFVlKJDPQxBOHK4=
 			</data>
 		</dict>
 		<key>Modules/VerisoulSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			BL7KEEX9gqLVjgEQdmiSzvLylu7hhr0uLy1Cib4kdUk=
+			4JJKZ8zheBMMWLxik4yXiQnnht85KgDy0Mmw51XcLVs=
 			</data>
 		</dict>
 	</dict>

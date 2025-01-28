@@ -24,14 +24,14 @@ import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
 import os
-public class DeviceAttest {
-  public init(networkManager: VerisoulSDK.VerisoulNetworkingClient, bundleIdentifier: Swift.String, projectId: Swift.String)
-  public func getKeyId() async throws -> Swift.String
-  public func getNewKeyId() async throws -> Swift.String
-  public func getChallange() async throws -> Swift.String
-  public func verifyAttestation(_ data: Foundation.Data, challenge: Swift.String, keyId: Swift.String) async throws -> Swift.String
-  public func generateAttestation(keyId: Swift.String, challenge: Foundation.Data) async throws -> Foundation.Data
-  public func generateAssertion(keyId: Swift.String, requestData: Foundation.Data) async throws -> Foundation.Data
+final public class DeviceAttest {
+  public init(networkManager: VerisoulSDK.VerisoulNetworkingClient, projectId: Swift.String)
+  final public func getKeyId() async throws -> Swift.String
+  final public func getNewKeyId() async throws -> Swift.String
+  final public func getChallenge() async throws -> Swift.String
+  final public func verifyAttestation(_ data: Foundation.Data, challenge: Swift.String, keyId: Swift.String) async throws -> Swift.String
+  final public func generateAttestation(keyId: Swift.String, challenge: Foundation.Data) async throws -> Foundation.Data
+  final public func generateAssertion(keyId: Swift.String, requestData: Foundation.Data) async throws -> Foundation.Data
   @objc deinit
 }
 public class DeviceCheck {
@@ -65,16 +65,16 @@ public struct MTLSizeCodable : Swift.Codable {
   public init(from decoder: any Swift.Decoder) throws
 }
 public protocol VerisoulNetworkingClientInterface {
-  func postDeviceData(sessionId: Swift.String, data: [Swift.String : Any], deviceCheck: Swift.String) async throws -> Swift.String
-  func getChallange() async throws -> Swift.String
+  func postDeviceData(sessionId: Swift.String, data: [Swift.String : Any], deviceCheck: Swift.String, projectId: Swift.String) async throws -> Swift.String
+  func getChallenge() async throws -> Swift.String
   func verifyAttestation(_ data: Foundation.Data, challenge: Swift.String, keyId: Swift.String) async throws -> Swift.String
-  func verifyAssertion(_ data: [Swift.String : Any]) async throws -> Swift.String
+  func verifyAssertion(sessionId: Swift.String, data: [Swift.String : Any], projectId: Swift.String) async throws -> Swift.String
 }
 @_hasMissingDesignatedInitializers public class VerisoulNetworkingClient : VerisoulSDK.VerisoulNetworkingClientInterface {
-  public func postDeviceData(sessionId: Swift.String, data: [Swift.String : Any], deviceCheck: Swift.String) async throws -> Swift.String
-  public func getChallange() async throws -> Swift.String
+  public func postDeviceData(sessionId: Swift.String, data: [Swift.String : Any], deviceCheck: Swift.String, projectId: Swift.String) async throws -> Swift.String
+  public func getChallenge() async throws -> Swift.String
   public func sendAccelometerData(payload: [Swift.String : Any]) async throws
-  public func verifyAssertion(_ data: [Swift.String : Any]) async throws -> Swift.String
+  public func verifyAssertion(sessionId: Swift.String, data: [Swift.String : Any], projectId: Swift.String) async throws -> Swift.String
   public func verifyAttestation(_ data: Foundation.Data, challenge: Swift.String, keyId: Swift.String) async throws -> Swift.String
   @objc deinit
 }
@@ -88,7 +88,7 @@ public enum VerisoulEnvironment : Swift.String {
 }
 @objc @_inheritsConvenienceInitializers final public class Verisoul : ObjectiveC.NSObject {
   public static let shared: VerisoulSDK.Verisoul
-  final public func configure(env: VerisoulSDK.VerisoulEnvironment, projectId: Swift.String, bundleIdentifier: Swift.String)
+  final public func configure(env: VerisoulSDK.VerisoulEnvironment, projectId: Swift.String)
   final public func session() async throws -> Swift.String
   @objc override dynamic public init()
   @objc deinit

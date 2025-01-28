@@ -11,6 +11,9 @@ VerisoulSDK is an iOS SDK designed to help detect and prevent fake users, bots, 
 - **Quick Integration**: Supports both CocoaPods and Swift Package Manager (SPM).
 - **Real-time Monitoring**: Continuously monitors user behavior to identify suspicious activities at critical moments in an account’s lifecycle.
 
+## Capabilities
+To fully utilize VerisoulSDK, you will need to add the `App Attest` capability to your project. This capability allows the SDK to perform necessary checks and validations to ensure the integrity and security of your application.
+
 ## Installation
 
 You can install VerisoulSDK in your iOS project using either CocoaPods or Swift Package Manager.
@@ -25,7 +28,7 @@ To integrate VerisoulSDK with CocoaPods:
    ```
 2. Add VerisoulSDK to your Podfile:
     ```swift
-    pod 'VerisoulSDK', '~> 0.1'
+    pod 'VerisoulSDK', '~> 0.2.1'
      ```
 3. Run the following command to install the SDK:
     ```swift

@@ -32,6 +32,8 @@ final public class DeviceAttest {
   final public func verifyAttestation(_ data: Foundation.Data, challenge: Swift.String, keyId: Swift.String) async throws -> Swift.String
   final public func generateAttestation(keyId: Swift.String, challenge: Foundation.Data) async throws -> Foundation.Data
   final public func generateAssertion(keyId: Swift.String, requestData: Foundation.Data) async throws -> Foundation.Data
+  final public func sendAssertion() async throws
+  final public func setSessionId(_ sessionId: Swift.String) async throws
   @objc deinit
 }
 public class DeviceCheck {

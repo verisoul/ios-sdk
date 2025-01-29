@@ -213,18 +213,23 @@
           {
             "kind": "Function",
             "name": "attestApp",
-            "printedName": "attestApp()",
+            "printedName": "attestApp(projectId:)",
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "SendMessageREQUEST",
-                "printedName": "VerisoulSDK.SendMessageREQUEST",
-                "usr": "s:11VerisoulSDK18SendMessageREQUESTV"
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
               }
             ],
             "declKind": "Func",
-            "usr": "s:11VerisoulSDK21DeviceAttestInterfaceP9attestAppAA18SendMessageREQUESTVyYaKF",
-            "mangledName": "$s11VerisoulSDK21DeviceAttestInterfaceP9attestAppAA18SendMessageREQUESTVyYaKF",
+            "usr": "s:11VerisoulSDK21DeviceAttestInterfaceP9attestApp9projectIdySS_tYaKF",
+            "mangledName": "$s11VerisoulSDK21DeviceAttestInterfaceP9attestApp9projectIdySS_tYaKF",
             "moduleName": "VerisoulSDK",
             "genericSig": "<τ_0_0 where τ_0_0 : VerisoulSDK.DeviceAttestInterface>",
             "sugared_genericSig": "<Self where Self : VerisoulSDK.DeviceAttestInterface>",
@@ -833,6 +838,283 @@
             ]
           },
           {
+            "kind": "Var",
+            "name": "sessionId",
+            "printedName": "sessionId",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11VerisoulSDK12DeviceAttestC9sessionIdSSSgvp",
+            "mangledName": "$s11VerisoulSDK12DeviceAttestC9sessionIdSSSgvp",
+            "moduleName": "VerisoulSDK",
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11VerisoulSDK12DeviceAttestC9sessionIdSSSgvg",
+                "mangledName": "$s11VerisoulSDK12DeviceAttestC9sessionIdSSSgvg",
+                "moduleName": "VerisoulSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11VerisoulSDK12DeviceAttestC9sessionIdSSSgvs",
+                "mangledName": "$s11VerisoulSDK12DeviceAttestC9sessionIdSSSgvs",
+                "moduleName": "VerisoulSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11VerisoulSDK12DeviceAttestC9sessionIdSSSgvM",
+                "mangledName": "$s11VerisoulSDK12DeviceAttestC9sessionIdSSSgvM",
+                "moduleName": "VerisoulSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "dataToSend",
+            "printedName": "dataToSend",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[Swift.String : Any]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Dictionary",
+                    "printedName": "[Swift.String : Any]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "Any"
+                      }
+                    ],
+                    "usr": "s:SD"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11VerisoulSDK12DeviceAttestC10dataToSendSDySSypGSgvp",
+            "mangledName": "$s11VerisoulSDK12DeviceAttestC10dataToSendSDySSypGSgvp",
+            "moduleName": "VerisoulSDK",
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "[Swift.String : Any]?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Dictionary",
+                        "printedName": "[Swift.String : Any]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "ProtocolComposition",
+                            "printedName": "Any"
+                          }
+                        ],
+                        "usr": "s:SD"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11VerisoulSDK12DeviceAttestC10dataToSendSDySSypGSgvg",
+                "mangledName": "$s11VerisoulSDK12DeviceAttestC10dataToSendSDySSypGSgvg",
+                "moduleName": "VerisoulSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "[Swift.String : Any]?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Dictionary",
+                        "printedName": "[Swift.String : Any]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "ProtocolComposition",
+                            "printedName": "Any"
+                          }
+                        ],
+                        "usr": "s:SD"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11VerisoulSDK12DeviceAttestC10dataToSendSDySSypGSgvs",
+                "mangledName": "$s11VerisoulSDK12DeviceAttestC10dataToSendSDySSypGSgvs",
+                "moduleName": "VerisoulSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11VerisoulSDK12DeviceAttestC10dataToSendSDySSypGSgvM",
+                "mangledName": "$s11VerisoulSDK12DeviceAttestC10dataToSendSDySSypGSgvM",
+                "moduleName": "VerisoulSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
             "kind": "Constructor",
             "name": "init",
             "printedName": "init(networkManager:projectId:)",
@@ -1053,19 +1335,74 @@
           },
           {
             "kind": "Function",
-            "name": "attestApp",
-            "printedName": "attestApp()",
+            "name": "sendAssertion",
+            "printedName": "sendAssertion()",
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "SendMessageREQUEST",
-                "printedName": "VerisoulSDK.SendMessageREQUEST",
-                "usr": "s:11VerisoulSDK18SendMessageREQUESTV"
+                "name": "Void",
+                "printedName": "()"
               }
             ],
             "declKind": "Func",
-            "usr": "s:11VerisoulSDK12DeviceAttestC9attestAppAA18SendMessageREQUESTVyYaKF",
-            "mangledName": "$s11VerisoulSDK12DeviceAttestC9attestAppAA18SendMessageREQUESTVyYaKF",
+            "usr": "s:11VerisoulSDK12DeviceAttestC13sendAssertionyyYaKF",
+            "mangledName": "$s11VerisoulSDK12DeviceAttestC13sendAssertionyyYaKF",
+            "moduleName": "VerisoulSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setSessionId",
+            "printedName": "setSessionId(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11VerisoulSDK12DeviceAttestC12setSessionIdyySSYaKF",
+            "mangledName": "$s11VerisoulSDK12DeviceAttestC12setSessionIdyySSYaKF",
+            "moduleName": "VerisoulSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "attestApp",
+            "printedName": "attestApp(projectId:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11VerisoulSDK12DeviceAttestC9attestApp9projectIdySS_tYaKF",
+            "mangledName": "$s11VerisoulSDK12DeviceAttestC9attestApp9projectIdySS_tYaKF",
             "moduleName": "VerisoulSDK",
             "declAttributes": [
               "Final",
@@ -5719,6 +6056,27 @@
             "mangledName": "$s11VerisoulSDK15WebSocketLoggerCACycfc",
             "moduleName": "VerisoulSDK",
             "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "stopListening",
+            "printedName": "stopListening()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11VerisoulSDK15WebSocketLoggerC13stopListeningyyF",
+            "mangledName": "$s11VerisoulSDK15WebSocketLoggerC13stopListeningyyF",
+            "moduleName": "VerisoulSDK",
+            "isOpen": true,
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
           },
           {
             "kind": "Function",
@@ -13577,6 +13935,48 @@
           },
           {
             "kind": "Function",
+            "name": "deviceChecksAvailable",
+            "printedName": "deviceChecksAvailable()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11VerisoulSDK0A0C21deviceChecksAvailableyyYaKF",
+            "mangledName": "$s11VerisoulSDK0A0C21deviceChecksAvailableyyYaKF",
+            "moduleName": "VerisoulSDK",
+            "declAttributes": [
+              "Final"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "deviceChecksUnavailable",
+            "printedName": "deviceChecksUnavailable()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11VerisoulSDK0A0C23deviceChecksUnavailableyyYaKF",
+            "mangledName": "$s11VerisoulSDK0A0C23deviceChecksUnavailableyyYaKF",
+            "moduleName": "VerisoulSDK",
+            "declAttributes": [
+              "Final"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "session",
             "printedName": "session()",
             "children": [
@@ -15124,7 +15524,7 @@
     {
       "filePath": "\/Users\/ivandivljak\/Desktop\/native-ios-sdk\/Sources\/VerisoulSDK\/DeviceAttest\/DeviceAttest.swift",
       "kind": "StringLiteral",
-      "offset": 1205,
+      "offset": 1200,
       "length": 15,
       "value": "\"attest_key_id\""
     },

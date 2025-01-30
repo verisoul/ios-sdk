@@ -97,3 +97,72 @@ do {
     print("Failed to retrieve session ID: \(error)")
 }
 ```
+
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+"http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+   PrivacyInfo.xcprivacy
+   test
+
+   Created by Raine Scott on 1/30/25.
+   Copyright (c) 2025 ___ORGANIZATIONNAME___.
+   All rights reserved.
+-->
+<plist version="1.0">
+<dict>
+    <!-- Privacy manifest file for Verisoul Fraud Prevention SDK for iOS -->
+    <key>NSPrivacyTracking</key>
+    <false/>
+
+    <!-- Privacy manifest file for Verisoul Fraud Prevention SDK for iOS -->
+    <key>NSPrivacyTrackingDomains</key>
+    <array/>
+
+    <!-- Privacy manifest file for Verisoul Fraud Prevention SDK for iOS -->
+    <key>NSPrivacyCollectedDataTypes</key>
+    <array>
+      <dict>
+        <!-- The value provided by Apple for 'Device ID' data type -->
+        <key>NSPrivacyCollectedDataType</key>
+        <string>NSPrivacyCollectedDataTypeDeviceID</string>
+
+        <!-- Verisoul Fraud Prevention SDK does not link the 'Device ID' with user's identity -->
+        <key>NSPrivacyCollectedDataTypeLinked</key>
+        <false/>
+
+        <!-- Verisoul Fraud Prevention SDK does not use 'Device ID' for tracking -->
+        <key>NSPrivacyCollectedDataTypeTracking</key>
+        <false/>
+
+        <!-- Verisoul Fraud Prevention SDK uses 'Device ID' for App Functionality
+             (prevent fraud and implement security measures) -->
+        <key>NSPrivacyCollectedDataTypePurposes</key>
+        <array>
+          <string>NSPrivacyCollectedDataTypePurposeAppFunctionality</string>
+        </array>
+      </dict>
+    </array>
+
+    <!-- Privacy manifest file for Verisoul Fraud Prevention SDK for iOS -->
+    <key>NSPrivacyAccessedAPITypes</key>
+    <array>
+      <dict>
+        <!-- The value provided by Apple for 'System boot time APIs' -->
+        <key>NSPrivacyAccessedAPIType</key>
+        <string>NSPrivacyAccessedAPICategorySystemBootTime</string>
+        
+        <!-- Verisoul Fraud Prevention SDK uses 'System boot time APIs' to measure the amount of
+             time that has elapsed between events that occurred within the SDK -->
+        <key>NSPrivacyAccessedAPITypeReasons</key>
+        <array>
+          <string>35F9.1</string>
+        </array>
+      </dict>
+    </array>
+</dict>
+</plist>
+
+```

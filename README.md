@@ -72,7 +72,7 @@ Configures the SDK with the environment, project ID. This initializes the networ
 - `projectId (String)`: Your project's unique identifier.
 
 ```swift
-VerisoulSDK.shared.configure(env: .prod, projectId: "your-project-id")
+Verisoul.shared.configure(env: .prod, projectId: "your-project-id")
 ```
 
 **Note:** The `configure(env:projectId:)` method should be called once, typically during the app's initialization process (e.g., in the `AppDelegate` or `SceneDelegate`).
@@ -91,7 +91,7 @@ An error if the session ID cannot be retrieved within the timeout.
 
 ```swift
 do {
-    let sessionId = try await VerisoulSDK.shared.session()
+    let sessionId = try await Verisoul.shared.session()
     print("Session ID: \(sessionId)")
 } catch {
     print("Failed to retrieve session ID: \(error)")

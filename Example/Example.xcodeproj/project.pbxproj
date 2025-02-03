@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		305FE4CF2D423BDE00A1CF23 /* VerisoulSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 305FE4CE2D423BDE00A1CF23 /* VerisoulSDK */; };
+		522524A52D5145350061DBD4 /* VerisoulSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 522524A42D5145350061DBD4 /* VerisoulSDK */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +27,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				305FE4CF2D423BDE00A1CF23 /* VerisoulSDK in Frameworks */,
+				522524A52D5145350061DBD4 /* VerisoulSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,7 +78,7 @@
 			);
 			name = Example;
 			packageProductDependencies = (
-				305FE4CE2D423BDE00A1CF23 /* VerisoulSDK */,
+				522524A42D5145350061DBD4 /* VerisoulSDK */,
 			);
 			productName = Example;
 			productReference = 30F6D8FA2D42325C00E3596F /* Example.app */;
@@ -109,7 +109,7 @@
 			mainGroup = 30F6D8F12D42325C00E3596F;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				305FE4CD2D423BDE00A1CF23 /* XCRemoteSwiftPackageReference "ios-sdk" */,
+				522524A32D5145350061DBD4 /* XCRemoteSwiftPackageReference "ios-sdk" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 30F6D8FB2D42325C00E3596F /* Products */;
@@ -265,7 +265,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Example/Preview Content\"";
-				DEVELOPMENT_TEAM = 3KL9338JP6;
+				DEVELOPMENT_TEAM = 5QALY5N73P;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -284,7 +284,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.verisoul.sdk.com;
+				PRODUCT_BUNDLE_IDENTIFIER = com.verisoul.sdk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -305,7 +305,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Example/Preview Content\"";
-				DEVELOPMENT_TEAM = 3KL9338JP6;
+				DEVELOPMENT_TEAM = 5QALY5N73P;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -324,7 +324,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.verisoul.sdk.com;
+				PRODUCT_BUNDLE_IDENTIFIER = com.verisoul.sdk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -360,20 +360,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		305FE4CD2D423BDE00A1CF23 /* XCRemoteSwiftPackageReference "ios-sdk" */ = {
+		522524A32D5145350061DBD4 /* XCRemoteSwiftPackageReference "ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/verisoul/ios-sdk";
+			repositoryURL = "https://github.com/verisoul/ios-sdk.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.1.0;
+				minimumVersion = 0.2.5;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		305FE4CE2D423BDE00A1CF23 /* VerisoulSDK */ = {
+		522524A42D5145350061DBD4 /* VerisoulSDK */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 305FE4CD2D423BDE00A1CF23 /* XCRemoteSwiftPackageReference "ios-sdk" */;
+			package = 522524A32D5145350061DBD4 /* XCRemoteSwiftPackageReference "ios-sdk" */;
 			productName = VerisoulSDK;
 		};
 /* End XCSwiftPackageProductDependency section */

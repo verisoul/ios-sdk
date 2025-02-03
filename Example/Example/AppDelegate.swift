@@ -9,9 +9,7 @@ import VerisoulSDK
 
 class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        Verisoul.shared.configure(env: VerisoulEnvironment.dev,
-                                     projectId: "00000000-0000-0000-0000-000000000002",
-                                     bundleIdentifier: "com.verisoul.sdk.com")
+        Verisoul.shared.configure(env: VerisoulEnvironment.prod, projectId: "00000000-0000-0000-0000-000000000001")
         return true
     }
 }

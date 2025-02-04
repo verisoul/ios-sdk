@@ -86,7 +86,7 @@ Verisoul.shared.configure(env: .prod, projectId: "your-project-id")
 
 `session() async throws -> String`
 
-Once the minimum amount of data is gathered the session ID becomes available. The session ID is needed in order to request a risk assessment from Verisoul's API. Note that session IDs are short lived and will expire after 24 hours.The application can obtain session ID by providing the callback as shown below:
+Once the minimum amount of data is gathered the session ID becomes available. The session ID is needed in order to request a risk assessment from Verisoul's API. Note that session IDs are short lived and will expire after 24 hours. The application can obtain session ID by providing the callback as shown below:
 
 
 ```swift

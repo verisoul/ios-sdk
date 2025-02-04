@@ -1,28 +1,19 @@
-# VerisoulSDK
+<p align="center">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="resources/verisoul-logo-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="resources/verisoul-logo-light.svg">
+  <img src="resources/verisoul-logo-light.svg" alt="Verisoul logo" width="312px" style="visibility:visible;max-width:100%;">
+</picture>
+</p>
 
-VerisoulSDK is an advanced iOS SDK designed to detect and prevent fake users, bots, multi-accounting, fraud, and other malicious activities on your platform. It provides a seamless and easy-to-integrate solution to ensure that every user is legitimate, trusted, and unique.
+# iOS SDK
 
-## Features
+## Overview
+The purpose of this app is to demonstrate Verisoul's iOS SDK integration.
 
-- **Bot Detection**: Automatically detects and blocks bot traffic.
-- **Multi-Account Prevention**: Identifies and blocks users attempting to create multiple accounts.
-- **Fraud Prevention**: Detects high-risk accounts to prevent fraudulent behavior.
-- **Quick Integration**: Supports both CocoaPods and Swift Package Manager (SPM).
-- **Real-time Monitoring**: Continuously monitors user behavior to identify suspicious activities at critical moments in an account’s lifecycle.
+_To run the app a Verisoul Project ID is required._ Schedule a call [here](https://meetings.hubspot.com/henry-legard) to get started.
 
-## Capabilities
-
-To fully utilize VerisoulSDK, you must add the `App Attest` capability to your project. This capability allows the SDK to perform necessary checks and validations to ensure the integrity and security of your application.
-
-Update your app’s entitlements file:
-
-```
-<key>com.apple.developer.devicecheck.appattest-environment</key>
-<string>production/development (depending on your needs)</string>
-```
-
-
-## Installation
+## Getting Started
 
 You can install VerisoulSDK in your iOS project using either CocoaPods or Swift Package Manager.
 
@@ -58,18 +49,32 @@ To integrate VerisoulSDK using Swift Package Manager:
 
 The SDK will automatically integrate into your project.
 
-## VerisoulSDK Class
+## Capabilities
 
-VerisoulSDK provides the following public methods:
+To fully utilize VerisoulSDK, you must add the `App Attest` capability to your project. This capability allows the SDK to perform necessary checks and validations to ensure the integrity and security of your application.
 
-### `configure(env:projectId:bundleIdentifier:)`
+Update your app’s entitlements file:
 
-Configures the SDK with the environment, project ID. This initializes the networking, device check, and device attestation components.
+```
+<key>com.apple.developer.devicecheck.appattest-environment</key>
+<string>production/development (depending on your needs)</string>
+```
+
+
+## Usage
+
+### 1. Initialization
+
+`configure(env:projectId:bundleIdentifier:)`
+
+Configure the SDK by passing it the environment, project ID, and bundle identifier. This function initializes the networking, device check, and device attestation components.
 
 **Parameters:**
 
 - `env (VerisoulEnvironment)`: The environment to configure the SDK with (e.g., dev, staging, prod).
 - `projectId (String)`: Your project's unique identifier.
+- `bundleIdentifier (String)`: The bundle identifier of your app.
+
 
 ```swift
 Verisoul.shared.configure(env: .prod, projectId: "your-project-id")
@@ -77,17 +82,12 @@ Verisoul.shared.configure(env: .prod, projectId: "your-project-id")
 
 **Note:** The `configure(env:projectId:)` method should be called once, typically during the app's initialization process (e.g., in the `AppDelegate` or `SceneDelegate`).
 
-### `session() async throws -> String`
+### 2. Get Session ID
 
-Retrieves the session ID asynchronously. Waits up to 10 seconds for the session ID from the web view.
+`session() async throws -> String`
 
-**Returns:**
+Once the minimum amount of data is gathered the session ID becomes available. The session ID is needed in order to request a risk assessment from Verisoul's API. Note that session IDs are short lived and will expire after 24 hours.The application can obtain session ID by providing the callback as shown below:
 
-A string representing the session ID.
-
-**Throws:**
-
-An error if the session ID cannot be retrieved within the timeout.
 
 ```swift
 do {
@@ -167,3 +167,6 @@ do {
 </plist>
 
 ```
+
+## Questions and Feedback
+Comprehensive documentation about Verisoul's iOS SDK and API can be found at [docs.verisoul.ai](https://docs.verisoul.ai/). Additionally, reach out to Verisoul at [help@verisoul.ai](mailto:help@verisoul.ai) for any questions or feedback.

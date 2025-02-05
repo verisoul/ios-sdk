@@ -1,13 +1,13 @@
 {
-  "originHash" : "39923c33be06e175d598e654053d5914ab0c5a4631774a5600eba4c63d9ee514",
+  "originHash" : "18e0862e1a3c3af813a585feb767468c723ddca4be29dd639d77e8a2f6708530",
   "pins" : [
     {
       "identity" : "ios-sdk",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/verisoul/ios-sdk",
+      "location" : "https://github.com/verisoul/ios-sdk.git",
       "state" : {
-        "revision" : "ef7e828be27464aad428cbf5f48066fe5b896cf7",
-        "version" : "0.1.0"
+        "revision" : "9f8f45e1c2c3f573f1e615ad1b863c49f20a4093",
+        "version" : "0.2.5"
       }
     }
   ],

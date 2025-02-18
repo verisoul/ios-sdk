@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'VerisoulSDK'
-  s.version          = '0.2.5'
+  s.version          = '0.3.0'
   s.summary          = 'Verisoul helps businesses stop fake accounts and fraud'
 
 # This description is used to generate tags and improve search results.
@@ -38,5 +38,5 @@ The Verisoul platform provides an all-in-one fake user prevention solution that 
   s.ios.vendored_frameworks = [
     "Sources/VerisoulSDK.xcframework"
   ]
-  
+
 end

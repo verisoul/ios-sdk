@@ -27,7 +27,7 @@ To integrate VerisoulSDK with CocoaPods:
    ```
 2. Add VerisoulSDK to your Podfile:
    ```ruby
-   pod 'VerisoulSDK', '~> 0.2.1'
+   pod 'VerisoulSDK', '~> 0.3.0'
    ```
 3. Run the following command to install the SDK:
    ```sh

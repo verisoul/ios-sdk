@@ -13305,7 +13305,7 @@
           {
             "kind": "Function",
             "name": "initSessionId",
-            "printedName": "initSessionId(projectId:env:)",
+            "printedName": "initSessionId(projectId:env:reinitialize:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -13324,11 +13324,47 @@
                 "name": "VerisoulEnvironment",
                 "printedName": "VerisoulSDK.VerisoulEnvironment",
                 "usr": "s:11VerisoulSDK0A11EnvironmentO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
               }
             ],
             "declKind": "Func",
-            "usr": "s:11VerisoulSDK13SessionHelperC04initC2Id07projectF03envS2S_AA0A11EnvironmentOtF",
-            "mangledName": "$s11VerisoulSDK13SessionHelperC04initC2Id07projectF03envS2S_AA0A11EnvironmentOtF",
+            "usr": "s:11VerisoulSDK13SessionHelperC04initC2Id07projectF03env12reinitializeS2S_AA0A11EnvironmentOSbtF",
+            "mangledName": "$s11VerisoulSDK13SessionHelperC04initC2Id07projectF03env12reinitializeS2S_AA0A11EnvironmentOSbtF",
+            "moduleName": "VerisoulSDK",
+            "isOpen": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "reinitializeSession",
+            "printedName": "reinitializeSession(projectId:env:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "VerisoulEnvironment",
+                "printedName": "VerisoulSDK.VerisoulEnvironment",
+                "usr": "s:11VerisoulSDK0A11EnvironmentO"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11VerisoulSDK13SessionHelperC012reinitializeC09projectId3envySS_AA0A11EnvironmentOtF",
+            "mangledName": "$s11VerisoulSDK13SessionHelperC012reinitializeC09projectId3envySS_AA0A11EnvironmentOtF",
             "moduleName": "VerisoulSDK",
             "isOpen": true,
             "funcSelfKind": "NonMutating"
@@ -15540,7 +15576,7 @@
           {
             "kind": "Function",
             "name": "configure",
-            "printedName": "configure(env:projectId:)",
+            "printedName": "configure(env:projectId:reinitialize:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -15558,16 +15594,44 @@
                 "name": "String",
                 "printedName": "Swift.String",
                 "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "hasDefaultArg": true,
+                "usr": "s:Sb"
               }
             ],
             "declKind": "Func",
-            "usr": "s:11VerisoulSDK0A0C9configure3env9projectIdyAA0A11EnvironmentO_SStF",
-            "mangledName": "$s11VerisoulSDK0A0C9configure3env9projectIdyAA0A11EnvironmentO_SStF",
+            "usr": "s:11VerisoulSDK0A0C9configure3env9projectId12reinitializeyAA0A11EnvironmentO_SSSbtF",
+            "mangledName": "$s11VerisoulSDK0A0C9configure3env9projectId12reinitializeyAA0A11EnvironmentO_SSSbtF",
             "moduleName": "VerisoulSDK",
             "declAttributes": [
               "Final",
               "AccessControl",
               "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "reinitialize",
+            "printedName": "reinitialize()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11VerisoulSDK0A0C12reinitializeyyF",
+            "mangledName": "$s11VerisoulSDK0A0C12reinitializeyyF",
+            "moduleName": "VerisoulSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl"
             ],
             "funcSelfKind": "NonMutating"
           },
@@ -17596,16 +17660,23 @@
     {
       "filePath": "\/Users\/ahmedalaa\/Desktop\/native-ios-sdk\/Sources\/VerisoulSDK\/Verisoul.swift",
       "kind": "StringLiteral",
-      "offset": 542,
+      "offset": 534,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ahmedalaa\/Desktop\/native-ios-sdk\/Sources\/VerisoulSDK\/Verisoul.swift",
       "kind": "FloatLiteral",
-      "offset": 999,
+      "offset": 991,
       "length": 4,
       "value": "20.0"
+    },
+    {
+      "filePath": "\/Users\/ahmedalaa\/Desktop\/native-ios-sdk\/Sources\/VerisoulSDK\/Verisoul.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1891,
+      "length": 5,
+      "value": "false"
     },
     {
       "filePath": "\/Users\/ahmedalaa\/Desktop\/native-ios-sdk\/Sources\/VerisoulSDK\/VerisoulWebView.swift",

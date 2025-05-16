@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.0.3 effective-5.10 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)
-// swift-module-flags: -target arm64-apple-ios14.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name VerisoulSDK
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface
+// swift-compiler-version: Apple Swift version 6.1 effective-5.10 (swiftlang-6.1.0.110.21 clang-1700.0.13.3)
+// swift-module-flags: -target arm64-apple-ios14.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name VerisoulSDK
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1
 import AVKit
 import CFNetwork
 import CoreFoundation
@@ -91,14 +91,15 @@ public enum VerisoulEnvironment : Swift.String {
 }
 @objc @_inheritsConvenienceInitializers final public class Verisoul : ObjectiveC.NSObject {
   public static let shared: VerisoulSDK.Verisoul
-  final public func configure(env: VerisoulSDK.VerisoulEnvironment, projectId: Swift.String)
+  final public func configure(env: VerisoulSDK.VerisoulEnvironment, projectId: Swift.String, reinitialize: Swift.Bool = false)
+  final public func reinitialize()
   final public func session() async throws -> Swift.String
   @objc override dynamic public init()
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency public class VerisoulWebView : WebKit.WKWebView {
   @_Concurrency.MainActor @preconcurrency public func setup()
-  @_Concurrency.MainActor @preconcurrency public func startSession(env: VerisoulSDK.VerisoulEnvironment, projectId: Swift.String, sessionId: Swift.String, completion: @escaping (() -> Swift.Void))
+  @_Concurrency.MainActor @preconcurrency public func startSession(env: VerisoulSDK.VerisoulEnvironment, projectId: Swift.String, sessionId: Swift.String, completion: @escaping () -> Swift.Void)
   @objc deinit
 }
 extension VerisoulSDK.VerisoulWebView : WebKit.WKScriptMessageHandler {

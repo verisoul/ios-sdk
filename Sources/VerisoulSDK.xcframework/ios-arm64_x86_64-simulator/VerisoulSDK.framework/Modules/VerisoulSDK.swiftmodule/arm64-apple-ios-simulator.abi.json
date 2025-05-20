@@ -6038,10 +6038,7 @@
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
-        "moduleName": "VerisoulSDK",
-        "declAttributes": [
-          "RawDocComment"
-        ]
+        "moduleName": "VerisoulSDK"
       },
       {
         "kind": "TypeDecl",
@@ -15609,8 +15606,7 @@
             "moduleName": "VerisoulSDK",
             "declAttributes": [
               "Final",
-              "AccessControl",
-              "RawDocComment"
+              "AccessControl"
             ],
             "funcSelfKind": "NonMutating"
           },
@@ -15653,8 +15649,7 @@
             "moduleName": "VerisoulSDK",
             "declAttributes": [
               "Final",
-              "AccessControl",
-              "RawDocComment"
+              "AccessControl"
             ],
             "throwing": true,
             "funcSelfKind": "NonMutating"
@@ -17457,49 +17452,49 @@
     {
       "filePath": "\/Users\/ahmedalaa\/Desktop\/native-ios-sdk\/Sources\/VerisoulSDK\/Logger\/UnifiedLogger.swift",
       "kind": "StringLiteral",
-      "offset": 419,
+      "offset": 411,
       "length": 14,
       "value": "\"verisoul.sdk\""
     },
     {
       "filePath": "\/Users\/ahmedalaa\/Desktop\/native-ios-sdk\/Sources\/VerisoulSDK\/Logger\/UnifiedLogger.swift",
       "kind": "StringLiteral",
-      "offset": 445,
+      "offset": 437,
       "length": 6,
       "value": "\"main\""
     },
     {
       "filePath": "\/Users\/ahmedalaa\/Desktop\/native-ios-sdk\/Sources\/VerisoulSDK\/Logger\/UnifiedLogger.swift",
       "kind": "IntegerLiteral",
-      "offset": 642,
+      "offset": 634,
       "length": 3,
       "value": "100"
     },
     {
       "filePath": "\/Users\/ahmedalaa\/Desktop\/native-ios-sdk\/Sources\/VerisoulSDK\/Logger\/UnifiedLogger.swift",
       "kind": "IntegerLiteral",
-      "offset": 694,
+      "offset": 686,
       "length": 2,
       "value": "10"
     },
     {
       "filePath": "\/Users\/ahmedalaa\/Desktop\/native-ios-sdk\/Sources\/VerisoulSDK\/Logger\/UnifiedLogger.swift",
       "kind": "StringLiteral",
-      "offset": 745,
+      "offset": 737,
       "length": 23,
       "value": "\"com.verisoul.logqueue\""
     },
     {
       "filePath": "\/Users\/ahmedalaa\/Desktop\/native-ios-sdk\/Sources\/VerisoulSDK\/Logger\/UnifiedLogger.swift",
       "kind": "Array",
-      "offset": 833,
+      "offset": 825,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/ahmedalaa\/Desktop\/native-ios-sdk\/Sources\/VerisoulSDK\/Logger\/UnifiedLogger.swift",
       "kind": "BooleanLiteral",
-      "offset": 1139,
+      "offset": 1123,
       "length": 5,
       "value": "false"
     },
@@ -17674,7 +17669,7 @@
     {
       "filePath": "\/Users\/ahmedalaa\/Desktop\/native-ios-sdk\/Sources\/VerisoulSDK\/Verisoul.swift",
       "kind": "BooleanLiteral",
-      "offset": 1891,
+      "offset": 1813,
       "length": 5,
       "value": "false"
     },

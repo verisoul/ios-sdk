@@ -319,10 +319,14 @@ SWIFT_CLASS("_TtC11VerisoulSDK8Verisoul")
 
 @class WKWebViewConfiguration;
 @class NSCoder;
+@class WKNavigation;
 SWIFT_CLASS("_TtC11VerisoulSDK15VerisoulWebView")
-@interface VerisoulWebView : WKWebView
+@interface VerisoulWebView : WKWebView <WKNavigationDelegate>
 - (nonnull instancetype)initWithFrame:(CGRect)frame configuration:(WKWebViewConfiguration * _Nonnull)configuration SWIFT_UNAVAILABLE;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
+- (void)webView:(WKWebView * _Nonnull)webView didFinishNavigation:(WKNavigation * _Null_unspecified)navigation;
+- (void)webView:(WKWebView * _Nonnull)webView didFailNavigation:(WKNavigation * _Null_unspecified)navigation withError:(NSError * _Nonnull)error;
+- (void)webView:(WKWebView * _Nonnull)webView didFailProvisionalNavigation:(WKNavigation * _Null_unspecified)navigation withError:(NSError * _Nonnull)error;
 @end
 
 @class WKUserContentController;

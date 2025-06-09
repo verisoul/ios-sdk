@@ -20482,98 +20482,105 @@
     {
       "filePath": "\/Users\/ahmedalaa\/Desktop\/native-ios-sdk\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "StringLiteral",
-      "offset": 553,
+      "offset": 545,
       "length": 14,
       "value": "\"up_timestamp\""
     },
     {
       "filePath": "\/Users\/ahmedalaa\/Desktop\/native-ios-sdk\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "StringLiteral",
-      "offset": 597,
+      "offset": 589,
       "length": 16,
       "value": "\"down_timestamp\""
     },
     {
       "filePath": "\/Users\/ahmedalaa\/Desktop\/native-ios-sdk\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "StringLiteral",
-      "offset": 918,
+      "offset": 902,
       "length": 15,
       "value": "\"sample_number\""
     },
     {
       "filePath": "\/Users\/ahmedalaa\/Desktop\/native-ios-sdk\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "StringLiteral",
-      "offset": 959,
+      "offset": 943,
       "length": 12,
       "value": "\"session_id\""
     },
     {
       "filePath": "\/Users\/ahmedalaa\/Desktop\/native-ios-sdk\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "StringLiteral",
-      "offset": 997,
+      "offset": 981,
       "length": 12,
       "value": "\"project_id\""
     },
     {
       "filePath": "\/Users\/ahmedalaa\/Desktop\/native-ios-sdk\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "IntegerLiteral",
-      "offset": 1247,
+      "offset": 1227,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ahmedalaa\/Desktop\/native-ios-sdk\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "Array",
-      "offset": 1484,
+      "offset": 1464,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/ahmedalaa\/Desktop\/native-ios-sdk\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "FloatLiteral",
-      "offset": 1547,
+      "offset": 1527,
       "length": 3,
       "value": "1.0"
     },
     {
       "filePath": "\/Users\/ahmedalaa\/Desktop\/native-ios-sdk\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "FloatLiteral",
-      "offset": 1553,
+      "offset": 1533,
       "length": 4,
       "value": "50.0"
     },
     {
       "filePath": "\/Users\/ahmedalaa\/Desktop\/native-ios-sdk\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1582,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/ahmedalaa\/Desktop\/native-ios-sdk\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "IntegerLiteral",
-      "offset": 3952,
+      "offset": 3995,
       "length": 3,
       "value": "200"
     },
     {
       "filePath": "\/Users\/ahmedalaa\/Desktop\/native-ios-sdk\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "StringLiteral",
-      "offset": 4012,
+      "offset": 4055,
       "length": 36,
       "value": "\"com.fraudDetection.dataAccessQueue\""
     },
     {
       "filePath": "\/Users\/ahmedalaa\/Desktop\/native-ios-sdk\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "StringLiteral",
-      "offset": 4163,
+      "offset": 4206,
       "length": 39,
       "value": "\"com.fraudDetection.motionManagerQueue\""
     },
     {
       "filePath": "\/Users\/ahmedalaa\/Desktop\/native-ios-sdk\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "IntegerLiteral",
-      "offset": 10245,
+      "offset": 10409,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ahmedalaa\/Desktop\/native-ios-sdk\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "IntegerLiteral",
-      "offset": 10271,
+      "offset": 10435,
       "length": 1,
       "value": "0"
     },
@@ -20862,7 +20869,7 @@
       "kind": "StringLiteral",
       "offset": 330,
       "length": 8,
-      "value": "\"0.3.14\""
+      "value": "\"0.3.15\""
     },
     {
       "filePath": "\/Users\/ahmedalaa\/Desktop\/native-ios-sdk\/Sources\/VerisoulSDK\/Verisoul.swift",

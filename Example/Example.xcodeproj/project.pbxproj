@@ -365,7 +365,7 @@
 			repositoryURL = "https://github.com/verisoul/ios-sdk.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.3.15;
+				minimumVersion = 0.3.16;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

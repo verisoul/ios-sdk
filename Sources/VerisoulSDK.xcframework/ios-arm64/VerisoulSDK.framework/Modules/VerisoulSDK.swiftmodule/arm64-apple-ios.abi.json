@@ -16977,6 +16977,13 @@
       },
       {
         "kind": "Import",
+        "name": "CoreLocation",
+        "printedName": "CoreLocation",
+        "declKind": "Import",
+        "moduleName": "VerisoulSDK"
+      },
+      {
+        "kind": "Import",
         "name": "CoreFoundation",
         "printedName": "CoreFoundation",
         "declKind": "Import",
@@ -17000,6 +17007,13 @@
         "kind": "Import",
         "name": "CFNetwork",
         "printedName": "CFNetwork",
+        "declKind": "Import",
+        "moduleName": "VerisoulSDK"
+      },
+      {
+        "kind": "Import",
+        "name": "SystemConfiguration.CaptiveNetwork",
+        "printedName": "SystemConfiguration.CaptiveNetwork",
         "declKind": "Import",
         "moduleName": "VerisoulSDK"
       },
@@ -20825,14 +20839,14 @@
     {
       "filePath": "\/Users\/ahmedalaa\/Desktop\/native-ios-sdk\/Sources\/VerisoulSDK\/SystemCollection\/NetworkInfoCollector.swift",
       "kind": "IntegerLiteral",
-      "offset": 282,
+      "offset": 348,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/ahmedalaa\/Desktop\/native-ios-sdk\/Sources\/VerisoulSDK\/SystemCollection\/NetworkInfoCollector.swift",
       "kind": "IntegerLiteral",
-      "offset": 304,
+      "offset": 370,
       "length": 2,
       "value": "30"
     },
@@ -20869,7 +20883,7 @@
       "kind": "StringLiteral",
       "offset": 330,
       "length": 8,
-      "value": "\"0.3.16\""
+      "value": "\"0.4.55\""
     },
     {
       "filePath": "\/Users\/ahmedalaa\/Desktop\/native-ios-sdk\/Sources\/VerisoulSDK\/Verisoul.swift",

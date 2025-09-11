@@ -4,6 +4,7 @@
 // swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1
 import AVKit
 import CFNetwork
+import SystemConfiguration.CaptiveNetwork
 import CoreFoundation
 import CoreLocation
 import CoreMotion
@@ -18,6 +19,7 @@ import Network
 import Security
 import Swift
 import SwiftUI
+import SystemConfiguration
 import UIKit
 import WebKit
 import _Concurrency

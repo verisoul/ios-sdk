@@ -11,43 +11,7 @@
 <dict>
 	<key>NSPrivacyAccessedAPITypes</key>
 	<array>
-		<!-- Device Information -->
-		<dict>
-			<key>NSPrivacyAccessedAPIType</key>
-			<string>NSPrivacyAccessedAPICategoryDeviceInformation</string>
-			<key>NSPrivacyAccessedAPITypeReasons</key>
-			<array>
-				<string>35F9.1</string>
-			</array>
-		</dict>
-		<!-- Location Information -->
-		<dict>
-			<key>NSPrivacyAccessedAPIType</key>
-			<string>NSPrivacyAccessedAPICategoryLocation</string>
-			<key>NSPrivacyAccessedAPITypeReasons</key>
-			<array>
-				<string>8FFB.1</string>
-			</array>
-		</dict>
-		<!-- Motion and Fitness -->
-		<dict>
-			<key>NSPrivacyAccessedAPIType</key>
-			<string>NSPrivacyAccessedAPICategoryMotionAndFitness</string>
-			<key>NSPrivacyAccessedAPITypeReasons</key>
-			<array>
-				<string>C617.1</string>
-			</array>
-		</dict>
-		<!-- Network Information -->
-		<dict>
-			<key>NSPrivacyAccessedAPIType</key>
-			<string>NSPrivacyAccessedAPICategoryNetworkInformation</string>
-			<key>NSPrivacyAccessedAPITypeReasons</key>
-			<array>
-				<string>7D9E.1</string>
-			</array>
-		</dict>
-		<!-- System Boot Time -->
+		<!-- System Boot Time (used via ProcessInfo.systemUptime) -->
 		<dict>
 			<key>NSPrivacyAccessedAPIType</key>
 			<string>NSPrivacyAccessedAPICategorySystemBootTime</string>
@@ -56,40 +20,13 @@
 				<string>35F9.1</string>
 			</array>
 		</dict>
-		<!-- User Defaults -->
+		<!-- User Defaults (used for session persistence) -->
 		<dict>
 			<key>NSPrivacyAccessedAPIType</key>
 			<string>NSPrivacyAccessedAPICategoryUserDefaults</string>
 			<key>NSPrivacyAccessedAPITypeReasons</key>
 			<array>
 				<string>CA92.1</string>
-			</array>
-		</dict>
-		<!-- File Timestamp -->
-		<dict>
-			<key>NSPrivacyAccessedAPIType</key>
-			<string>NSPrivacyAccessedAPICategoryFileTimestamp</string>
-			<key>NSPrivacyAccessedAPITypeReasons</key>
-			<array>
-				<string>35F9.1</string>
-			</array>
-		</dict>
-		<!-- Disk Space -->
-		<dict>
-			<key>NSPrivacyAccessedAPIType</key>
-			<string>NSPrivacyAccessedAPICategoryDiskSpace</string>
-			<key>NSPrivacyAccessedAPITypeReasons</key>
-			<array>
-				<string>85F4.1</string>
-			</array>
-		</dict>
-		<!-- Active Keyboards -->
-		<dict>
-			<key>NSPrivacyAccessedAPIType</key>
-			<string>NSPrivacyAccessedAPICategoryActiveKeyboards</string>
-			<key>NSPrivacyAccessedAPITypeReasons</key>
-			<array>
-				<string>54BD.1</string>
 			</array>
 		</dict>
 	</array>
@@ -193,3 +130,5 @@
 	<array/>
 </dict>
 </plist>
+
+

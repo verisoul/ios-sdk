@@ -14,7 +14,7 @@
 		</data>
 		<key>Modules/VerisoulSDK.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		kLiCdfwWSdo3DubMqBK9NoO3sgA=
+		0Tm3k1u66LF8Z+jxjTau7JotP6s=
 		</data>
 		<key>Modules/VerisoulSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -30,11 +30,11 @@
 		</data>
 		<key>Modules/VerisoulSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		sh+p9fmeAMsRBA7n1rNmrrJ1rAY=
+		La/WM/ctdcYnqqjp/VscT+7uGBs=
 		</data>
 		<key>Modules/VerisoulSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		kLiCdfwWSdo3DubMqBK9NoO3sgA=
+		0Tm3k1u66LF8Z+jxjTau7JotP6s=
 		</data>
 		<key>Modules/VerisoulSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -50,7 +50,7 @@
 		</data>
 		<key>Modules/VerisoulSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		fv0hT05VORbccePYlIaGiHMYGkQ=
+		NtJYGmxkBHIzFpk7zoaYV5+97wY=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -66,7 +66,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			7BPTSvcE4KRsSY+FxiKNPxl18r6PfHYfZMevmdPS3BE=
+			plorUF5nT+BzlPTHCI89j+gnJYzA+HT+dgMMgGvW4N8=
 			</data>
 		</dict>
 		<key>Modules/VerisoulSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
@@ -94,14 +94,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			fIUSMkHFbtauC/3+yNQUqC6cTHGrY5l7DsummTDoaJI=
+			RSWsVlXgRJ5GTtolTTpSz9g96RYa6IQn5uCxSpy3PG8=
 			</data>
 		</dict>
 		<key>Modules/VerisoulSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			7BPTSvcE4KRsSY+FxiKNPxl18r6PfHYfZMevmdPS3BE=
+			plorUF5nT+BzlPTHCI89j+gnJYzA+HT+dgMMgGvW4N8=
 			</data>
 		</dict>
 		<key>Modules/VerisoulSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
@@ -129,7 +129,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			mnFTDMN0uuu2VGyh37OVkznTCmu6JMeQj/GTjK1k8BA=
+			vEOnv1p3vlX82O3VvzKgixPLQERt1gK5pSMcYZW2Awo=
 			</data>
 		</dict>
 	</dict>

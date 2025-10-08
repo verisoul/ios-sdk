@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'VerisoulSDK'
-  s.version          = '0.4.57'
+  s.version          = '0.4.60'
   s.summary          = 'Verisoul helps businesses stop fake accounts and fraud'
 
 # This description is used to generate tags and improve search results.
@@ -38,5 +38,11 @@ The Verisoul platform provides an all-in-one fake user prevention solution that 
   s.ios.vendored_frameworks = [
     "Sources/VerisoulSDK.xcframework"
   ]
+
+  # Ensure Privacy Manifest ships to app when integrating via CocoaPods.
+  # This creates a small resource bundle that contains only PrivacyInfo.xcprivacy.
+  s.resource_bundles = {
+    'VerisoulSDK_VerisoulSDK' => ['Sources/VerisoulSDK/PrivacyInfo.xcprivacy']
+  }
 
 end

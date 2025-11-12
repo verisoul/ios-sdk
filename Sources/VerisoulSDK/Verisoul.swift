@@ -29,18 +29,28 @@ public final class Verisoul: NSObject {
     private var eventLogger: WebSocketLogger!
     private var sessionHelper = SessionHelper.shared
     private let webViewTimeout: TimeInterval = 20.0
+    
+    private var dataCollectionTask: Task<Void, Never>?
+    private let sessionLock = NSLock()
 
     // MARK: - VerisoulSDKInterface Method Implementations
 
     fileprivate func syncDeviceData() -> Task<(), Never> {
         return Task {
             do {
+                try Task.checkCancellation()
+                
                 if DCDevice.current.isSupported, DCAppAttestService.shared.isSupported {
                     try await performDeviceChecks()
                 } else {
                     try await handleUnsupportedDevice()
                 }
+                
+                try Task.checkCancellation()
+                
                 UnifiedLogger.shared.info("Device data posted successfully.", className: String(describing: Verisoul.self))
+            } catch is CancellationError {
+                UnifiedLogger.shared.info("Data collection cancelled.", className: String(describing: Verisoul.self))
             } catch {
                 UnifiedLogger.shared.error("Error syncing device data: \(error.localizedDescription)", className: String(describing: Verisoul.self))
             }
@@ -48,6 +58,9 @@ public final class Verisoul: NSObject {
     }
 
     public func configure(env: VerisoulEnvironment, projectId: String, reinitialize: Bool = false) {
+        sessionLock.lock()
+        defer { sessionLock.unlock() }
+        
         do {
             UnifiedLogger.shared.info("Initializing Verisoul SDK...", className: String(describing: Verisoul.self))
 
@@ -68,20 +81,28 @@ public final class Verisoul: NSObject {
 
             UnifiedLogger.shared.setEventLogger(eventLogger: eventLogger)
 
-            syncDeviceData()
+            dataCollectionTask = syncDeviceData()
         } catch {
             UnifiedLogger.shared.error("Error during SDK configure: \(error.localizedDescription)", className: String(describing: Verisoul.self))
         }
     }
 
     public func reinitialize() {
+        sessionLock.lock()
+        defer { sessionLock.unlock() }
+        
         do {
+            // Cancel any in-flight data collection
+            dataCollectionTask?.cancel()
+            dataCollectionTask = nil
+            
             sessionHelper.reinitializeSession(projectId: projectId, env: env)
             guard let sessionId = sessionHelper.getSessionId() else { return  }
             self.fraudDetection.reset()
             self.fraudDetection.setSessionId(sessionId: sessionId)
             self.fraudDetection.startGlobalCapture()
-            syncDeviceData()
+            
+            dataCollectionTask = syncDeviceData()
         } catch {
             UnifiedLogger.shared.error("Error during reinitialization: \(error.localizedDescription)", className: String(describing: Verisoul.self))
         }
@@ -101,8 +122,11 @@ public final class Verisoul: NSObject {
             guard let sessionId = sessionHelper.getSessionId() else { return }
             fraudDetection.setSessionId(sessionId: sessionId)
             try await deviceAttest.setSessionId(sessionId: sessionId)
+            try Task.checkCancellation()
             try await performDeviceAttestation()
             return }
+
+        try Task.checkCancellation()
 
         async let sessionIdTask = createSession()
         async let deviceDataTask = deviceInfo.collectAll()
@@ -111,6 +135,8 @@ public final class Verisoul: NSObject {
         guard let sessionId = sessionHelper.getSessionId() else { return }
 
         var (_, deviceData, token) = try await (sessionIdTask, deviceDataTask, tokenTask)
+        
+        try Task.checkCancellation()
 
         fraudDetection.setSessionId(sessionId: sessionId)
         try await deviceAttest.setSessionId(sessionId: sessionId)
@@ -126,12 +152,15 @@ public final class Verisoul: NSObject {
                 projectId: projectId
             ) else { return  }
 
+            try Task.checkCancellation()
 
             if isPostDeviceDataSuccess {
                 sessionHelper.setDeviceDataCollectionIsDone()
             }
 
             try await performDeviceAttestation()
+        } catch let error as CancellationError {
+            throw error
         } catch {
             UnifiedLogger.shared.error("Error posting device data: \(error.localizedDescription)", className: String(describing: Verisoul.self))
         }
@@ -153,12 +182,16 @@ public final class Verisoul: NSObject {
     private func handleUnsupportedDevice() async throws {
         guard sessionHelper.isNeedToSubmitDeviceData() else { return }
 
+        try Task.checkCancellation()
+
         async let sessionIdTask = createSession()
         async let deviceDataTask = deviceInfo.collectAll()
 
         guard let sessionId = sessionHelper.getSessionId() else { return }
 
         var (_, deviceData) = try await (sessionIdTask, deviceDataTask)
+        
+        try Task.checkCancellation()
 
         fraudDetection.setSessionId(sessionId: sessionId)
         UnifiedLogger.shared.initLoggerData(projectId: projectId, sessionId: sessionId)
@@ -173,9 +206,13 @@ public final class Verisoul: NSObject {
                 projectId: projectId
             ) else { return }
 
+            try Task.checkCancellation()
+
             if isPostDeviceDataSuccess {
                 sessionHelper.setDeviceDataCollectionIsDone()
             }
+        } catch let error as CancellationError {
+            throw error
         } catch {
             UnifiedLogger.shared.error("Error posting unsupported device data: \(error.localizedDescription)", className: String(describing: Verisoul.self))
         }
@@ -184,17 +221,63 @@ public final class Verisoul: NSObject {
     public func session() async throws -> String {
         UnifiedLogger.shared.info("Retrieving session ID...", className: String(describing: Verisoul.self))
 
+        if let s = sessionHelper.getSession(), !s.isExpired(), s.status.nativeDataCollection == .done {
+            UnifiedLogger.shared.info("Session ID retrieved from cache: \(s.sessionId)", className: String(describing: Verisoul.self))
+            return s.sessionId
+        }
+        
+        // Refresh expired/missing session
+        sessionLock.lock()
+        var currentTask = dataCollectionTask
+        
+        if currentTask == nil && sessionHelper.isNeedToSubmitDeviceData() {
+            UnifiedLogger.shared.info("Session expired or missing, starting fresh data collection", className: String(describing: Verisoul.self))
+            currentTask = syncDeviceData()
+            dataCollectionTask = currentTask
+        }
+        sessionLock.unlock()
+        
+        if let task = currentTask {
+            UnifiedLogger.shared.info("Awaiting data collection to complete...", className: String(describing: Verisoul.self))
+            
+            // Wait for data collection with timeout
+            do {
+                try await withThrowingTaskGroup(of: Void.self) { group in
+                    group.addTask {
+                        await task.value
+                    }
+                    
+                    group.addTask {
+                        try await Task.sleep(nanoseconds: UInt64(self.webViewTimeout * 1_000_000_000))
+                        throw NSError(domain: "Timeout", code: -1)
+                    }
+                    
+                    // Wait for first one to complete then cancel the rest
+                    try await group.next()
+                    group.cancelAll()
+                }
+            } catch {
+                UnifiedLogger.shared.info("Data collection await completed or timed out", className: String(describing: Verisoul.self))
+            }
+            
+            if let s = sessionHelper.getSession(), !s.isExpired(), s.status.nativeDataCollection == .done {
+                UnifiedLogger.shared.info("Session ID retrieved after data collection: \(s.sessionId)", className: String(describing: Verisoul.self))
+                return s.sessionId
+            }
+        }
+        
+        UnifiedLogger.shared.info("No active collection found, polling for session...", className: String(describing: Verisoul.self))
         let startTime = Date()
         while Date().timeIntervalSince(startTime) < webViewTimeout {
             if !sessionHelper.isNeedToSubmitDeviceData(),
                let s = sessionHelper.getSession(),
-               !s.isExpired() {                                      // <- NEW: double-check freshness
-                UnifiedLogger.shared.info("Session ID retrieved: \(s.sessionId)", className: String(describing: Verisoul.self))
+               !s.isExpired() {
+                UnifiedLogger.shared.info("Session ID retrieved after polling: \(s.sessionId)", className: String(describing: Verisoul.self))
                 return s.sessionId
             }
             try await Task.sleep(nanoseconds: 200_000_000)
         }
-
+        
         UnifiedLogger.shared.error("Failed to retrieve session ID in \(webViewTimeout) seconds.", className: String(describing: Verisoul.self))
         throw NSError(domain: "WebViewError", code: -1, userInfo: [NSLocalizedDescriptionKey: "Session ID retrieval timed out."])
     }

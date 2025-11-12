@@ -11,6 +11,7 @@ import Foundation
 class SessionHelper {
     private var lastSessionId: String?
     private let userDefaultHelper: UserDefaultsHelper
+    private let lock = NSLock()
 
     static let shared = SessionHelper()
 
@@ -38,6 +39,9 @@ class SessionHelper {
     }
 
     func initSessionId(projectId: String, env: VerisoulEnvironment, reinitialize:Bool) -> String {
+        lock.lock()
+        defer { lock.unlock() }
+        
         if let sessionData = userDefaultHelper.getSession(),
            sessionData.sessionId != "",
            !sessionData.isExpired(),
@@ -59,20 +63,29 @@ class SessionHelper {
 
 
     func reinitializeSession(projectId: String, env: VerisoulEnvironment) {
+        lock.lock()
+        defer { lock.unlock() }
+        
         userDefaultHelper.clearSession()
         initSession(projectId: projectId, env: env)
-
     }
 
-        func getSessionId() -> String? {
+    func getSessionId() -> String? {
+        lock.lock()
+        defer { lock.unlock() }
         return userDefaultHelper.getSession()?.sessionId
     }
 
     func getSession() -> SessionData? {
+        lock.lock()
+        defer { lock.unlock() }
         return userDefaultHelper.getSession()
     }
 
     func setDeviceCheckIsDone() {
+        lock.lock()
+        defer { lock.unlock() }
+        
         guard var sessionData = userDefaultHelper.getSession() else { return }
         sessionData.status.deviceCheck = .done
         UnifiedLogger.shared.info("Device Check data has been collected", className: String(describing: SessionHelper.self))
@@ -80,6 +93,9 @@ class SessionHelper {
     }
 
     func setDeviceDataCollectionIsDone() {
+        lock.lock()
+        defer { lock.unlock() }
+        
         guard var sessionData = userDefaultHelper.getSession() else { return }
         sessionData.status.nativeDataCollection = .done
         UnifiedLogger.shared.info("Native Device data has been collected", className: String(describing: SessionHelper.self))
@@ -87,6 +103,9 @@ class SessionHelper {
     }
 
     func setTouchDataCollectionIsDone() {
+        lock.lock()
+        defer { lock.unlock() }
+        
         guard var sessionData = userDefaultHelper.getSession() else { return }
         sessionData.status.touchDataCollection = .done
         UnifiedLogger.shared.info("Touch Device data has been collected", className: String(describing: SessionHelper.self))
@@ -94,18 +113,27 @@ class SessionHelper {
     }
 
     func isNeedToSubmitDeviceData() -> Bool {
+        lock.lock()
+        defer { lock.unlock() }
+        
         guard let s = userDefaultHelper.getSession() else { return true }
-        if s.isExpired() { return true }          // <- NEW: force recollect when stale
+        if s.isExpired() { return true }
         return s.status.nativeDataCollection != .done
     }
 
     func isNeedToSubmitTouchData() -> Bool {
+        lock.lock()
+        defer { lock.unlock() }
+        
         guard let s = userDefaultHelper.getSession() else { return true }
         if s.isExpired() { return true }
         return s.status.touchDataCollection != .done
     }
 
     func isNeedToSubmitDeviceCheckData() -> Bool {
+        lock.lock()
+        defer { lock.unlock() }
+        
         guard let s = userDefaultHelper.getSession() else { return true }
         if s.isExpired() { return true }
         return s.status.deviceCheck != .done

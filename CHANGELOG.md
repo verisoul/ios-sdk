@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.63-beta.0] - 2025-11-12
+
+### Changed
+- fix: race condition in session creation and status checks
+- refactor: replace delay toggle with parallel/sequential mode for repeat test
+- fix: add session status check to prevent race condition + comprehensive test suite
+- fix: add single-flight pattern & cache fast path to resolve blocking
+- fix: return cached sessions immediately to prevent blocking during concurrent calls
+- chore: move bump-version.sh script into scripts directory
+
+
 ## [0.4.62] - 2025-10-10
 
 ### Changed

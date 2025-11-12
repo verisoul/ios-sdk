@@ -7,6 +7,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.63-beta.3] - 2025-11-12
+
+### Changed
+- github action test
+
+
+## [0.4.63-beta.2] - 2025-11-12
+
+### Changed
+- github action fixes
+
+
+## [0.4.63-beta.1] - 2025-11-12
+
+### Changed
+- new make commands
+- include updated xcframework bundle
+
+
 ## [0.4.63-beta.0] - 2025-11-12
 
 ### Changed

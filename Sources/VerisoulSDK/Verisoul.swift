@@ -12,7 +12,7 @@ public enum VerisoulEnvironment: String {
 
 public final class Verisoul: NSObject {
 
-    public let version = "0.4.57"
+    public let version = "0.4.63-beta.2"
 
     // Singleton instance of the SDK
     public static let shared = Verisoul()

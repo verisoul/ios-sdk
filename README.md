@@ -8,12 +8,18 @@
 
 # iOS SDK
 
-## Overview
-The purpose of this app is to demonstrate Verisoul's iOS SDK integration.
+Verisoul provides an iOS SDK that allows you to implement fraud prevention in your iOS applications. This guide covers the installation, configuration, and usage of the Verisoul iOS SDK.
 
 _To run the app a Verisoul Project ID is required._ Schedule a call [here](https://meetings.hubspot.com/henry-legard) to get started.
 
-## Getting Started
+## System Requirements
+
+- iOS 14.0 or higher
+- Xcode 15.0 or higher
+- Swift 5.9 or higher
+- CocoaPods 1.10+ (if using CocoaPods)
+
+## Installation
 
 You can install VerisoulSDK in your iOS project using either CocoaPods or Swift Package Manager.
 
@@ -49,124 +55,83 @@ To integrate VerisoulSDK using Swift Package Manager:
 
 The SDK will automatically integrate into your project.
 
-## Capabilities
+### iOS Device Check
 
-To fully utilize VerisoulSDK, you must add the `App Attest` capability to your project. This capability allows the SDK to perform necessary checks and validations to ensure the integrity and security of your application.
+To fully utilize the Verisoul SDK, you must add the `App Attest` capability to your project. This capability allows the SDK to perform necessary checks and validations to ensure the integrity and security of your application.
 
-Update your app’s entitlements file:
+Update your app's entitlements file:
 
-```
+```xml
 <key>com.apple.developer.devicecheck.appattest-environment</key>
-<string>production/development (depending on your needs)</string>
+<string>production</string>  <!-- Use 'development' for testing -->
 ```
-
 
 ## Usage
 
-### 1. Initialization
+### Initialize the SDK
 
-`configure(env:projectId:bundleIdentifier:)`
-
-Configure the SDK by passing it the environment, project ID, and bundle identifier. This function initializes the networking, device check, and device attestation components.
-
-**Parameters:**
-
-- `env (VerisoulEnvironment)`: The environment to configure the SDK with (e.g., dev, staging, prod).
-- `projectId (String)`: Your project's unique identifier.
-- `bundleIdentifier (String)`: The bundle identifier of your app.
-
+Call `configure()` when your application starts, typically in `AppDelegate` or the main app entry point.
 
 ```swift
+import VerisoulSDK
+
 Verisoul.shared.configure(env: .prod, projectId: "your-project-id")
 ```
 
-**Note:** The `configure(env:projectId:)` method should be called once, typically during the app's initialization process (e.g., in the `AppDelegate` or `SceneDelegate`).
+The `configure()` method initializes the Verisoul SDK with your project credentials. This method must be called once when your application starts.
 
-### 2. Get Session ID
+**Parameters:**
 
-`session() async throws -> String`
+- `env` (VerisoulEnvironment): The environment to use - `.prod` for production or `.sandbox` for testing
+- `projectId` (String): Your unique Verisoul project identifier
 
-Once the minimum amount of data is gathered the session ID becomes available. The session ID is needed in order to request a risk assessment from Verisoul's API. Note that session IDs are short lived and will expire after 24 hours. The application can obtain session ID by providing the callback as shown below:
+### Get Session ID
 
+The `session()` method returns the current session identifier after the SDK has collected sufficient device data. This session ID is required to request a risk assessment from Verisoul's API.
+
+**Important Notes:**
+
+- Session IDs are short-lived and expire after 24 hours
+- The session ID becomes available once minimum data collection is complete (typically within seconds)
+- You should send this session ID to your backend, which can then call Verisoul's API to get a risk assessment
+
+**Example:**
 
 ```swift
 do {
     let sessionId = try await Verisoul.shared.session()
+    // Send sessionId to your backend for risk assessment
     print("Session ID: \(sessionId)")
 } catch {
     print("Failed to retrieve session ID: \(error)")
 }
 ```
 
-## Update the privacy manifest file
+### Reinitialize Session
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
-"http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<!--
-   PrivacyInfo.xcprivacy
-   test
+The `reinitialize()` method generates a fresh session ID and resets the SDK's data collection. This is essential for maintaining data integrity when user context changes.
 
-   Created by Raine Scott on 1/30/25.
-   Copyright (c) 2025 ___ORGANIZATIONNAME___.
-   All rights reserved.
--->
-<plist version="1.0">
-<dict>
-    <!-- Privacy manifest file for Verisoul Fraud Prevention SDK for iOS -->
-    <key>NSPrivacyTracking</key>
-    <false/>
+**Example:**
 
-    <!-- Privacy manifest file for Verisoul Fraud Prevention SDK for iOS -->
-    <key>NSPrivacyTrackingDomains</key>
-    <array/>
+```swift
+// User logs out
+await Verisoul.shared.reinitialize()
 
-    <!-- Privacy manifest file for Verisoul Fraud Prevention SDK for iOS -->
-    <key>NSPrivacyCollectedDataTypes</key>
-    <array>
-      <dict>
-        <!-- The value provided by Apple for 'Device ID' data type -->
-        <key>NSPrivacyCollectedDataType</key>
-        <string>NSPrivacyCollectedDataTypeDeviceID</string>
-
-        <!-- Verisoul Fraud Prevention SDK does not link the 'Device ID' with user's identity -->
-        <key>NSPrivacyCollectedDataTypeLinked</key>
-        <false/>
-
-        <!-- Verisoul Fraud Prevention SDK does not use 'Device ID' for tracking -->
-        <key>NSPrivacyCollectedDataTypeTracking</key>
-        <false/>
-
-        <!-- Verisoul Fraud Prevention SDK uses 'Device ID' for App Functionality
-             (prevent fraud and implement security measures) -->
-        <key>NSPrivacyCollectedDataTypePurposes</key>
-        <array>
-          <string>NSPrivacyCollectedDataTypePurposeAppFunctionality</string>
-        </array>
-      </dict>
-    </array>
-
-    <!-- Privacy manifest file for Verisoul Fraud Prevention SDK for iOS -->
-    <key>NSPrivacyAccessedAPITypes</key>
-    <array>
-      <dict>
-        <!-- The value provided by Apple for 'System boot time APIs' -->
-        <key>NSPrivacyAccessedAPIType</key>
-        <string>NSPrivacyAccessedAPICategorySystemBootTime</string>
-        
-        <!-- Verisoul Fraud Prevention SDK uses 'System boot time APIs' to measure the amount of
-             time that has elapsed between events that occurred within the SDK -->
-        <key>NSPrivacyAccessedAPITypeReasons</key>
-        <array>
-          <string>35F9.1</string>
-        </array>
-      </dict>
-    </array>
-</dict>
-</plist>
-
+// Now ready for a new user to log in with a fresh session
 ```
 
-## Questions and Feedback
-Comprehensive documentation about Verisoul's iOS SDK and API can be found at [docs.verisoul.ai](https://docs.verisoul.ai/). Additionally, reach out to Verisoul at [help@verisoul.ai](mailto:help@verisoul.ai) for any questions or feedback.
+After calling this method, you can call `session()` to retrieve the new session identifier.
+
+### Provide Touch Events
+
+The Verisoul SDK automatically captures touch events when integrated. No additional code is required for touch event collection.
+
+## Example
+
+For a complete working example, see the [example folder](https://github.com/verisoul/ios-sdk/tree/main/Example) in this repository.
+
+## Additional Resources
+
+- [Verisoul Documentation](https://docs.verisoul.ai/)
+- [Apple Developer Documentation](https://developer.apple.com/documentation/)
+- For questions or feedback, reach out at [help@verisoul.ai](mailto:help@verisoul.ai)

@@ -249,7 +249,10 @@ public final class Verisoul: NSObject {
                     
                     group.addTask {
                         try await Task.sleep(nanoseconds: UInt64(self.webViewTimeout * 1_000_000_000))
-                        throw NSError(domain: "Timeout", code: -1)
+                        throw VerisoulException(
+                            code: VerisoulErrorCodes.SESSION_UNAVAILABLE,
+                            message: "Data collection timed out"
+                        )
                     }
                     
                     // Wait for first one to complete then cancel the rest
@@ -279,7 +282,10 @@ public final class Verisoul: NSObject {
         }
         
         UnifiedLogger.shared.error("Failed to retrieve session ID in \(webViewTimeout) seconds.", className: String(describing: Verisoul.self))
-        throw NSError(domain: "WebViewError", code: -1, userInfo: [NSLocalizedDescriptionKey: "Session ID retrieval timed out."])
+        throw VerisoulException(
+            code: VerisoulErrorCodes.SESSION_UNAVAILABLE,
+            message: "Session ID retrieval timed out after \(webViewTimeout) seconds"
+        )
     }
 
     // MARK: - Private Helper Methods
@@ -306,14 +312,20 @@ public final class Verisoul: NSObject {
 
             guard let sessionId = sessionHelper.getSessionId() else {
                 safeResume {
-                    continuation.resume(throwing: NSError(domain: "SessionError", code: -1, userInfo: [NSLocalizedDescriptionKey: "Session ID is nil."]))
+                    continuation.resume(throwing: VerisoulException(
+                        code: VerisoulErrorCodes.SESSION_UNAVAILABLE,
+                        message: "Session ID is nil"
+                    ))
                 }
                 return
             }
 
             guard let webView = webView else {
                 safeResume {
-                    continuation.resume(throwing: NSError(domain: "WebViewError", code: -2, userInfo: [NSLocalizedDescriptionKey: "WebView is nil."]))
+                    continuation.resume(throwing: VerisoulException(
+                        code: VerisoulErrorCodes.WEBVIEW_UNAVAILABLE,
+                        message: "WebView is nil"
+                    ))
                 }
                 return
             }

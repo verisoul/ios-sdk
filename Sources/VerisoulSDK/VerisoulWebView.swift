@@ -33,6 +33,7 @@ public class VerisoulWebView: WKWebView, WKNavigationDelegate {
     // MARK: - WebView Setup
 
     public func setup() {
+        // Note: WKWebView is part of the WebKit framework and is always available on iOS
         self.retryNumber = 0
         self.configuration.userContentController = userContentController
         self.configuration.userContentController.add(self, name: nativeToWebHandler)

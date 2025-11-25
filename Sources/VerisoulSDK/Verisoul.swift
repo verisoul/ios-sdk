@@ -8,6 +8,16 @@ public enum VerisoulEnvironment: String {
     case dev = "dev", staging = "staging",
          sandbox = "sandbox",
          prod = "prod"
+    
+    public static func from(value: String) throws -> VerisoulEnvironment {
+        guard let environment = VerisoulEnvironment(rawValue: value) else {
+            throw VerisoulException(
+                code: VerisoulErrorCodes.INVALID_ENVIRONMENT,
+                message: "Unknown environment: \(value)"
+            )
+        }
+        return environment
+    }
 }
 
 public final class Verisoul: NSObject {
@@ -249,15 +259,24 @@ public final class Verisoul: NSObject {
                     
                     group.addTask {
                         try await Task.sleep(nanoseconds: UInt64(self.webViewTimeout * 1_000_000_000))
-                        throw NSError(domain: "Timeout", code: -1)
+                        throw VerisoulException(
+                            code: VerisoulErrorCodes.SESSION_UNAVAILABLE,
+                            message: "Data collection timed out"
+                        )
                     }
                     
                     // Wait for first one to complete then cancel the rest
                     try await group.next()
                     group.cancelAll()
                 }
+            } catch let error as VerisoulException {
+                // Timeout occurred - rethrow immediately with the standardized error code
+                // Don't fall through to polling loop which would double the wait time
+                UnifiedLogger.shared.error("Data collection timed out: \(error.localizedDescription)", className: String(describing: Verisoul.self))
+                throw error
             } catch {
-                UnifiedLogger.shared.info("Data collection await completed or timed out", className: String(describing: Verisoul.self))
+                // Other errors (like task cancellation on success) - continue to check session
+                UnifiedLogger.shared.info("Data collection completed", className: String(describing: Verisoul.self))
             }
             
             if let s = sessionHelper.getSession(), !s.isExpired(), s.status.nativeDataCollection == .done {
@@ -279,7 +298,10 @@ public final class Verisoul: NSObject {
         }
         
         UnifiedLogger.shared.error("Failed to retrieve session ID in \(webViewTimeout) seconds.", className: String(describing: Verisoul.self))
-        throw NSError(domain: "WebViewError", code: -1, userInfo: [NSLocalizedDescriptionKey: "Session ID retrieval timed out."])
+        throw VerisoulException(
+            code: VerisoulErrorCodes.SESSION_UNAVAILABLE,
+            message: "Session ID retrieval timed out after \(webViewTimeout) seconds"
+        )
     }
 
     // MARK: - Private Helper Methods
@@ -306,14 +328,20 @@ public final class Verisoul: NSObject {
 
             guard let sessionId = sessionHelper.getSessionId() else {
                 safeResume {
-                    continuation.resume(throwing: NSError(domain: "SessionError", code: -1, userInfo: [NSLocalizedDescriptionKey: "Session ID is nil."]))
+                    continuation.resume(throwing: VerisoulException(
+                        code: VerisoulErrorCodes.SESSION_UNAVAILABLE,
+                        message: "Session ID is nil"
+                    ))
                 }
                 return
             }
 
             guard let webView = webView else {
                 safeResume {
-                    continuation.resume(throwing: NSError(domain: "WebViewError", code: -2, userInfo: [NSLocalizedDescriptionKey: "WebView is nil."]))
+                    continuation.resume(throwing: VerisoulException(
+                        code: VerisoulErrorCodes.WEBVIEW_UNAVAILABLE,
+                        message: "WebView is nil"
+                    ))
                 }
                 return
             }

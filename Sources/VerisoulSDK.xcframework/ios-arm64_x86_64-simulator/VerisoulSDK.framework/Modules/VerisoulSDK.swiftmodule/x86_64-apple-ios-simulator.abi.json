@@ -2729,6 +2729,35 @@
             "moduleName": "VerisoulSDK"
           },
           {
+            "kind": "Function",
+            "name": "from",
+            "printedName": "from(value:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "VerisoulEnvironment",
+                "printedName": "VerisoulSDK.VerisoulEnvironment",
+                "usr": "s:11VerisoulSDK0A11EnvironmentO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11VerisoulSDK0A11EnvironmentO4from5valueACSS_tKFZ",
+            "mangledName": "$s11VerisoulSDK0A11EnvironmentO4from5valueACSS_tKFZ",
+            "moduleName": "VerisoulSDK",
+            "static": true,
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
             "kind": "Constructor",
             "name": "init",
             "printedName": "init(rawValue:)",
@@ -3157,6 +3186,675 @@
             "printedName": "CustomDebugStringConvertible",
             "usr": "s:s28CustomDebugStringConvertibleP",
             "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "VerisoulSDK"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "VerisoulErrorCodes",
+        "printedName": "VerisoulErrorCodes",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "WEBVIEW_UNAVAILABLE",
+            "printedName": "WEBVIEW_UNAVAILABLE",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@VerisoulSDK@objc(cs)VerisoulErrorCodes(cpy)WEBVIEW_UNAVAILABLE",
+            "mangledName": "$s11VerisoulSDK0A10ErrorCodesC19WEBVIEW_UNAVAILABLESSvpZ",
+            "moduleName": "VerisoulSDK",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@VerisoulSDK@objc(cs)VerisoulErrorCodes(cm)WEBVIEW_UNAVAILABLE",
+                "mangledName": "$s11VerisoulSDK0A10ErrorCodesC19WEBVIEW_UNAVAILABLESSvgZ",
+                "moduleName": "VerisoulSDK",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "SESSION_UNAVAILABLE",
+            "printedName": "SESSION_UNAVAILABLE",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@VerisoulSDK@objc(cs)VerisoulErrorCodes(cpy)SESSION_UNAVAILABLE",
+            "mangledName": "$s11VerisoulSDK0A10ErrorCodesC19SESSION_UNAVAILABLESSvpZ",
+            "moduleName": "VerisoulSDK",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@VerisoulSDK@objc(cs)VerisoulErrorCodes(cm)SESSION_UNAVAILABLE",
+                "mangledName": "$s11VerisoulSDK0A10ErrorCodesC19SESSION_UNAVAILABLESSvgZ",
+                "moduleName": "VerisoulSDK",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "INVALID_ENVIRONMENT",
+            "printedName": "INVALID_ENVIRONMENT",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@VerisoulSDK@objc(cs)VerisoulErrorCodes(cpy)INVALID_ENVIRONMENT",
+            "mangledName": "$s11VerisoulSDK0A10ErrorCodesC19INVALID_ENVIRONMENTSSvpZ",
+            "moduleName": "VerisoulSDK",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@VerisoulSDK@objc(cs)VerisoulErrorCodes(cm)INVALID_ENVIRONMENT",
+                "mangledName": "$s11VerisoulSDK0A10ErrorCodesC19INVALID_ENVIRONMENTSSvgZ",
+                "moduleName": "VerisoulSDK",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "VerisoulErrorCodes",
+                "printedName": "VerisoulSDK.VerisoulErrorCodes",
+                "usr": "c:@M@VerisoulSDK@objc(cs)VerisoulErrorCodes"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@VerisoulSDK@objc(cs)VerisoulErrorCodes(im)init",
+            "mangledName": "$s11VerisoulSDK0A10ErrorCodesCACycfc",
+            "moduleName": "VerisoulSDK",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@VerisoulSDK@objc(cs)VerisoulErrorCodes",
+        "mangledName": "$s11VerisoulSDK0A10ErrorCodesC",
+        "moduleName": "VerisoulSDK",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC",
+          "RawDocComment"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "VerisoulSDK"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "VerisoulException",
+        "printedName": "VerisoulException",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "errorCode",
+            "printedName": "errorCode",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11VerisoulSDK0A9ExceptionC9errorCodeSSvp",
+            "mangledName": "$s11VerisoulSDK0A9ExceptionC9errorCodeSSvp",
+            "moduleName": "VerisoulSDK",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11VerisoulSDK0A9ExceptionC9errorCodeSSvg",
+                "mangledName": "$s11VerisoulSDK0A9ExceptionC9errorCodeSSvg",
+                "moduleName": "VerisoulSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "cause",
+            "printedName": "cause",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(any Swift.Error)?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Error",
+                    "printedName": "any Swift.Error",
+                    "usr": "s:s5ErrorP"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11VerisoulSDK0A9ExceptionC5causes5Error_pSgvp",
+            "mangledName": "$s11VerisoulSDK0A9ExceptionC5causes5Error_pSgvp",
+            "moduleName": "VerisoulSDK",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "(any Swift.Error)?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Error",
+                        "printedName": "any Swift.Error",
+                        "usr": "s:s5ErrorP"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11VerisoulSDK0A9ExceptionC5causes5Error_pSgvg",
+                "mangledName": "$s11VerisoulSDK0A9ExceptionC5causes5Error_pSgvg",
+                "moduleName": "VerisoulSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(code:message:cause:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "VerisoulException",
+                "printedName": "VerisoulSDK.VerisoulException",
+                "usr": "c:@M@VerisoulSDK@objc(cs)VerisoulException"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(any Swift.Error)?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Error",
+                    "printedName": "any Swift.Error",
+                    "usr": "s:s5ErrorP"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:11VerisoulSDK0A9ExceptionC4code7message5causeACSS_SSs5Error_pSgtcfc",
+            "mangledName": "$s11VerisoulSDK0A9ExceptionC4code7message5causeACSS_SSs5Error_pSgtcfc",
+            "moduleName": "VerisoulSDK",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "description",
+            "printedName": "description",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@VerisoulSDK@objc(cs)VerisoulException(py)description",
+            "mangledName": "$s11VerisoulSDK0A9ExceptionC11descriptionSSvp",
+            "moduleName": "VerisoulSDK",
+            "overriding": true,
+            "objc_name": "description",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override",
+              "AccessControl"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@VerisoulSDK@objc(cs)VerisoulException(im)description",
+                "mangledName": "$s11VerisoulSDK0A9ExceptionC11descriptionSSvg",
+                "moduleName": "VerisoulSDK",
+                "overriding": true,
+                "objc_name": "description",
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(domain:code:userInfo:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "VerisoulException",
+                "printedName": "VerisoulSDK.VerisoulException",
+                "usr": "c:@M@VerisoulSDK@objc(cs)VerisoulException"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[Swift.String : Any]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Dictionary",
+                    "printedName": "[Swift.String : Any]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "Any"
+                      }
+                    ],
+                    "usr": "s:SD"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@VerisoulSDK@objc(cs)VerisoulException(im)initWithDomain:code:userInfo:",
+            "mangledName": "$s11VerisoulSDK0A9ExceptionC6domain4code8userInfoACSS_SiSDySSypGSgtcfc",
+            "moduleName": "VerisoulSDK",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "initWithDomain:code:userInfo:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@VerisoulSDK@objc(cs)VerisoulException",
+        "mangledName": "$s11VerisoulSDK0A9ExceptionC",
+        "moduleName": "VerisoulSDK",
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSError",
+        "hasMissingDesignatedInitializers": true,
+        "superclassNames": [
+          "Foundation.NSError",
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Error",
+            "printedName": "Error",
+            "usr": "s:s5ErrorP",
+            "mangledName": "$ss5ErrorP"
           }
         ]
       },
@@ -4033,30 +4731,72 @@
     {
       "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/Verisoul.swift",
       "kind": "StringLiteral",
-      "offset": 330,
+      "offset": 699,
       "length": 15,
       "value": "\"0.4.63-beta.2\""
     },
     {
       "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/Verisoul.swift",
       "kind": "StringLiteral",
-      "offset": 576,
+      "offset": 945,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/Verisoul.swift",
       "kind": "FloatLiteral",
-      "offset": 1033,
+      "offset": 1402,
       "length": 4,
       "value": "20.0"
     },
     {
       "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/Verisoul.swift",
       "kind": "BooleanLiteral",
-      "offset": 2256,
+      "offset": 2625,
       "length": 5,
       "value": "false"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/VerisoulErrorCodes.swift",
+      "kind": "StringLiteral",
+      "offset": 324,
+      "length": 21,
+      "value": "\"WEBVIEW_UNAVAILABLE\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/VerisoulErrorCodes.swift",
+      "kind": "StringLiteral",
+      "offset": 460,
+      "length": 21,
+      "value": "\"SESSION_UNAVAILABLE\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/VerisoulErrorCodes.swift",
+      "kind": "StringLiteral",
+      "offset": 575,
+      "length": 21,
+      "value": "\"INVALID_ENVIRONMENT\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/VerisoulException.swift",
+      "kind": "StringLiteral",
+      "offset": 1385,
+      "length": 80,
+      "value": "\"VerisoulException(errorCode='\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/VerisoulException.swift",
+      "kind": "StringLiteral",
+      "offset": 1427,
+      "length": 12,
+      "value": "\"', message='\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/VerisoulException.swift",
+      "kind": "StringLiteral",
+      "offset": 1462,
+      "length": 3,
+      "value": "\"')\""
     },
     {
       "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/VerisoulWebView.swift",

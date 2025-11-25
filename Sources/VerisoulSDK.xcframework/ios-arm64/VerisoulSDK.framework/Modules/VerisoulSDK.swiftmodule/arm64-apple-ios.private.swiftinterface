@@ -103,6 +103,7 @@ public struct SessionData {
 }
 public enum VerisoulEnvironment : Swift.String {
   case dev, staging, sandbox, prod
+  public static func from(value: Swift.String) throws -> VerisoulSDK.VerisoulEnvironment
   public init?(rawValue: Swift.String)
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
@@ -116,6 +117,22 @@ public enum VerisoulEnvironment : Swift.String {
   final public func reinitialize()
   final public func session() async throws -> Swift.String
   @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc public class VerisoulErrorCodes : ObjectiveC.NSObject {
+  @objc public static let WEBVIEW_UNAVAILABLE: Swift.String
+  @objc public static let SESSION_UNAVAILABLE: Swift.String
+  @objc public static let INVALID_ENVIRONMENT: Swift.String
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers public class VerisoulException : Foundation.NSError {
+  final public let errorCode: Swift.String
+  final public let cause: (any Swift.Error)?
+  public init(code: Swift.String, message: Swift.String, cause: (any Swift.Error)? = nil)
+  @objc override dynamic public var description: Swift.String {
+    @objc get
+  }
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency public class VerisoulWebView : WebKit.WKWebView, WebKit.WKNavigationDelegate {

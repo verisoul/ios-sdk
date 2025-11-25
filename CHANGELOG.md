@@ -7,6 +7,36 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.63-beta.5] - 2025-11-24
+
+### Changed
+- Fix: Prevent timeout exception from being swallowed in session()
+- Add comprehensive tests for all three error codes
+- Fix VerisoulException property conflict and improve test coverage
+- chore(test): add unit test to verify SESSION_UNAVAILABLE error code is thrown on getSessionId timeout
+- refactor: standarize error codes
+
+
+## [0.4.63-beta.4] - 2025-11-24
+
+### Changed
+- Fix: Prevent timeout exception from being swallowed in session()
+- Add comprehensive tests for all three error codes
+- Fix VerisoulException property conflict and improve test coverage
+- chore(test): add unit test to verify SESSION_UNAVAILABLE error code is thrown on getSessionId timeout
+- refactor: standarize error codes
+
+
+### Added
+- Standardized error codes for consistent error handling across platforms
+- New `VerisoulException` class with `errorCode` property for programmatic error identification
+- New `VerisoulErrorCodes` class with constants: `SESSION_UNAVAILABLE`, `WEBVIEW_UNAVAILABLE`, `INVALID_ENVIRONMENT`
+- New `VerisoulEnvironment.from(value:)` method for safe environment string parsing
+
+### Fixed
+- Fixed timeout behavior that could cause up to 40-second waits instead of the intended 20 seconds
+- Timeout exceptions now propagate immediately with proper error codes
+
 ## [0.4.63-beta.3] - 2025-11-12
 
 ### Changed

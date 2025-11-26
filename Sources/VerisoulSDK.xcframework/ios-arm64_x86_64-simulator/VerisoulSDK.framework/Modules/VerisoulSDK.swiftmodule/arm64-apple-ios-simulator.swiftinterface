@@ -140,7 +140,7 @@ public enum VerisoulEnvironment : Swift.String {
   @_Concurrency.MainActor @preconcurrency @objc public func webView(_ webView: WebKit.WKWebView, didFinish navigation: WebKit.WKNavigation!)
   @_Concurrency.MainActor @preconcurrency @objc public func webView(_ webView: WebKit.WKWebView, didFail navigation: WebKit.WKNavigation!, withError error: any Swift.Error)
   @_Concurrency.MainActor @preconcurrency @objc public func webView(_ webView: WebKit.WKWebView, didFailProvisionalNavigation navigation: WebKit.WKNavigation!, withError error: any Swift.Error)
-  @_Concurrency.MainActor @preconcurrency public func startSession(env: VerisoulSDK.VerisoulEnvironment, projectId: Swift.String, sessionId: Swift.String, completion: @escaping () -> Swift.Void)
+  @_Concurrency.MainActor @preconcurrency public func startSession(env: VerisoulSDK.VerisoulEnvironment, projectId: Swift.String, sessionId: Swift.String, completion: @escaping (Swift.Result<Swift.Void, any Swift.Error>) -> Swift.Void)
   @objc deinit
 }
 extension VerisoulSDK.VerisoulWebView : WebKit.WKScriptMessageHandler {

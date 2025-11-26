@@ -4,7 +4,7 @@ import WebKit
 public class VerisoulWebView: WKWebView, WKNavigationDelegate {
 
     private let nativeToWebHandler = "verisoulHandler"
-    private var completion: (() -> Void)?
+    private var completion: ((Result<Void, Error>) -> Void)?
     private var startTime = CFAbsoluteTimeGetCurrent()
     private var retryNumber = 0
     private var env: VerisoulEnvironment?
@@ -12,6 +12,7 @@ public class VerisoulWebView: WKWebView, WKNavigationDelegate {
     private var sessionId: String?
     private var sessionHelper: SessionHelper?
     private var webViewLoaded = false
+    private var didComplete = false
 
     private let userContentController: WKUserContentController = {
         let controller = WKUserContentController()
@@ -67,13 +68,14 @@ public class VerisoulWebView: WKWebView, WKNavigationDelegate {
     ///   - projectId: The project ID for the session.
     ///   - completion: A completion handler that returns the session ID once the WebView finishes loading.
 
-    public func startSession(env: VerisoulEnvironment, projectId: String, sessionId: String, completion: @escaping () -> Void) {
+    public func startSession(env: VerisoulEnvironment, projectId: String, sessionId: String, completion: @escaping (Result<Void, Error>) -> Void) {
         self.env = env
         self.projectId = projectId
         self.sessionId = sessionId
         self.completion = completion
         self.startTime = CFAbsoluteTimeGetCurrent()
         self.webViewLoaded = false
+        self.didComplete = false
 
         var components = URLComponents()
         components.scheme = "https"
@@ -87,6 +89,10 @@ public class VerisoulWebView: WKWebView, WKNavigationDelegate {
         guard let url = components.url else {
             UnifiedLogger.shared.error("Invalid URL constructed for Verisoul webview.",
                                        className: String(describing: VerisoulWebView.self))
+            safeComplete(with: .failure(VerisoulException(
+                code: VerisoulErrorCodes.SESSION_UNAVAILABLE,
+                message: "Invalid URL constructed for Verisoul webview"
+            )))
             return
         }
 
@@ -105,6 +111,14 @@ public class VerisoulWebView: WKWebView, WKNavigationDelegate {
             }
         }
     }
+    
+    /// Thread-safe completion to ensure we only call completion once
+    private func safeComplete(with result: Result<Void, Error>) {
+        guard !didComplete else { return }
+        didComplete = true
+        completion?(result)
+        completion = nil
+    }
 
     @objc private func triggerRetry() {
         guard let env = self.env,
@@ -115,8 +129,13 @@ public class VerisoulWebView: WKWebView, WKNavigationDelegate {
         }
 
         if retryNumber >= 3 {
-            UnifiedLogger.shared.error("Error retrying webview",
+            UnifiedLogger.shared.error("Error retrying webview - max retries reached",
                                        className: String(describing: VerisoulWebView.self))
+            // Signal failure instead of silently returning
+            safeComplete(with: .failure(VerisoulException(
+                code: VerisoulErrorCodes.SESSION_UNAVAILABLE,
+                message: "WebView failed to load after \(retryNumber) retries"
+            )))
             return
         }
 
@@ -133,11 +152,12 @@ extension VerisoulWebView: WKScriptMessageHandler {
                                       didReceive message: WKScriptMessage) {
         guard let body = message.body as? [String: String],
               message.name.lowercased() == nativeToWebHandler.lowercased(),
-              let sessionId = body["session_id"] else {
+              let _ = body["session_id"] else {
             UnifiedLogger.shared.error("Webview sessionId extraction failed",
                                        className: String(describing: VerisoulWebView.self))
             UnifiedLogger.shared.error("Invalid Project ID",
                                        className: String(describing: VerisoulWebView.self))
+            // Don't call completion here - let the retry/timeout logic handle it
             return
         }
 
@@ -146,7 +166,6 @@ extension VerisoulWebView: WKScriptMessageHandler {
                                     name: "web_view_session_duration",
                                     className: String(describing: VerisoulWebView.self))
 
-        completion?()
-        completion = nil
+        safeComplete(with: .success(()))
     }
 }

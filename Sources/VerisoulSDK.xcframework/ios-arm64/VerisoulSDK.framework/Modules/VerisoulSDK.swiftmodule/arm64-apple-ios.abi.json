@@ -4076,7 +4076,7 @@
               {
                 "kind": "TypeFunc",
                 "name": "Function",
-                "printedName": "() -> ()",
+                "printedName": "(Swift.Result<(), any Swift.Error>) -> ()",
                 "children": [
                   {
                     "kind": "TypeNominal",
@@ -4085,15 +4085,29 @@
                   },
                   {
                     "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
+                    "name": "Result",
+                    "printedName": "Swift.Result<(), any Swift.Error>",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Error",
+                        "printedName": "any Swift.Error",
+                        "usr": "s:s5ErrorP"
+                      }
+                    ],
+                    "usr": "s:s6ResultO"
                   }
                 ]
               }
             ],
             "declKind": "Func",
-            "usr": "s:11VerisoulSDK0A7WebViewC12startSession3env9projectId07sessionI010completionyAA0A11EnvironmentO_S2SyyctF",
-            "mangledName": "$s11VerisoulSDK0A7WebViewC12startSession3env9projectId07sessionI010completionyAA0A11EnvironmentO_S2SyyctF",
+            "usr": "s:11VerisoulSDK0A7WebViewC12startSession3env9projectId07sessionI010completionyAA0A11EnvironmentO_S2Sys6ResultOyyts5Error_pGctF",
+            "mangledName": "$s11VerisoulSDK0A7WebViewC12startSession3env9projectId07sessionI010completionyAA0A11EnvironmentO_S2Sys6ResultOyyts5Error_pGctF",
             "moduleName": "VerisoulSDK",
             "declAttributes": [
               "Preconcurrency",
@@ -4808,14 +4822,21 @@
     {
       "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/VerisoulWebView.swift",
       "kind": "IntegerLiteral",
-      "offset": 280,
+      "offset": 299,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/VerisoulWebView.swift",
       "kind": "BooleanLiteral",
-      "offset": 472,
+      "offset": 491,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/VerisoulWebView.swift",
+      "kind": "BooleanLiteral",
+      "offset": 527,
       "length": 5,
       "value": "false"
     }

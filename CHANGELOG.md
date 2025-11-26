@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.63-beta.6] - 2025-11-26
+
+### Changed
+- fix: properly propagate SESSION_UNAVAILABLE error when network fails
+
+
+### Fixed
+- fix: properly propagate SESSION_UNAVAILABLE error when network fails
+- WebView now properly signals failure instead of silently returning after retries
+- Added Network Unavailable Test to Example app for manual testing
+
 ## [0.4.63-beta.5] - 2025-11-24
 
 ### Changed

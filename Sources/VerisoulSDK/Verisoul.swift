@@ -346,10 +346,26 @@ public final class Verisoul: NSObject {
                 return
             }
 
-            webView.startSession(env: env, projectId: projectId, sessionId: sessionId) {
-                UnifiedLogger.shared.info("WebView initialized successfully.", className: String(describing: Verisoul.self))
-                safeResume {
-                    continuation.resume()
+            webView.startSession(env: env, projectId: projectId, sessionId: sessionId) { result in
+                switch result {
+                case .success:
+                    UnifiedLogger.shared.info("WebView initialized successfully.", className: String(describing: Verisoul.self))
+                    safeResume {
+                        continuation.resume()
+                    }
+                case .failure(let error):
+                    UnifiedLogger.shared.error("WebView initialization failed: \(error.localizedDescription)", className: String(describing: Verisoul.self))
+                    safeResume {
+                        if let verisoulError = error as? VerisoulException {
+                            continuation.resume(throwing: verisoulError)
+                        } else {
+                            continuation.resume(throwing: VerisoulException(
+                                code: VerisoulErrorCodes.SESSION_UNAVAILABLE,
+                                message: "WebView initialization failed",
+                                cause: error
+                            ))
+                        }
+                    }
                 }
             }
         }

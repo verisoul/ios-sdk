@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.63] - 2025-11-26
+
+### Changed
+- feat: add --yes flag to bump-version.sh for non-interactive mode
+
+
 ## [0.4.63-beta.6] - 2025-11-26
 
 ### Changed

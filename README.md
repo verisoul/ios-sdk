@@ -10,7 +10,7 @@
 
 Verisoul provides an iOS SDK that allows you to implement fraud prevention in your iOS applications. This guide covers the installation, configuration, and usage of the Verisoul iOS SDK.
 
-_To run the app a Verisoul Project ID is required._ Schedule a call [here](https://meetings.hubspot.com/henry-legard) to get started.
+_To run the SDK a Verisoul Project ID is required._ Schedule a call [here](https://meetings.hubspot.com/henry-legard) to get started.
 
 ## System Requirements
 
@@ -33,7 +33,7 @@ To integrate VerisoulSDK with CocoaPods:
    ```
 2. Add VerisoulSDK to your Podfile:
    ```ruby
-   pod 'VerisoulSDK', '~> 0.3.12'
+   pod 'VerisoulSDK', '~> 0.4.63'
    ```
 3. Run the following command to install the SDK:
    ```sh
@@ -82,8 +82,8 @@ The `configure()` method initializes the Verisoul SDK with your project credenti
 
 **Parameters:**
 
-- `env` (VerisoulEnvironment): The environment to use - `.prod` for production or `.sandbox` for testing
-- `projectId` (String): Your unique Verisoul project identifier
+- `env`: The environment to use `.prod` for production or `.sandbox` for testing
+- `projectId`: Your unique Verisoul project identifier
 
 ### Get Session ID
 
@@ -130,8 +130,5 @@ The Verisoul SDK automatically captures touch events when integrated. No additio
 
 For a complete working example, see the [example folder](https://github.com/verisoul/ios-sdk/tree/main/Example) in this repository.
 
-## Additional Resources
-
-- [Verisoul Documentation](https://docs.verisoul.ai/)
-- [Apple Developer Documentation](https://developer.apple.com/documentation/)
-- For questions or feedback, reach out at [help@verisoul.ai](mailto:help@verisoul.ai)
+## Additional Resource
+- [Verisoul CocoaPods](https://cocoapods.org/pods/VerisoulSDK)

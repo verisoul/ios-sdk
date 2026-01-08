@@ -9,7 +9,7 @@ import Foundation
 public enum SDKType: String {
     case native = "native"
     case flutter = "flutter"
-    case reactNative = "ReactNative"
+    case reactNative = "react-native"
 }
 public class InternalVerisoulCore {
    public static let shared = InternalVerisoulCore()

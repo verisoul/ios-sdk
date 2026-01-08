@@ -2549,6 +2549,13 @@
       },
       {
         "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "VerisoulSDK"
+      },
+      {
+        "kind": "Import",
         "name": "WebKit",
         "printedName": "WebKit",
         "declKind": "Import",
@@ -2914,13 +2921,9 @@
             "mangledName": "$s11VerisoulSDK0A0C7versionSSvp",
             "moduleName": "VerisoulSDK",
             "declAttributes": [
-              "HasInitialValue",
               "Final",
-              "HasStorage",
               "AccessControl"
             ],
-            "isLet": true,
-            "hasStorage": true,
             "accessors": [
               {
                 "kind": "Accessor",
@@ -2938,7 +2941,6 @@
                 "usr": "s:11VerisoulSDK0A0C7versionSSvg",
                 "mangledName": "$s11VerisoulSDK0A0C7versionSSvg",
                 "moduleName": "VerisoulSDK",
-                "implicit": true,
                 "declAttributes": [
                   "Final"
                 ],
@@ -4487,48 +4489,48 @@
       "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/InternalCore.swift",
       "kind": "StringLiteral",
       "offset": 195,
-      "length": 13,
-      "value": "\"ReactNative\""
+      "length": 14,
+      "value": "\"react-native\""
     },
     {
       "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/InternalCore.swift",
       "kind": "StringLiteral",
-      "offset": 536,
+      "offset": 537,
       "length": 13,
       "value": "\"sdk_version\""
     },
     {
       "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/InternalCore.swift",
       "kind": "StringLiteral",
-      "offset": 573,
+      "offset": 574,
       "length": 10,
       "value": "\"sdk_name\""
     },
     {
       "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/InternalCore.swift",
       "kind": "StringLiteral",
-      "offset": 607,
+      "offset": 608,
       "length": 10,
       "value": "\"sdk_type\""
     },
     {
       "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/InternalCore.swift",
       "kind": "StringLiteral",
-      "offset": 655,
+      "offset": 656,
       "length": 7,
       "value": "\"1.0.0\""
     },
     {
       "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/InternalCore.swift",
       "kind": "StringLiteral",
-      "offset": 682,
+      "offset": 683,
       "length": 5,
       "value": "\"ios\""
     },
     {
       "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/InternalCore.swift",
       "kind": "StringLiteral",
-      "offset": 707,
+      "offset": 708,
       "length": 8,
       "value": "\"native\""
     },
@@ -4717,56 +4719,49 @@
     {
       "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/Verisoul.swift",
       "kind": "StringLiteral",
-      "offset": 180,
+      "offset": 198,
       "length": 5,
       "value": "\"dev\""
     },
     {
       "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/Verisoul.swift",
       "kind": "StringLiteral",
-      "offset": 197,
+      "offset": 215,
       "length": 9,
       "value": "\"staging\""
     },
     {
       "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/Verisoul.swift",
       "kind": "StringLiteral",
-      "offset": 227,
+      "offset": 245,
       "length": 9,
       "value": "\"sandbox\""
     },
     {
       "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/Verisoul.swift",
       "kind": "StringLiteral",
-      "offset": 254,
+      "offset": 272,
       "length": 6,
       "value": "\"prod\""
     },
     {
       "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/Verisoul.swift",
       "kind": "StringLiteral",
-      "offset": 699,
-      "length": 15,
-      "value": "\"0.4.63-beta.2\""
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/Verisoul.swift",
-      "kind": "StringLiteral",
-      "offset": 945,
+      "offset": 1103,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/Verisoul.swift",
       "kind": "FloatLiteral",
-      "offset": 1402,
+      "offset": 1560,
       "length": 4,
       "value": "20.0"
     },
     {
       "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/Verisoul.swift",
       "kind": "BooleanLiteral",
-      "offset": 2625,
+      "offset": 2783,
       "length": 5,
       "value": "false"
     },

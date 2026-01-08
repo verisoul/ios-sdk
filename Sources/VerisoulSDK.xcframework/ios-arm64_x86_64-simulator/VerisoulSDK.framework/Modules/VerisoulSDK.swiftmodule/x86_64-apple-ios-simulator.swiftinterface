@@ -111,7 +111,9 @@ public enum VerisoulEnvironment : Swift.String {
   }
 }
 @objc @_inheritsConvenienceInitializers final public class Verisoul : ObjectiveC.NSObject {
-  final public let version: Swift.String
+  final public var version: Swift.String {
+    get
+  }
   public static let shared: VerisoulSDK.Verisoul
   final public func configure(env: VerisoulSDK.VerisoulEnvironment, projectId: Swift.String, reinitialize: Swift.Bool = false)
   final public func reinitialize()

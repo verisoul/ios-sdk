@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.64] - 2026-01-08
+
+### Changed
+- chore: standarize sdk_type enum consistency
+- chore: remove hardcoded SDK version and set/validate framework CFBundleShortVersionString from tag
+- Add promote command to release beta versions to production
+
+
 ## [0.4.63] - 2025-11-26
 
 ### Changed

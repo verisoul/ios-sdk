@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'VerisoulSDK'
-  s.version          = '0.4.63'
+  s.version          = '0.4.64'
   s.summary          = 'Verisoul helps businesses stop fake accounts and fraud'
 
 # This description is used to generate tags and improve search results.

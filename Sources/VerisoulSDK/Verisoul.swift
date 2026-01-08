@@ -1,3 +1,4 @@
+import Foundation
 import WebKit
 import DeviceCheck
 import SwiftUI
@@ -22,7 +23,10 @@ public enum VerisoulEnvironment: String {
 
 public final class Verisoul: NSObject {
 
-    public let version = "0.4.63-beta.2"
+    public var version: String {
+        let bundle = Bundle(for: Verisoul.self)
+        return (bundle.infoDictionary?["CFBundleShortVersionString"] as? String) ?? "unknown"
+    }
 
     // Singleton instance of the SDK
     public static let shared = Verisoul()

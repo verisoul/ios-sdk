@@ -45,9 +45,105 @@ public final class Verisoul: NSObject {
     private let webViewTimeout: TimeInterval = 20.0
     
     private var dataCollectionTask: Task<Void, Never>?
+    private var dataCollectionGeneration = 0
+    private var lastReinitializeTime: TimeInterval = 0
+    private var reinitializeDebounceInterval: TimeInterval = 1.0
+    private var dataCollectionTaskOverride: (() -> Task<Void, Never>)?
     private let sessionLock = NSLock()
 
     // MARK: - VerisoulSDKInterface Method Implementations
+
+    internal func _setDataCollectionTaskOverride(_ override: (() -> Task<Void, Never>)?) {
+        sessionLock.lock()
+        dataCollectionTaskOverride = override
+        sessionLock.unlock()
+    }
+
+    internal func _setReinitializeDebounceInterval(_ interval: TimeInterval) {
+        sessionLock.lock()
+        reinitializeDebounceInterval = interval
+        sessionLock.unlock()
+    }
+
+    internal func _resetReinitializeDebounce() {
+        sessionLock.lock()
+        lastReinitializeTime = 0
+        sessionLock.unlock()
+    }
+
+    private func createDataCollectionTask() -> Task<Void, Never> {
+        if let override = dataCollectionTaskOverride {
+            return override()
+        }
+        return syncDeviceData()
+    }
+
+    private func waitForDataCollection(_ task: Task<Void, Never>, timeout: TimeInterval) async throws {
+        let lock = NSLock()
+        var didResume = false
+        var pendingCancel = false
+        var cancelHandler: (() -> Void)?
+
+        func safeResume(_ block: () -> Void) {
+            lock.lock()
+            defer { lock.unlock() }
+            guard !didResume else { return }
+            didResume = true
+            block()
+        }
+
+        try await withTaskCancellationHandler {
+            try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
+                let timeoutItem = DispatchWorkItem {
+                    task.cancel()
+                    safeResume {
+                        continuation.resume(throwing: VerisoulException(
+                            code: VerisoulErrorCodes.SESSION_UNAVAILABLE,
+                            message: "Data collection timed out"
+                        ))
+                    }
+                }
+
+                DispatchQueue.global().asyncAfter(deadline: .now() + timeout, execute: timeoutItem)
+
+                let handler = {
+                    timeoutItem.cancel()
+                    task.cancel()
+                    safeResume {
+                        continuation.resume(throwing: CancellationError())
+                    }
+                }
+
+                lock.lock()
+                cancelHandler = handler
+                let shouldCancelNow = pendingCancel
+                pendingCancel = false
+                lock.unlock()
+
+                if shouldCancelNow {
+                    handler()
+                    return
+                }
+
+                Task {
+                    await task.value
+                    timeoutItem.cancel()
+                    safeResume {
+                        continuation.resume()
+                    }
+                }
+            }
+        } onCancel: {
+            lock.lock()
+            if let handler = cancelHandler {
+                lock.unlock()
+                handler()
+            } else {
+                pendingCancel = true
+                lock.unlock()
+            }
+        }
+    }
 
     fileprivate func syncDeviceData() -> Task<(), Never> {
         return Task {
@@ -95,7 +191,8 @@ public final class Verisoul: NSObject {
 
             UnifiedLogger.shared.setEventLogger(eventLogger: eventLogger)
 
-            dataCollectionTask = syncDeviceData()
+            dataCollectionTask = createDataCollectionTask()
+            dataCollectionGeneration += 1
         } catch {
             UnifiedLogger.shared.error("Error during SDK configure: \(error.localizedDescription)", className: String(describing: Verisoul.self))
         }
@@ -106,6 +203,13 @@ public final class Verisoul: NSObject {
         defer { sessionLock.unlock() }
         
         do {
+            let now = Date().timeIntervalSince1970
+            if now - lastReinitializeTime < reinitializeDebounceInterval {
+                UnifiedLogger.shared.info("Reinitialize request debounced.", className: String(describing: Verisoul.self))
+                return
+            }
+            lastReinitializeTime = now
+
             // Cancel any in-flight data collection
             dataCollectionTask?.cancel()
             dataCollectionTask = nil
@@ -116,7 +220,8 @@ public final class Verisoul: NSObject {
             self.fraudDetection.setSessionId(sessionId: sessionId)
             self.fraudDetection.startGlobalCapture()
             
-            dataCollectionTask = syncDeviceData()
+            dataCollectionTask = createDataCollectionTask()
+            dataCollectionGeneration += 1
         } catch {
             UnifiedLogger.shared.error("Error during reinitialization: \(error.localizedDescription)", className: String(describing: Verisoul.self))
         }
@@ -240,58 +345,57 @@ public final class Verisoul: NSObject {
             return s.sessionId
         }
         
-        // Refresh expired/missing session
-        sessionLock.lock()
-        var currentTask = dataCollectionTask
-        
-        if currentTask == nil && sessionHelper.isNeedToSubmitDeviceData() {
-            UnifiedLogger.shared.info("Session expired or missing, starting fresh data collection", className: String(describing: Verisoul.self))
-            currentTask = syncDeviceData()
-            dataCollectionTask = currentTask
-        }
-        sessionLock.unlock()
-        
-        if let task = currentTask {
-            UnifiedLogger.shared.info("Awaiting data collection to complete...", className: String(describing: Verisoul.self))
-            
-            // Wait for data collection with timeout
-            do {
-                try await withThrowingTaskGroup(of: Void.self) { group in
-                    group.addTask {
-                        await task.value
-                    }
-                    
-                    group.addTask {
-                        try await Task.sleep(nanoseconds: UInt64(self.webViewTimeout * 1_000_000_000))
-                        throw VerisoulException(
-                            code: VerisoulErrorCodes.SESSION_UNAVAILABLE,
-                            message: "Data collection timed out"
-                        )
-                    }
-                    
-                    // Wait for first one to complete then cancel the rest
-                    try await group.next()
-                    group.cancelAll()
+        while true {
+            // Refresh expired/missing session
+            sessionLock.lock()
+            var currentTask = dataCollectionTask
+            if currentTask == nil && sessionHelper.isNeedToSubmitDeviceData() {
+                UnifiedLogger.shared.info("Session expired or missing, starting fresh data collection", className: String(describing: Verisoul.self))
+                currentTask = createDataCollectionTask()
+                dataCollectionTask = currentTask
+                dataCollectionGeneration += 1
+            }
+            let capturedGeneration = dataCollectionGeneration
+            sessionLock.unlock()
+
+            if let task = currentTask {
+                UnifiedLogger.shared.info("Awaiting data collection to complete...", className: String(describing: Verisoul.self))
+
+                // Wait for data collection with timeout
+                do {
+                    try await waitForDataCollection(task, timeout: webViewTimeout)
+                } catch is CancellationError {
+                    throw CancellationError()
+                } catch let error as VerisoulException {
+                    // Timeout occurred - rethrow immediately with the standardized error code
+                    // Don't fall through to polling loop which would double the wait time
+                    UnifiedLogger.shared.error("Data collection timed out: \(error.localizedDescription)", className: String(describing: Verisoul.self))
+                    throw error
+                } catch {
+                    // Other errors (like task cancellation on success) - continue to check session
+                    UnifiedLogger.shared.info("Data collection completed", className: String(describing: Verisoul.self))
                 }
-            } catch let error as VerisoulException {
-                // Timeout occurred - rethrow immediately with the standardized error code
-                // Don't fall through to polling loop which would double the wait time
-                UnifiedLogger.shared.error("Data collection timed out: \(error.localizedDescription)", className: String(describing: Verisoul.self))
-                throw error
-            } catch {
-                // Other errors (like task cancellation on success) - continue to check session
-                UnifiedLogger.shared.info("Data collection completed", className: String(describing: Verisoul.self))
+                
+                if let s = sessionHelper.getSession(), !s.isExpired(), s.status.nativeDataCollection == .done {
+                    UnifiedLogger.shared.info("Session ID retrieved after data collection: \(s.sessionId)", className: String(describing: Verisoul.self))
+                    return s.sessionId
+                }
+
+                sessionLock.lock()
+                let generationNow = dataCollectionGeneration
+                let hasNewTask = dataCollectionTask != nil
+                sessionLock.unlock()
+                if generationNow != capturedGeneration, hasNewTask {
+                    continue
+                }
             }
-            
-            if let s = sessionHelper.getSession(), !s.isExpired(), s.status.nativeDataCollection == .done {
-                UnifiedLogger.shared.info("Session ID retrieved after data collection: \(s.sessionId)", className: String(describing: Verisoul.self))
-                return s.sessionId
-            }
+
+            break
         }
         
         UnifiedLogger.shared.info("No active collection found, polling for session...", className: String(describing: Verisoul.self))
-        let startTime = Date()
-        while Date().timeIntervalSince(startTime) < webViewTimeout {
+        let pollingStartTime = Date()
+        while Date().timeIntervalSince(pollingStartTime) < webViewTimeout {
             if !sessionHelper.isNeedToSubmitDeviceData(),
                let s = sessionHelper.getSession(),
                !s.isExpired() {

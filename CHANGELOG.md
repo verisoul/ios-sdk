@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.65] - 2026-02-03
+
+### Changed
+- Propagate session cancellation during data collection
+- Avoid rescheduling timer on empty log queue
+- Avoid timer loss when log send is in flight.
+- Address Bugbot cleanup in logger and session loop.
+- Prevent concurrent log send loss and clean up session loop.
+- Add barrier synchronization to log queue writes.
+- Fix iOS reinitialize coordination and logger concurrency.
+
+
 ## [0.4.64] - 2026-01-08
 
 ### Changed

@@ -4586,7 +4586,14 @@
     {
       "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/Logger\/UnifiedLogger.swift",
       "kind": "BooleanLiteral",
-      "offset": 1122,
+      "offset": 860,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/Logger\/UnifiedLogger.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1310,
       "length": 5,
       "value": "false"
     },
@@ -4760,8 +4767,29 @@
     },
     {
       "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/Verisoul.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1668,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/Verisoul.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1723,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/Verisoul.swift",
+      "kind": "FloatLiteral",
+      "offset": 1786,
+      "length": 3,
+      "value": "1.0"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/Verisoul.swift",
       "kind": "BooleanLiteral",
-      "offset": 2783,
+      "offset": 5920,
       "length": 5,
       "value": "false"
     },

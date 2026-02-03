@@ -28,9 +28,18 @@ internal class UnifiedLogger {
     private let logQueueTimeout: TimeInterval = 10
     private let logQueue = DispatchQueue(label: "com.verisoul.logqueue", attributes: .concurrent)
     private var _logs: [LogMessage] = []
-    private var logs: [LogMessage] {
-        get { logQueue.sync { _logs } }
-        set { logQueue.async(flags: .barrier) { self._logs = newValue } }
+    private var isSendingLogs = false
+    private func appendLog(_ log: LogMessage) -> Int {
+        var count = 0
+        logQueue.sync(flags: .barrier) {
+            _logs.append(log)
+            count = _logs.count
+        }
+        return count
+    }
+
+    private func logsCount() -> Int {
+        return logQueue.sync { _logs.count }
     }
 
     internal static let shared = UnifiedLogger()
@@ -74,7 +83,11 @@ internal class UnifiedLogger {
                 case .error: logger.error("\(formattedMessage)")
                 }
             } else {
-                logs.append(LogMessage(message: formattedMessage, level: level.description))
+                let logCount = appendLog(LogMessage(message: formattedMessage, level: level.description))
+                if logCount >= logQueueMaxSize {
+                    triggerSendLog()
+                    return
+                }
                 startQueueProcessor()
             }
         } catch {
@@ -120,7 +133,11 @@ internal class UnifiedLogger {
             if isLoggingEnabled {
                 logger.info("\(formattedMessage) \(value)")
             } else {
-                logs.append(LogMessage(value: value, name: formattedMessage))
+                let logCount = appendLog(LogMessage(value: value, name: formattedMessage))
+                if logCount >= logQueueMaxSize {
+                    triggerSendLog()
+                    return
+                }
                 startQueueProcessor()
             }
         } catch {
@@ -130,7 +147,7 @@ internal class UnifiedLogger {
 
     private func startQueueProcessor() {
         do {
-            if logs.count >= logQueueMaxSize {
+            if logsCount() >= logQueueMaxSize {
                 triggerSendLog()
             } else {
                 DispatchQueue.main.async { [weak self] in
@@ -155,16 +172,29 @@ internal class UnifiedLogger {
             guard let self = self else { return }
 
             do {
-                self.timeoutHandler?.invalidate()
-                self.timeoutHandler = nil
-
-                guard self.logs.count > 0,
-                      let sessionId = self.sessionId,
+                guard let sessionId = self.sessionId,
                       let projectId = self.projectId else {
                     return
                 }
 
-                let logsToSend = self.logs.map {
+                let currentLogs: [LogMessage]? = logQueue.sync(flags: .barrier) {
+                    guard !self.isSendingLogs, !self._logs.isEmpty else { return nil }
+                    self.isSendingLogs = true
+                    let logs = self._logs
+                    self._logs.removeAll()
+                    return logs
+                }
+                guard let currentLogs = currentLogs else {
+                    let shouldRetry = logQueue.sync { self.isSendingLogs || !self._logs.isEmpty }
+                    if shouldRetry {
+                        self.startQueueProcessor()
+                    }
+                    return
+                }
+
+                self.timeoutHandler?.invalidate()
+                self.timeoutHandler = nil
+                let logsToSend = currentLogs.map {
                     LogMessage(logMessage: $0, projectId: projectId, sessionId: sessionId)
                 }
 
@@ -178,8 +208,15 @@ internal class UnifiedLogger {
                                 event_id: UUID().uuidString
                             )
                         )
-                        self.logs.removeAll()
+                        self.logQueue.sync(flags: .barrier) {
+                            self.isSendingLogs = false
+                        }
                     } catch {
+                        self.logQueue.sync(flags: .barrier) {
+                            self._logs.insert(contentsOf: currentLogs, at: 0)
+                            self.isSendingLogs = false
+                        }
+                        self.startQueueProcessor()
                         self.logger.error("sendLog task error: \(error.localizedDescription)")
                     }
                 }

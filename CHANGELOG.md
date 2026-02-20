@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.66] - 2026-02-20
+
+### Changed
+- Add adversarial chaos tests for SDK crash resilience
+- Reset singleton state in setUp to ensure unconfigured-SDK test is valid
+- Fix crash when reinitialize() is called before configure()
+
+
 ## [0.4.65] - 2026-02-03
 
 ### Changed

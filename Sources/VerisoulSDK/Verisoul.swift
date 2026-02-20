@@ -35,12 +35,12 @@ public final class Verisoul: NSObject {
     private var env: VerisoulEnvironment = .dev
     private var projectId: String = ""
     private var webView: VerisoulWebView?
-    private var networking: VerisoulNetworkingClientInterface!
+    private var networking: VerisoulNetworkingClientInterface?
     private let deviceInfo = SystemInfoCollector()
-    private var deviceCheck: DeviceCheckInterface!
-    private var deviceAttest: DeviceAttestInterface!
-    private var fraudDetection: FraudDetection!
-    private var eventLogger: WebSocketLogger!
+    private var deviceCheck: DeviceCheckInterface?
+    private var deviceAttest: DeviceAttestInterface?
+    private var fraudDetection: FraudDetection?
+    private var eventLogger: WebSocketLogger?
     private var sessionHelper = SessionHelper.shared
     private let webViewTimeout: TimeInterval = 20.0
     
@@ -68,6 +68,20 @@ public final class Verisoul: NSObject {
     internal func _resetReinitializeDebounce() {
         sessionLock.lock()
         lastReinitializeTime = 0
+        sessionLock.unlock()
+    }
+
+    internal func _resetConfiguredState() {
+        sessionLock.lock()
+        dataCollectionTask?.cancel()
+        dataCollectionTask = nil
+        fraudDetection = nil
+        networking = nil
+        deviceCheck = nil
+        deviceAttest = nil
+        eventLogger = nil
+        lastReinitializeTime = 0
+        dataCollectionTaskOverride = nil
         sessionLock.unlock()
     }
 
@@ -181,15 +195,18 @@ public final class Verisoul: NSObject {
 
             UIDevice.current.isBatteryMonitoringEnabled = true
 
-            self.networking = VerisoulNetworkingClient(env: env, projectId: projectId)
-            self.deviceAttest = DeviceAttest(networkManager: networking, projectId: projectId)
+            let networkingClient = VerisoulNetworkingClient(env: env, projectId: projectId)
+            self.networking = networkingClient
+            self.deviceAttest = DeviceAttest(networkManager: networkingClient, projectId: projectId)
             self.deviceCheck = DeviceCheck()
-            self.eventLogger = WebSocketLogger(env: env)
-            self.fraudDetection = FraudDetection(networkManager: networking, projectId: projectId)
-            self.fraudDetection.setSessionId(sessionId: sessionId)
-            self.fraudDetection.startGlobalCapture()
+            let logger = WebSocketLogger(env: env)
+            self.eventLogger = logger
+            let fraud = FraudDetection(networkManager: networkingClient, projectId: projectId)
+            fraud.setSessionId(sessionId: sessionId)
+            fraud.startGlobalCapture()
+            self.fraudDetection = fraud
 
-            UnifiedLogger.shared.setEventLogger(eventLogger: eventLogger)
+            UnifiedLogger.shared.setEventLogger(eventLogger: logger)
 
             dataCollectionTask = createDataCollectionTask()
             dataCollectionGeneration += 1
@@ -201,6 +218,11 @@ public final class Verisoul: NSObject {
     public func reinitialize() {
         sessionLock.lock()
         defer { sessionLock.unlock() }
+        
+        guard let fraudDetection = self.fraudDetection else {
+            UnifiedLogger.shared.warning("reinitialize() called before configure(). Ignoring.", className: String(describing: Verisoul.self))
+            return
+        }
         
         do {
             let now = Date().timeIntervalSince1970
@@ -216,9 +238,9 @@ public final class Verisoul: NSObject {
             
             sessionHelper.reinitializeSession(projectId: projectId, env: env)
             guard let sessionId = sessionHelper.getSessionId() else { return  }
-            self.fraudDetection.reset()
-            self.fraudDetection.setSessionId(sessionId: sessionId)
-            self.fraudDetection.startGlobalCapture()
+            fraudDetection.reset()
+            fraudDetection.setSessionId(sessionId: sessionId)
+            fraudDetection.startGlobalCapture()
             
             dataCollectionTask = createDataCollectionTask()
             dataCollectionGeneration += 1
@@ -236,6 +258,11 @@ public final class Verisoul: NSObject {
     }
 
     private func performDeviceChecks() async throws {
+        guard let fraudDetection = self.fraudDetection,
+              let deviceAttest = self.deviceAttest,
+              let deviceCheck = self.deviceCheck,
+              let networking = self.networking else { return }
+
         guard sessionHelper.isNeedToSubmitDeviceData() else {
 
             guard let sessionId = sessionHelper.getSessionId() else { return }
@@ -286,6 +313,7 @@ public final class Verisoul: NSObject {
     }
 
     private func performDeviceAttestation() async throws {
+        guard let deviceAttest = self.deviceAttest else { return }
         guard sessionHelper.isNeedToSubmitDeviceCheckData() else { return }
 
         do {
@@ -299,6 +327,8 @@ public final class Verisoul: NSObject {
     }
 
     private func handleUnsupportedDevice() async throws {
+        guard let fraudDetection = self.fraudDetection,
+              let networking = self.networking else { return }
         guard sessionHelper.isNeedToSubmitDeviceData() else { return }
 
         try Task.checkCancellation()

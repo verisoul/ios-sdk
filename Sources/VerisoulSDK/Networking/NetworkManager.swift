@@ -1,4 +1,5 @@
 import Foundation
+import CoreGraphics
 
 extension URLRequest {
     var curlString: String {
@@ -62,6 +63,34 @@ class NetworkManager: NetworkManagerProtocol {
         self.session = session
     }
 
+    /// Recursively replaces NaN and Infinity float values with 0 so that
+    /// NSJSONSerialization never encounters an invalid number. This is a
+    /// safety net for UIKit properties that can return NaN when read off
+    /// the main thread on physical devices.
+    static func sanitiseForJSON(_ dict: [String: Any]) -> [String: Any] {
+        return dict.mapValues { sanitiseValue($0) }
+    }
+
+    private static func sanitiseValue(_ value: Any) -> Any {
+        switch value {
+        case let cg as CGFloat where !cg.isFinite:
+            return CGFloat(0.0)
+        case let d as Double where !d.isFinite:
+            return 0.0
+        case let f as Float where !f.isFinite:
+            return Float(0.0)
+        case let n as NSNumber:
+            if !n.doubleValue.isFinite { return 0.0 }
+            return value
+        case let dict as [String: Any]:
+            return dict.mapValues { sanitiseValue($0) }
+        case let arr as [Any]:
+            return arr.map { sanitiseValue($0) }
+        default:
+            return value
+        }
+    }
+
     // Implementation of the request method for API calls with Decodable response
     func request<T: Decodable>(
         url: URL,
@@ -83,10 +112,10 @@ class NetworkManager: NetworkManagerProtocol {
             }
         }
 
-        // If there are parameters, encode them into the body for POST, PUT, etc.
         if let parameters = parameters {
+            let sanitised = Self.sanitiseForJSON(parameters)
             do {
-                request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: [])
+                request.httpBody = try JSONSerialization.data(withJSONObject: sanitised, options: [])
             } catch {
                 if retryNumber >= maxRetryNumber - 1 {
                 UnifiedLogger.shared.error("Error encoding parameters: \(error.localizedDescription)", className: String(describing: NetworkManager.self))
@@ -144,11 +173,10 @@ class NetworkManager: NetworkManagerProtocol {
             }
         }
 
-        // If there are parameters, encode them into the body for POST, PUT, etc.
         if let parameters = parameters {
+            let sanitised = Self.sanitiseForJSON(parameters)
             do {
-                request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: [])
-//                UnifiedLogger.shared.debug("Request parameters: \(parameters)")
+                request.httpBody = try JSONSerialization.data(withJSONObject: sanitised, options: [])
             } catch {
                 if retryNumber >= maxRetryNumber - 1 {
                 UnifiedLogger.shared.error("Error encoding parameters: \(error.localizedDescription)", className: String(describing: NetworkManager.self))
@@ -158,7 +186,6 @@ class NetworkManager: NetworkManagerProtocol {
                 }
             }
         }
-
 
         // Perform the network request using URLSession with async/await
         do {

@@ -6,6 +6,7 @@ import AVKit
 import CFNetwork
 import SystemConfiguration.CaptiveNetwork
 import CoreFoundation
+import CoreGraphics
 import CoreLocation
 import CoreMotion
 import CryptoKit

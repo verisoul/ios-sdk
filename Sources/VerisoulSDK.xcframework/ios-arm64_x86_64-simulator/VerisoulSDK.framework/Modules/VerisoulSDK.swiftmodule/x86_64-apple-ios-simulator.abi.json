@@ -1737,6 +1737,13 @@
       },
       {
         "kind": "Import",
+        "name": "CoreGraphics",
+        "printedName": "CoreGraphics",
+        "declKind": "Import",
+        "moduleName": "VerisoulSDK"
+      },
+      {
+        "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
@@ -4649,21 +4656,21 @@
     {
       "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/Networking\/NetworkManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 1631,
+      "offset": 1651,
       "length": 1,
       "value": "3"
     },
     {
       "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/Networking\/NetworkManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 2043,
+      "offset": 3124,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/Networking\/NetworkManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 5029,
+      "offset": 6088,
       "length": 1,
       "value": "0"
     },

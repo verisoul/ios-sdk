@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.67] - 2026-04-14
+
+### Changed
+- Address PR review: type-safe sanitiseForJSON, gate test hook behind #if DEBUG
+- Fix NSInvalidArgumentException crash in JSON serialisation (NaN from UIKit off-main-thread reads)
+
+
 ## [0.4.66] - 2026-02-20
 
 ### Changed

@@ -4,76 +4,72 @@ import MessageUI
 import LocalAuthentication
 
 class DeviceInfoCollector {
+    #if DEBUG
+    static var _testOverrideData: [String: Any]?
+    #endif
+
     static func collect() -> [String: Any] {
+        #if DEBUG
+        if let override = _testOverrideData { return override }
+        #endif
         let startTime = CFAbsoluteTimeGetCurrent()
-        let device = UIDevice.current
         let timezone = TimeZone.current
-        let screen = UIScreen.main
         let languages = Locale.preferredLanguages
         let locale = Locale.current
         
-        // Check if running on Simulator
 #if targetEnvironment(simulator)
         let isSimulator = true
 #else
         let isSimulator = false
 #endif
-        
-        // Start battery monitoring
-        device.isBatteryMonitoringEnabled = true
+
+        let uiKitProps = readUIKitPropertiesOnMainThread()
         
         var deviceInfo: [String: Any] = [
-            "device_name": device.name,
-            "system_name": device.systemName,
-            "system_version": device.systemVersion,
-            "model": device.model,
-            "localized_model": device.localizedModel,
-            "battery_level": device.batteryLevel,
-            "battery_state": batteryStateString(device.batteryState),
-            "is_battery_monitoring_enabled": device.isBatteryMonitoringEnabled,
-            "is_multitasking_supported": device.isMultitaskingSupported,
-            "is_proximity_monitoring_enabled": device.isProximityMonitoringEnabled,
-            "proximity_state": device.proximityState,
-            "device_orientation": orientationString(device.orientation),
+            "device_name": uiKitProps.deviceName,
+            "system_name": uiKitProps.systemName,
+            "system_version": uiKitProps.systemVersion,
+            "model": uiKitProps.model,
+            "localized_model": uiKitProps.localizedModel,
+            "battery_level": uiKitProps.batteryLevel,
+            "battery_state": batteryStateString(uiKitProps.batteryState),
+            "is_battery_monitoring_enabled": uiKitProps.isBatteryMonitoringEnabled,
+            "is_multitasking_supported": uiKitProps.isMultitaskingSupported,
+            "is_proximity_monitoring_enabled": uiKitProps.isProximityMonitoringEnabled,
+            "proximity_state": uiKitProps.proximityState,
+            "device_orientation": orientationString(uiKitProps.deviceOrientation),
             "time_zone": timezone.identifier,
             "time_zone_abbreviation": timezone.abbreviation() ?? "",
             "seconds_from_gmt": timezone.secondsFromGMT(),
             "is_daylight_savings": timezone.isDaylightSavingTime(),
-            "screen_brightness": UIScreen.main.brightness,
-            "accessibility_reduce_motion_enabled": UIAccessibility.isReduceMotionEnabled,
-            "accessibility_bold_text_enabled": UIAccessibility.isBoldTextEnabled,
-            "accessibility_assistive_touch_enabled": UIAccessibility.isAssistiveTouchRunning,
+            "screen_brightness": uiKitProps.screenBrightness,
+            "accessibility_reduce_motion_enabled": uiKitProps.reduceMotionEnabled,
+            "accessibility_bold_text_enabled": uiKitProps.boldTextEnabled,
+            "accessibility_assistive_touch_enabled": uiKitProps.assistiveTouchRunning,
             "app_language": Bundle.main.preferredLocalizations.first ?? "",
-            // Screen information (flattened)
-            "screen_bounds_width": screen.bounds.width,
-            "screen_bounds_height": screen.bounds.height,
-            "screen_scale": screen.scale,
-            "screen_native_bounds_width": screen.nativeBounds.width,
-            "screen_native_bounds_height": screen.nativeBounds.height,
-            "screen_native_scale": screen.nativeScale,
+            "screen_bounds_width": uiKitProps.screenBoundsWidth,
+            "screen_bounds_height": uiKitProps.screenBoundsHeight,
+            "screen_scale": uiKitProps.screenScale,
+            "screen_native_bounds_width": uiKitProps.screenNativeBoundsWidth,
+            "screen_native_bounds_height": uiKitProps.screenNativeBoundsHeight,
+            "screen_native_scale": uiKitProps.screenNativeScale,
             "identifierForVendor": fetchIdentifierForVendor(),
-            // Language and locale information
             "preferred_languages": languages,
             "current_locale_identifier": locale.identifier,
-            
-            // Calendar information
             "calendar_identifier": String(describing: Calendar.current.identifier),
             "can_send_mail": MFMailComposeViewController.canSendMail(),
             "can_send_text": MFMessageComposeViewController.canSendText(),
-            // Simulator information
             "is_simulator": isSimulator,
             "is_debugger_attached": DebuggerChecker.amIDebugged(),
             "biometric_authentication_enabled": isBiometricEnabled(),
         ]
         
-        // Handle locale properties for different iOS versions
         if #available(iOS 16, *) {
             deviceInfo["current_locale_language_code"] = locale.language.languageCode?.identifier ?? ""
             deviceInfo["current_locale_region_code"] = locale.region?.identifier ?? ""
             deviceInfo["current_locale_currency_code"] = locale.currency?.identifier ?? ""
             deviceInfo["current_locale_currency_symbol"] = locale.currencySymbol ?? ""
         } else {
-            // Using deprecated APIs for older iOS versions
 #if compiler(>=5.7)
             deviceInfo["current_locale_language_code"] = locale.languageCode ?? ""
             deviceInfo["current_locale_region_code"] = locale.regionCode ?? ""
@@ -86,13 +82,81 @@ class DeviceInfoCollector {
         deviceInfo["current_locale_grouping_separator"] = locale.groupingSeparator ?? ""
         deviceInfo["device_check_enabled"] = DCDevice.current.isSupported
         deviceInfo["app_attest_enabled"] = DCAppAttestService.shared.isSupported
-        // Stop battery monitoring
-        device.isBatteryMonitoringEnabled = false
+
         let endTime = CFAbsoluteTimeGetCurrent()
         UnifiedLogger.shared.metric(value: (endTime - startTime),
                                     name: "device_info_duration",
                                     className: String(describing: DeviceInfoCollector.self))
         return deviceInfo
+    }
+
+    // MARK: - UIKit Main-Thread Access
+
+    private struct UIKitProperties {
+        let deviceName: String
+        let systemName: String
+        let systemVersion: String
+        let model: String
+        let localizedModel: String
+        let batteryLevel: Float
+        let batteryState: UIDevice.BatteryState
+        let isBatteryMonitoringEnabled: Bool
+        let isMultitaskingSupported: Bool
+        let isProximityMonitoringEnabled: Bool
+        let proximityState: Bool
+        let deviceOrientation: UIDeviceOrientation
+        let screenBrightness: CGFloat
+        let screenBoundsWidth: CGFloat
+        let screenBoundsHeight: CGFloat
+        let screenScale: CGFloat
+        let screenNativeBoundsWidth: CGFloat
+        let screenNativeBoundsHeight: CGFloat
+        let screenNativeScale: CGFloat
+        let reduceMotionEnabled: Bool
+        let boldTextEnabled: Bool
+        let assistiveTouchRunning: Bool
+    }
+
+    /// Reads all UIKit/UIDevice/UIScreen properties on the main thread.
+    /// UIKit is not thread-safe; reading these from a background thread can
+    /// return NaN/Infinity for float properties, which crashes NSJSONSerialization.
+    private static func readUIKitPropertiesOnMainThread() -> UIKitProperties {
+        let read = {
+            let device = UIDevice.current
+            let screen = UIScreen.main
+            device.isBatteryMonitoringEnabled = true
+            let props = UIKitProperties(
+                deviceName: device.name,
+                systemName: device.systemName,
+                systemVersion: device.systemVersion,
+                model: device.model,
+                localizedModel: device.localizedModel,
+                batteryLevel: device.batteryLevel,
+                batteryState: device.batteryState,
+                isBatteryMonitoringEnabled: device.isBatteryMonitoringEnabled,
+                isMultitaskingSupported: device.isMultitaskingSupported,
+                isProximityMonitoringEnabled: device.isProximityMonitoringEnabled,
+                proximityState: device.proximityState,
+                deviceOrientation: device.orientation,
+                screenBrightness: screen.brightness,
+                screenBoundsWidth: screen.bounds.width,
+                screenBoundsHeight: screen.bounds.height,
+                screenScale: screen.scale,
+                screenNativeBoundsWidth: screen.nativeBounds.width,
+                screenNativeBoundsHeight: screen.nativeBounds.height,
+                screenNativeScale: screen.nativeScale,
+                reduceMotionEnabled: UIAccessibility.isReduceMotionEnabled,
+                boldTextEnabled: UIAccessibility.isBoldTextEnabled,
+                assistiveTouchRunning: UIAccessibility.isAssistiveTouchRunning
+            )
+            device.isBatteryMonitoringEnabled = false
+            return props
+        }
+
+        if Thread.isMainThread {
+            return read()
+        }
+        return DispatchQueue.main.sync { read() }
     }
     
     /// Checks if biometric authentication is enabled on the device.

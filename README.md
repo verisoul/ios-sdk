@@ -18,6 +18,7 @@ _To run the SDK a Verisoul Project ID is required._ Schedule a call [here](https
 - Xcode 15.0 or higher
 - Swift 5.9 or higher
 - CocoaPods 1.10+ (if using CocoaPods)
+- SDK Size: ~480 KB
 
 ## Installation
 

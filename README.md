@@ -108,21 +108,6 @@ do {
 }
 ```
 
-### Reinitialize Session
-
-The `reinitialize()` method generates a fresh session ID and resets the SDK's data collection. This is essential for maintaining data integrity when user context changes.
-
-**Example:**
-
-```swift
-// User logs out
-await Verisoul.shared.reinitialize()
-
-// Now ready for a new user to log in with a fresh session
-```
-
-After calling this method, you can call `session()` to retrieve the new session identifier.
-
 ### Provide Touch Events
 
 The Verisoul SDK automatically captures touch events when integrated. No additional code is required for touch event collection.

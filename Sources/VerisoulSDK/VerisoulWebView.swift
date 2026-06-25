@@ -79,8 +79,8 @@ public class VerisoulWebView: WKWebView, WKNavigationDelegate {
 
         var components = URLComponents()
         components.scheme = "https"
-        components.host = "js.verisoul.ai"
-        components.path = "/\(env.rawValue)/webview.html"
+        components.host = Self.webViewHost(for: env)
+        components.path = "/webview.html"
         components.queryItems = [
             URLQueryItem(name: "project_id", value: projectId),
             URLQueryItem(name: "session_id", value: sessionId)
@@ -112,6 +112,18 @@ public class VerisoulWebView: WKWebView, WKNavigationDelegate {
         }
     }
     
+    /// Maps the SDK environment to the WebView host.
+    /// dev -> dev.js.verisoul.ai, sandbox -> sandbox.js.verisoul.ai,
+    /// staging -> staging.js.verisoul.ai, prod -> js.verisoul.ai
+    static func webViewHost(for env: VerisoulEnvironment) -> String {
+        switch env {
+        case .prod: return "js.verisoul.ai"
+        case .sandbox: return "sandbox.js.verisoul.ai"
+        case .dev: return "dev.js.verisoul.ai"
+        case .staging: return "staging.js.verisoul.ai"
+        }
+    }
+
     /// Thread-safe completion to ensure we only call completion once
     private func safeComplete(with result: Result<Void, Error>) {
         guard !didComplete else { return }

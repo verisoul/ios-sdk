@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.68] - 2026-06-25
+
+### Changed
+- docs: update README install version references to 0.4.68
+- fix(webview): build WebView URL from environment-specific host
+
+
 ## [0.4.67] - 2026-04-14
 
 ### Changed

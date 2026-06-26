@@ -370,7 +370,8 @@ public final class Verisoul: NSObject {
     public func session() async throws -> String {
         UnifiedLogger.shared.info("Retrieving session ID...", className: String(describing: Verisoul.self))
 
-        if let s = sessionHelper.getSession(), !s.isExpired(), s.status.nativeDataCollection == .done {
+        if let s = sessionHelper.getSession(), !s.isExpired(), s.status.nativeDataCollection == .done,
+           s.projectId == projectId, s.env == env {
             UnifiedLogger.shared.info("Session ID retrieved from cache: \(s.sessionId)", className: String(describing: Verisoul.self))
             return s.sessionId
         }
@@ -406,7 +407,8 @@ public final class Verisoul: NSObject {
                     UnifiedLogger.shared.info("Data collection completed", className: String(describing: Verisoul.self))
                 }
                 
-                if let s = sessionHelper.getSession(), !s.isExpired(), s.status.nativeDataCollection == .done {
+                if let s = sessionHelper.getSession(), !s.isExpired(), s.status.nativeDataCollection == .done,
+                   s.projectId == projectId, s.env == env {
                     UnifiedLogger.shared.info("Session ID retrieved after data collection: \(s.sessionId)", className: String(describing: Verisoul.self))
                     return s.sessionId
                 }
@@ -428,7 +430,8 @@ public final class Verisoul: NSObject {
         while Date().timeIntervalSince(pollingStartTime) < webViewTimeout {
             if !sessionHelper.isNeedToSubmitDeviceData(),
                let s = sessionHelper.getSession(),
-               !s.isExpired() {
+               !s.isExpired(),
+               s.projectId == projectId, s.env == env {
                 UnifiedLogger.shared.info("Session ID retrieved after polling: \(s.sessionId)", className: String(describing: Verisoul.self))
                 return s.sessionId
             }

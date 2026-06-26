@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.69] - 2026-06-26
+
+### Changed
+- fix(session): guard the cached session against project_id/environment changes so a session minted for a different project/environment is never reused (defense-in-depth; mirrors the native Android fix)
+
 ## [0.4.68] - 2026-06-25
 
 ### Changed

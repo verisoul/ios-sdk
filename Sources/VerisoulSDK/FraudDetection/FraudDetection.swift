@@ -119,12 +119,14 @@ public class FraudDetection: NSObject {
 
         UnifiedLogger.shared.info("Attaching gesture recognizer to window: \(window)", className: String(describing: FraudDetection.self))
 
-        if let viewWithTag = window.viewWithTag(100) {
-            viewWithTag.removeFromSuperview()
+        // Only remove overlays we created. Never search the whole hierarchy by
+        // tag: React Native (Fabric) and other frameworks assign integer tags
+        // to their own views, and removing one corrupts their view bookkeeping.
+        for subview in window.subviews where subview is PassthroughWindow {
+            subview.removeFromSuperview()
         }
 
         let glassView = PassthroughWindow(frame: window.bounds)
-        glassView.tag = 100
         glassView.capturer = self
         window.addSubview(glassView)
         attachedWindows.add(window)

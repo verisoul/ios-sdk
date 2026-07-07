@@ -4453,35 +4453,35 @@
     {
       "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "IntegerLiteral",
-      "offset": 3995,
+      "offset": 4224,
       "length": 3,
       "value": "200"
     },
     {
       "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "StringLiteral",
-      "offset": 4055,
+      "offset": 4284,
       "length": 36,
       "value": "\"com.fraudDetection.dataAccessQueue\""
     },
     {
       "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "StringLiteral",
-      "offset": 4206,
+      "offset": 4435,
       "length": 39,
       "value": "\"com.fraudDetection.motionManagerQueue\""
     },
     {
       "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "IntegerLiteral",
-      "offset": 10409,
+      "offset": 10638,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "IntegerLiteral",
-      "offset": 10435,
+      "offset": 10664,
       "length": 1,
       "value": "0"
     },

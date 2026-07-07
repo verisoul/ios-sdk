@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.70] - 2026-07-07
+
+### Fixed
+- fix(fraud-detection): the touch-capture overlay cleanup used `window.viewWithTag(100)`, which searches the entire view hierarchy and could remove a host-app view that happened to carry tag 100 (React Native Fabric assigns sequential integer tags to its views). This corrupted Fabric's mounting state and crashed apps with an `NSRangeException` in `-[RCTViewComponentView unmountChildComponentView:index:]` during view teardown (e.g. app termination). The overlay is now tracked by class among the window's direct subviews and no tag is assigned.
+
 ## [0.4.69] - 2026-06-26
 
 ### Changed

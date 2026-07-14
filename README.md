@@ -71,7 +71,7 @@ Update your app's entitlements file:
 
 ### Initialize the SDK
 
-Call `configure()` when your application starts, typically in `AppDelegate` or the main app entry point.
+Call `configure()` before you intend to retrieve a Verisoul session_id.
 
 ```swift
 import VerisoulSDK
@@ -79,7 +79,7 @@ import VerisoulSDK
 Verisoul.shared.configure(env: .prod, projectId: "your-project-id")
 ```
 
-The `configure()` method initializes the Verisoul SDK with your project credentials. This method must be called once when your application starts.
+The `configure()` method initializes the Verisoul SDK with your project credentials. Only initialize the SDK if you plan to retrieve a session_id and call the Verisoul API for that session.
 
 **Parameters:**
 

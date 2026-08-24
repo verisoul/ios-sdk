@@ -34,7 +34,7 @@ To integrate VerisoulSDK with CocoaPods:
    ```
 2. Add VerisoulSDK to your Podfile:
    ```ruby
-   pod 'VerisoulSDK', '~> 0.4.70'
+   pod 'VerisoulSDK', '~> 0.4.71'
    ```
 3. Run the following command to install the SDK:
    ```sh
@@ -85,6 +85,8 @@ The `configure()` method initializes the Verisoul SDK with your project credenti
 
 - `env`: The environment to use `.prod` for production or `.sandbox` for testing
 - `projectId`: Your unique Verisoul project identifier
+- `reinitialize`: Whether to create a new session during configuration. Defaults to `false`
+- `collectTouchData`: Whether to begin touch and motion capture. Defaults to `true`
 
 ### Get Session ID
 
@@ -110,7 +112,43 @@ do {
 
 ### Provide Touch Events
 
-The Verisoul SDK automatically captures touch events when integrated. No additional code is required for touch event collection.
+Starting in version 0.4.71, the Verisoul SDK captures a small number of touch
+events together with accelerometer samples without adding any views to your
+app's hierarchy. It attaches a `UIGestureRecognizer` to the key window with
+`cancelsTouchesInView`, `delaysTouchesBegan`, and `delaysTouchesEnded` all set
+to `false`, so your app continues to receive touches without cancellation or
+delay.
+
+Capture starts automatically by default and stops after 10 samples or five
+minutes, whichever comes first. The SDK removes the recognizer when capture
+stops.
+
+To configure the SDK without starting touch and motion capture:
+
+```swift
+Verisoul.shared.configure(
+    env: .prod,
+    projectId: "your-project-id",
+    collectTouchData: false
+)
+```
+
+Use `setTouchCaptureEnabled(_:)` to limit capture to a specific flow such as
+signup:
+
+```swift
+Verisoul.shared.configure(
+    env: .prod,
+    projectId: "your-project-id",
+    collectTouchData: false
+)
+
+// When signup begins:
+Verisoul.shared.setTouchCaptureEnabled(true)
+
+// When signup ends:
+Verisoul.shared.setTouchCaptureEnabled(false)
+```
 
 ### Error Codes
 

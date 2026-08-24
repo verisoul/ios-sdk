@@ -49,6 +49,7 @@ public final class Verisoul: NSObject {
     private var lastReinitializeTime: TimeInterval = 0
     private var reinitializeDebounceInterval: TimeInterval = 1.0
     private var dataCollectionTaskOverride: (() -> Task<Void, Never>)?
+    private var touchCaptureEnabled = true
     private let sessionLock = NSLock()
 
     // MARK: - VerisoulSDKInterface Method Implementations
@@ -71,10 +72,15 @@ public final class Verisoul: NSObject {
         sessionLock.unlock()
     }
 
+    internal var _isTouchCaptureActive: Bool {
+        fraudDetection?.isCaptureActiveForTesting ?? false
+    }
+
     internal func _resetConfiguredState() {
         sessionLock.lock()
         dataCollectionTask?.cancel()
         dataCollectionTask = nil
+        fraudDetection?.pause()
         fraudDetection = nil
         networking = nil
         deviceCheck = nil
@@ -82,6 +88,7 @@ public final class Verisoul: NSObject {
         eventLogger = nil
         lastReinitializeTime = 0
         dataCollectionTaskOverride = nil
+        touchCaptureEnabled = true
         sessionLock.unlock()
     }
 
@@ -181,7 +188,12 @@ public final class Verisoul: NSObject {
         }
     }
 
-    public func configure(env: VerisoulEnvironment, projectId: String, reinitialize: Bool = false) {
+    public func configure(
+        env: VerisoulEnvironment,
+        projectId: String,
+        reinitialize: Bool = false,
+        collectTouchData: Bool = true
+    ) {
         sessionLock.lock()
         defer { sessionLock.unlock() }
         
@@ -190,6 +202,7 @@ public final class Verisoul: NSObject {
 
             self.env = env
             self.projectId = projectId
+            self.touchCaptureEnabled = collectTouchData
 
             let sessionId = self.sessionHelper.initSessionId(projectId: projectId, env: env, reinitialize: reinitialize)
 
@@ -203,8 +216,11 @@ public final class Verisoul: NSObject {
             self.eventLogger = logger
             let fraud = FraudDetection(networkManager: networkingClient, projectId: projectId)
             fraud.setSessionId(sessionId: sessionId)
-            fraud.startGlobalCapture()
+            self.fraudDetection?.pause()
             self.fraudDetection = fraud
+            if touchCaptureEnabled {
+                fraud.startGlobalCapture()
+            }
 
             UnifiedLogger.shared.setEventLogger(eventLogger: logger)
 
@@ -212,6 +228,26 @@ public final class Verisoul: NSObject {
             dataCollectionGeneration += 1
         } catch {
             UnifiedLogger.shared.error("Error during SDK configure: \(error.localizedDescription)", className: String(describing: Verisoul.self))
+        }
+    }
+
+    public func setTouchCaptureEnabled(_ enabled: Bool) {
+        sessionLock.lock()
+        defer { sessionLock.unlock() }
+
+        touchCaptureEnabled = enabled
+        guard let fraudDetection else {
+            UnifiedLogger.shared.warning(
+                "setTouchCaptureEnabled() called before configure(). Ignoring.",
+                className: String(describing: Verisoul.self)
+            )
+            return
+        }
+
+        if enabled {
+            fraudDetection.startGlobalCapture()
+        } else {
+            fraudDetection.pause()
         }
     }
 
@@ -240,7 +276,9 @@ public final class Verisoul: NSObject {
             guard let sessionId = sessionHelper.getSessionId() else { return  }
             fraudDetection.reset()
             fraudDetection.setSessionId(sessionId: sessionId)
-            fraudDetection.startGlobalCapture()
+            if touchCaptureEnabled {
+                fraudDetection.startGlobalCapture()
+            }
             
             dataCollectionTask = createDataCollectionTask()
             dataCollectionGeneration += 1

@@ -50,6 +50,65 @@ struct SensorPayload: Codable {
     }
 }
 
+final class TouchCaptureGestureRecognizer: UIGestureRecognizer, UIGestureRecognizerDelegate {
+    weak var capturer: FraudDetection?
+    private var touchStartTimes: [ObjectIdentifier: Date] = [:]
+
+    init(capturer: FraudDetection) {
+        self.capturer = capturer
+        super.init(target: nil, action: nil)
+        cancelsTouchesInView = false
+        delaysTouchesBegan = false
+        delaysTouchesEnded = false
+        delegate = self
+    }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent) {
+        let now = Date()
+        for touch in touches {
+            touchStartTimes[ObjectIdentifier(touch)] = now
+        }
+    }
+
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent) {
+        for touch in touches {
+            let identifier = ObjectIdentifier(touch)
+            let downTime = touchStartTimes.removeValue(forKey: identifier) ?? Date()
+            capturer?.handleTouchEnded(touch: touch.location(in: view), downTime: downTime)
+        }
+
+        // This recognizer only observes touches. Failing ensures it never wins
+        // recognition or changes the host application's gesture handling.
+        state = .failed
+    }
+
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent) {
+        for touch in touches {
+            touchStartTimes.removeValue(forKey: ObjectIdentifier(touch))
+        }
+        state = .failed
+    }
+
+    override func reset() {
+        touchStartTimes.removeAll()
+        super.reset()
+    }
+
+    override func canPrevent(_ preventedGestureRecognizer: UIGestureRecognizer) -> Bool {
+        false
+    }
+
+    override func canBePrevented(by preventingGestureRecognizer: UIGestureRecognizer) -> Bool {
+        false
+    }
+
+    func gestureRecognizer(
+        _ gestureRecognizer: UIGestureRecognizer,
+        shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer
+    ) -> Bool {
+        true
+    }
+}
 
 public class FraudDetection: NSObject {
 
@@ -62,6 +121,8 @@ public class FraudDetection: NSObject {
     private var state = AccelerometerState.stopped
     private var payloadQueue: [SensorPayload] = []
     private let accelerometerUpdateInterval: TimeInterval = 1.0 / 50.0
+    private var isCaptureActive = false
+    private var didScheduleInitialSample = false
 
     private var isAccelerometerAvailable = true
     init(networkManager: VerisoulNetworkingClientInterface, projectId: String?) {
@@ -69,8 +130,14 @@ public class FraudDetection: NSObject {
         self.projectId = projectId
     }
 
+    var isCaptureActiveForTesting: Bool {
+        isCaptureActive
+    }
+
     func reset() {
+        pause()
         sendCount = 0
+        didScheduleInitialSample = false
     }
 
     public func setSessionId(sessionId: String) {
@@ -80,10 +147,16 @@ public class FraudDetection: NSObject {
 
     public func startGlobalCapture() {
         guard SessionHelper.shared.isNeedToSubmitTouchData() else { return }
+        guard !isCaptureActive else { return }
+
+        isCaptureActive = true
         isAccelerometerAvailable = true
         setupMotionManager(updateInterval: accelerometerUpdateInterval)
-        DispatchQueue.global().asyncAfter(deadline: .now() + 1) {
-            self.handleTouchEnded(touch: nil,downTime: Date())
+        if !didScheduleInitialSample {
+            didScheduleInitialSample = true
+            DispatchQueue.global().asyncAfter(deadline: .now() + 1) { [weak self] in
+                self?.handleTouchEnded(touch: nil, downTime: Date())
+            }
         }
         DispatchQueue.main.async {
             self.periodicAttachGesture()
@@ -91,27 +164,56 @@ public class FraudDetection: NSObject {
     }
 
     public func stop() {
+        stop(markCollectionDone: true)
+    }
+
+    func pause() {
+        stop(markCollectionDone: false)
+    }
+
+    private func stop(markCollectionDone: Bool) {
+        isCaptureActive = false
         motionManager.stopAccelerometerUpdates()
         state = .stopped
         isAccelerometerAvailable = true
-        if(workItem?.isCancelled == false){
+        if workItem?.isCancelled == false {
             workItem?.cancel()
         }
+        workItem = nil
         timer?.invalidate()
         timer = nil
-        SessionHelper.shared.setTouchDataCollectionIsDone()
+        removeGestureRecognizers()
+        if markCollectionDone {
+            SessionHelper.shared.setTouchDataCollectionIsDone()
+        }
         UnifiedLogger.shared.info("Stopped collecting data.", className: String(describing: FraudDetection.self))
     }
 
     @objc private func periodicAttachGesture() {
+        guard isCaptureActive else {
+            timer?.invalidate()
+            timer = nil
+            return
+        }
+
         guard let window = UIWindow.topMostWindow() else {
             UnifiedLogger.shared.warning("No topMostWindow found right now.", className: String(describing: FraudDetection.self))
+            scheduleAttachRetry()
             return
         }
         attachGestureIfNeeded(to: window)
+        timer?.invalidate()
+        timer = nil
     }
 
-    private func attachGestureIfNeeded(to window: UIWindow) {
+    private func scheduleAttachRetry() {
+        guard timer == nil else { return }
+        timer = Timer.scheduledTimer(withTimeInterval: 0.25, repeats: true) { [weak self] _ in
+            self?.periodicAttachGesture()
+        }
+    }
+
+    func attachGestureIfNeeded(to window: UIWindow) {
         if attachedWindows.contains(window) {
             UnifiedLogger.shared.debug("Already attached to window: \(window)", className: String(describing: FraudDetection.self))
             return
@@ -119,17 +221,39 @@ public class FraudDetection: NSObject {
 
         UnifiedLogger.shared.info("Attaching gesture recognizer to window: \(window)", className: String(describing: FraudDetection.self))
 
-        // Only remove overlays we created. Never search the whole hierarchy by
-        // tag: React Native (Fabric) and other frameworks assign integer tags
-        // to their own views, and removing one corrupts their view bookkeeping.
-        for subview in window.subviews where subview is PassthroughWindow {
-            subview.removeFromSuperview()
+        // Remove stale recognizers from a prior SDK configuration without
+        // touching recognizers owned by the host application.
+        for recognizer in window.gestureRecognizers ?? [] where recognizer is TouchCaptureGestureRecognizer {
+            window.removeGestureRecognizer(recognizer)
         }
 
-        let glassView = PassthroughWindow(frame: window.bounds)
-        glassView.capturer = self
-        window.addSubview(glassView)
+        window.addGestureRecognizer(TouchCaptureGestureRecognizer(capturer: self))
         attachedWindows.add(window)
+    }
+
+    private func removeGestureRecognizers() {
+        let windows = attachedWindows.allObjects
+        attachedWindows.removeAllObjects()
+
+        let remove = {
+            for window in windows {
+                for recognizer in window.gestureRecognizers ?? [] {
+                    guard let touchRecognizer = recognizer as? TouchCaptureGestureRecognizer,
+                          touchRecognizer.capturer === self else { continue }
+                    window.removeGestureRecognizer(touchRecognizer)
+                }
+            }
+        }
+
+        // Never main.sync here: callers hold Verisoul.sessionLock, and a
+        // main-thread caller contending that lock would deadlock against us.
+        // Asynchronous removal is safe — isCaptureActive is already false, so
+        // a recognizer that outlives this call by a beat records nothing.
+        if Thread.isMainThread {
+            remove()
+        } else {
+            DispatchQueue.main.async(execute: remove)
+        }
     }
 
     private let motionManager = CMMotionManager()
@@ -181,12 +305,12 @@ public class FraudDetection: NSObject {
 
     internal func handleTouchEnded(touch: CGPoint?, downTime: Date) {
         UnifiedLogger.shared.debug("Touch ended at point: \(touch)", className: String(describing: FraudDetection.self))
-        if (state == .stopped && isAccelerometerAvailable) || sendCount > 10   { return }
+        guard isCaptureActive, sendCount < 10 else { return }
 
         let touchTime = CACurrentMediaTime()
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [weak self] in
-            guard let self = self else { return }
+            guard let self = self, self.isCaptureActive, self.sendCount < 10 else { return }
 
             self.dataAccessQueue.async {
                 let startTime = touchTime - 1.0
@@ -242,7 +366,7 @@ public class FraudDetection: NSObject {
 
 
     private func sendDataToEndpoint(_ payload: SensorPayload) async throws {
-        if(payload.sampleNumber<=10){
+        if payload.sampleNumber <= 10, isCaptureActive {
             UnifiedLogger.shared.info("Touch data send : \(payload.touch.x) , \(payload.touch.y)", className: String(describing: FraudDetection.self))
 
 

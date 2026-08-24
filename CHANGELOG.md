@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.71] - 2026-08-23
+
+### Added
+- Add `collectTouchData` to `configure()` and `setTouchCaptureEnabled(_:)` so integrators can limit touch and motion capture to flows such as signup. Capture remains enabled by default.
+
+### Changed
+- Replace the full-screen `PassthroughWindow` touch-capture view with a non-interfering gesture recognizer attached directly to the key window. The recognizer does not cancel or delay host-app touches and is removed when collection stops.
+
 ## [0.4.70] - 2026-07-07
 
 ### Fixed

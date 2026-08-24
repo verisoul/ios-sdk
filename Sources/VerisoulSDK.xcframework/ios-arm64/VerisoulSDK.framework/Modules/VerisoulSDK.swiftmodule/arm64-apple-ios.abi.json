@@ -741,20 +741,6 @@
       },
       {
         "kind": "Import",
-        "name": "SwiftUI",
-        "printedName": "SwiftUI",
-        "declKind": "Import",
-        "moduleName": "VerisoulSDK"
-      },
-      {
-        "kind": "Import",
-        "name": "UIKit",
-        "printedName": "UIKit",
-        "declKind": "Import",
-        "moduleName": "VerisoulSDK"
-      },
-      {
-        "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
@@ -3010,7 +2996,7 @@
           {
             "kind": "Function",
             "name": "configure",
-            "printedName": "configure(env:projectId:reinitialize:)",
+            "printedName": "configure(env:projectId:reinitialize:collectTouchData:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -3035,11 +3021,45 @@
                 "printedName": "Swift.Bool",
                 "hasDefaultArg": true,
                 "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "hasDefaultArg": true,
+                "usr": "s:Sb"
               }
             ],
             "declKind": "Func",
-            "usr": "s:11VerisoulSDK0A0C9configure3env9projectId12reinitializeyAA0A11EnvironmentO_SSSbtF",
-            "mangledName": "$s11VerisoulSDK0A0C9configure3env9projectId12reinitializeyAA0A11EnvironmentO_SSSbtF",
+            "usr": "s:11VerisoulSDK0A0C9configure3env9projectId12reinitialize16collectTouchDatayAA0A11EnvironmentO_SSS2btF",
+            "mangledName": "$s11VerisoulSDK0A0C9configure3env9projectId12reinitialize16collectTouchDatayAA0A11EnvironmentO_SSS2btF",
+            "moduleName": "VerisoulSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setTouchCaptureEnabled",
+            "printedName": "setTouchCaptureEnabled(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11VerisoulSDK0A0C22setTouchCaptureEnabledyySbF",
+            "mangledName": "$s11VerisoulSDK0A0C22setTouchCaptureEnabledyySbF",
             "moduleName": "VerisoulSDK",
             "declAttributes": [
               "Final",
@@ -4257,20 +4277,6 @@
           },
           {
             "kind": "Conformance",
-            "name": "Sendable",
-            "printedName": "Sendable",
-            "usr": "s:s8SendableP",
-            "mangledName": "$ss8SendableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "SendableMetatype",
-            "printedName": "SendableMetatype",
-            "usr": "s:s16SendableMetatypeP",
-            "mangledName": "$ss16SendableMetatypeP"
-          },
-          {
-            "kind": "Conformance",
             "name": "__DefaultCustomPlaygroundQuickLookable",
             "printedName": "__DefaultCustomPlaygroundQuickLookable",
             "usr": "s:s38__DefaultCustomPlaygroundQuickLookableP",
@@ -4417,80 +4423,94 @@
     },
     {
       "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
+      "kind": "Dictionary",
+      "offset": 1242,
+      "length": 3,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "IntegerLiteral",
-      "offset": 1227,
+      "offset": 3176,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "Array",
-      "offset": 1464,
+      "offset": 3413,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "FloatLiteral",
-      "offset": 1527,
+      "offset": 3476,
       "length": 3,
       "value": "1.0"
     },
     {
       "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "FloatLiteral",
-      "offset": 1533,
+      "offset": 3482,
       "length": 4,
       "value": "50.0"
     },
     {
       "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "BooleanLiteral",
-      "offset": 1582,
+      "offset": 3521,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
+      "kind": "BooleanLiteral",
+      "offset": 3570,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
+      "kind": "BooleanLiteral",
+      "offset": 3620,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "IntegerLiteral",
-      "offset": 4224,
+      "offset": 8218,
       "length": 3,
       "value": "200"
     },
     {
       "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "StringLiteral",
-      "offset": 4284,
+      "offset": 8278,
       "length": 36,
       "value": "\"com.fraudDetection.dataAccessQueue\""
     },
     {
       "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "StringLiteral",
-      "offset": 4435,
+      "offset": 8429,
       "length": 39,
       "value": "\"com.fraudDetection.motionManagerQueue\""
     },
     {
       "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "IntegerLiteral",
-      "offset": 10638,
+      "offset": 14666,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "IntegerLiteral",
-      "offset": 10664,
+      "offset": 14692,
       "length": 1,
       "value": "0"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/FraudDetection\/PassthroughWindow.swift",
-      "kind": "BooleanLiteral",
-      "offset": 125,
-      "length": 4,
-      "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/InternalCore.swift",
@@ -4810,9 +4830,23 @@
     {
       "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/Verisoul.swift",
       "kind": "BooleanLiteral",
-      "offset": 6304,
+      "offset": 1899,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/Verisoul.swift",
+      "kind": "BooleanLiteral",
+      "offset": 6552,
       "length": 5,
       "value": "false"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/Verisoul.swift",
+      "kind": "BooleanLiteral",
+      "offset": 6592,
+      "length": 4,
+      "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/VerisoulErrorCodes.swift",

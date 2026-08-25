@@ -119,9 +119,8 @@ app's hierarchy. It attaches a `UIGestureRecognizer` to the key window with
 to `false`, so your app continues to receive touches without cancellation or
 delay.
 
-Capture starts automatically by default and stops after 10 samples or five
-minutes, whichever comes first. The SDK removes the recognizer when capture
-stops.
+Touch and motion capture is enabled by default: collection begins
+automatically as soon as `configure()` is called.
 
 To configure the SDK without starting touch and motion capture:
 

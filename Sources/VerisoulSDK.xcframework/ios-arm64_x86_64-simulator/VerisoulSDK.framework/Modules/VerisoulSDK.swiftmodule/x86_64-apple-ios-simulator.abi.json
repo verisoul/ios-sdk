@@ -4296,623 +4296,623 @@
   },
   "ConstValues": [
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/.build\/DerivedData\/Build\/Intermediates.noindex\/ArchiveIntermediates\/VerisoulSDK\/IntermediateBuildFilesPath\/VerisoulSDK.build\/Release-iphonesimulator\/VerisoulSDK.build\/DerivedSources\/resource_bundle_accessor.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/.build\/DerivedData\/Build\/Intermediates.noindex\/ArchiveIntermediates\/VerisoulSDK\/IntermediateBuildFilesPath\/VerisoulSDK.build\/Release-iphonesimulator\/VerisoulSDK.build\/DerivedSources\/resource_bundle_accessor.swift",
       "kind": "StringLiteral",
       "offset": 307,
       "length": 25,
       "value": "\"VerisoulSDK_VerisoulSDK\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/.build\/DerivedData\/Build\/Intermediates.noindex\/ArchiveIntermediates\/VerisoulSDK\/IntermediateBuildFilesPath\/VerisoulSDK.build\/Release-iphonesimulator\/VerisoulSDK.build\/DerivedSources\/resource_bundle_accessor.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/.build\/DerivedData\/Build\/Intermediates.noindex\/ArchiveIntermediates\/VerisoulSDK\/IntermediateBuildFilesPath\/VerisoulSDK.build\/Release-iphonesimulator\/VerisoulSDK.build\/DerivedSources\/resource_bundle_accessor.swift",
       "kind": "Array",
       "offset": 979,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/.build\/DerivedData\/Build\/Intermediates.noindex\/ArchiveIntermediates\/VerisoulSDK\/IntermediateBuildFilesPath\/VerisoulSDK.build\/Release-iphonesimulator\/VerisoulSDK.build\/DerivedSources\/resource_bundle_accessor.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/.build\/DerivedData\/Build\/Intermediates.noindex\/ArchiveIntermediates\/VerisoulSDK\/IntermediateBuildFilesPath\/VerisoulSDK.build\/Release-iphonesimulator\/VerisoulSDK.build\/DerivedSources\/resource_bundle_accessor.swift",
       "kind": "StringLiteral",
       "offset": 1506,
       "length": 9,
       "value": "\".bundle\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/.build\/DerivedData\/Build\/Intermediates.noindex\/ArchiveIntermediates\/VerisoulSDK\/IntermediateBuildFilesPath\/VerisoulSDK.build\/Release-iphonesimulator\/VerisoulSDK.build\/DerivedSources\/resource_bundle_accessor.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/.build\/DerivedData\/Build\/Intermediates.noindex\/ArchiveIntermediates\/VerisoulSDK\/IntermediateBuildFilesPath\/VerisoulSDK.build\/Release-iphonesimulator\/VerisoulSDK.build\/DerivedSources\/resource_bundle_accessor.swift",
       "kind": "StringLiteral",
       "offset": 1658,
       "length": 53,
       "value": "\"unable to find bundle named VerisoulSDK_VerisoulSDK\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/DeviceAttest\/DeviceAttest.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/DeviceAttest\/DeviceAttest.swift",
       "kind": "StringLiteral",
       "offset": 1261,
       "length": 15,
       "value": "\"attest_key_id\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/DeviceDebugger\/DebuggerChecker.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/DeviceDebugger\/DebuggerChecker.swift",
       "kind": "IntegerLiteral",
       "offset": 931,
       "length": 2,
       "value": "-2"
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/DeviceDebugger\/DebuggerChecker.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/DeviceDebugger\/DebuggerChecker.swift",
       "kind": "StringLiteral",
       "offset": 978,
       "length": 8,
       "value": "\"ptrace\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/DeviceDebugger\/DebuggerChecker.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/DeviceDebugger\/DebuggerChecker.swift",
       "kind": "IntegerLiteral",
       "offset": 1187,
       "length": 2,
       "value": "31"
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/DeviceDebugger\/DebuggerChecker.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/DeviceDebugger\/DebuggerChecker.swift",
       "kind": "IntegerLiteral",
       "offset": 1191,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/DeviceDebugger\/DebuggerChecker.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/DeviceDebugger\/DebuggerChecker.swift",
       "kind": "IntegerLiteral",
       "offset": 1194,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/DeviceDebugger\/DebuggerChecker.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/DeviceDebugger\/DebuggerChecker.swift",
       "kind": "IntegerLiteral",
       "offset": 1197,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/DeviceDebugger\/DebuggerChecker.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/DeviceDebugger\/DebuggerChecker.swift",
       "kind": "IntegerLiteral",
       "offset": 1225,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/DeviceDebugger\/DebuggerChecker.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/DeviceDebugger\/DebuggerChecker.swift",
       "kind": "StringLiteral",
       "offset": 1241,
       "length": 75,
       "value": "\"Error occured when calling ptrace(). Denying debugger may not be reliable\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "StringLiteral",
       "offset": 545,
       "length": 14,
       "value": "\"up_timestamp\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "StringLiteral",
       "offset": 589,
       "length": 16,
       "value": "\"down_timestamp\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "StringLiteral",
       "offset": 902,
       "length": 15,
       "value": "\"sample_number\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "StringLiteral",
       "offset": 943,
       "length": 12,
       "value": "\"session_id\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "StringLiteral",
       "offset": 981,
       "length": 12,
       "value": "\"project_id\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "Dictionary",
       "offset": 1242,
       "length": 3,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "IntegerLiteral",
       "offset": 3176,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "Array",
       "offset": 3413,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "FloatLiteral",
       "offset": 3476,
       "length": 3,
       "value": "1.0"
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "FloatLiteral",
       "offset": 3482,
       "length": 4,
       "value": "50.0"
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "BooleanLiteral",
       "offset": 3521,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "BooleanLiteral",
       "offset": 3570,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "BooleanLiteral",
       "offset": 3620,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "IntegerLiteral",
       "offset": 8218,
       "length": 3,
       "value": "200"
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "StringLiteral",
       "offset": 8278,
       "length": 36,
       "value": "\"com.fraudDetection.dataAccessQueue\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "StringLiteral",
       "offset": 8429,
       "length": 39,
       "value": "\"com.fraudDetection.motionManagerQueue\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "IntegerLiteral",
       "offset": 14666,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "IntegerLiteral",
       "offset": 14692,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/InternalCore.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/InternalCore.swift",
       "kind": "StringLiteral",
       "offset": 134,
       "length": 8,
       "value": "\"native\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/InternalCore.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/InternalCore.swift",
       "kind": "StringLiteral",
       "offset": 162,
       "length": 9,
       "value": "\"flutter\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/InternalCore.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/InternalCore.swift",
       "kind": "StringLiteral",
       "offset": 195,
       "length": 14,
       "value": "\"react-native\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/InternalCore.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/InternalCore.swift",
       "kind": "StringLiteral",
       "offset": 537,
       "length": 13,
       "value": "\"sdk_version\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/InternalCore.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/InternalCore.swift",
       "kind": "StringLiteral",
       "offset": 574,
       "length": 10,
       "value": "\"sdk_name\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/InternalCore.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/InternalCore.swift",
       "kind": "StringLiteral",
       "offset": 608,
       "length": 10,
       "value": "\"sdk_type\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/InternalCore.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/InternalCore.swift",
       "kind": "StringLiteral",
       "offset": 656,
       "length": 7,
       "value": "\"1.0.0\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/InternalCore.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/InternalCore.swift",
       "kind": "StringLiteral",
       "offset": 683,
       "length": 5,
       "value": "\"ios\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/InternalCore.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/InternalCore.swift",
       "kind": "StringLiteral",
       "offset": 708,
       "length": 8,
       "value": "\"native\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/KeychainHelper.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/KeychainHelper.swift",
       "kind": "StringLiteral",
       "offset": 614,
       "length": 16,
       "value": "\"session_id_key\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/Logger\/UnifiedLogger.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/Logger\/UnifiedLogger.swift",
       "kind": "StringLiteral",
       "offset": 411,
       "length": 14,
       "value": "\"verisoul.sdk\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/Logger\/UnifiedLogger.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/Logger\/UnifiedLogger.swift",
       "kind": "StringLiteral",
       "offset": 437,
       "length": 6,
       "value": "\"main\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/Logger\/UnifiedLogger.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/Logger\/UnifiedLogger.swift",
       "kind": "IntegerLiteral",
       "offset": 634,
       "length": 3,
       "value": "100"
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/Logger\/UnifiedLogger.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/Logger\/UnifiedLogger.swift",
       "kind": "IntegerLiteral",
       "offset": 686,
       "length": 2,
       "value": "10"
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/Logger\/UnifiedLogger.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/Logger\/UnifiedLogger.swift",
       "kind": "StringLiteral",
       "offset": 737,
       "length": 23,
       "value": "\"com.verisoul.logqueue\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/Logger\/UnifiedLogger.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/Logger\/UnifiedLogger.swift",
       "kind": "Array",
       "offset": 825,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/Logger\/UnifiedLogger.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/Logger\/UnifiedLogger.swift",
       "kind": "BooleanLiteral",
       "offset": 860,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/Logger\/UnifiedLogger.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/Logger\/UnifiedLogger.swift",
       "kind": "BooleanLiteral",
       "offset": 1310,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/Networking\/DTO\/DeviceCheckRESPONSE.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/Networking\/DTO\/DeviceCheckRESPONSE.swift",
       "kind": "StringLiteral",
       "offset": 312,
       "length": 18,
       "value": "\"last_update_time\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/Networking\/DTO\/SendMessageREQUEST.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/Networking\/DTO\/SendMessageREQUEST.swift",
       "kind": "StringLiteral",
       "offset": 405,
       "length": 12,
       "value": "\"project_id\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/Networking\/DTO\/SendMessageREQUEST.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/Networking\/DTO\/SendMessageREQUEST.swift",
       "kind": "StringLiteral",
       "offset": 439,
       "length": 8,
       "value": "\"key_id\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/Networking\/DTO\/VerifyAssertionREQUEST.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/Networking\/DTO\/VerifyAssertionREQUEST.swift",
       "kind": "StringLiteral",
       "offset": 360,
       "length": 8,
       "value": "\"key_id\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/Networking\/DTO\/VerifyAssertionREQUEST.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/Networking\/DTO\/VerifyAssertionREQUEST.swift",
       "kind": "StringLiteral",
       "offset": 394,
       "length": 12,
       "value": "\"project_id\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/Networking\/DTO\/VerifyAttestationREQUEST.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/Networking\/DTO\/VerifyAttestationREQUEST.swift",
       "kind": "StringLiteral",
       "offset": 362,
       "length": 8,
       "value": "\"key_id\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/Networking\/DTO\/VerifyAttestationREQUEST.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/Networking\/DTO\/VerifyAttestationREQUEST.swift",
       "kind": "StringLiteral",
       "offset": 396,
       "length": 12,
       "value": "\"project_id\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/Networking\/NetworkManager.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/Networking\/NetworkManager.swift",
       "kind": "IntegerLiteral",
       "offset": 1651,
       "length": 1,
       "value": "3"
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/Networking\/NetworkManager.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/Networking\/NetworkManager.swift",
       "kind": "IntegerLiteral",
       "offset": 3124,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/Networking\/NetworkManager.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/Networking\/NetworkManager.swift",
       "kind": "IntegerLiteral",
       "offset": 6088,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/Sessions\/SessionData.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/Sessions\/SessionData.swift",
       "kind": "StringLiteral",
       "offset": 142,
       "length": 6,
       "value": "\"Done\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/Sessions\/SessionData.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/Sessions\/SessionData.swift",
       "kind": "StringLiteral",
       "offset": 168,
       "length": 9,
       "value": "\"Waiting\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/Sessions\/SessionData.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/Sessions\/SessionData.swift",
       "kind": "IntegerLiteral",
       "offset": 658,
       "length": 2,
       "value": "24"
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/Sessions\/SessionData.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/Sessions\/SessionData.swift",
       "kind": "IntegerLiteral",
       "offset": 663,
       "length": 2,
       "value": "60"
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/Sessions\/SessionData.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/Sessions\/SessionData.swift",
       "kind": "IntegerLiteral",
       "offset": 668,
       "length": 2,
       "value": "60"
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/Sessions\/UserDefaultsHelper.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/Sessions\/UserDefaultsHelper.swift",
       "kind": "StringLiteral",
       "offset": 225,
       "length": 13,
       "value": "\"KEY_SESSION\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/SystemCollection\/NetworkInfoCollector.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/SystemCollection\/NetworkInfoCollector.swift",
       "kind": "IntegerLiteral",
       "offset": 348,
       "length": 1,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/SystemCollection\/NetworkInfoCollector.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/SystemCollection\/NetworkInfoCollector.swift",
       "kind": "IntegerLiteral",
       "offset": 370,
       "length": 2,
       "value": "30"
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/Verisoul.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/Verisoul.swift",
       "kind": "StringLiteral",
       "offset": 198,
       "length": 5,
       "value": "\"dev\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/Verisoul.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/Verisoul.swift",
       "kind": "StringLiteral",
       "offset": 215,
       "length": 9,
       "value": "\"staging\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/Verisoul.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/Verisoul.swift",
       "kind": "StringLiteral",
       "offset": 245,
       "length": 9,
       "value": "\"sandbox\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/Verisoul.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/Verisoul.swift",
       "kind": "StringLiteral",
       "offset": 272,
       "length": 6,
       "value": "\"prod\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/Verisoul.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/Verisoul.swift",
       "kind": "StringLiteral",
       "offset": 1103,
       "length": 2,
       "value": "\"\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/Verisoul.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/Verisoul.swift",
       "kind": "FloatLiteral",
       "offset": 1560,
       "length": 4,
       "value": "20.0"
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/Verisoul.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/Verisoul.swift",
       "kind": "IntegerLiteral",
       "offset": 1668,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/Verisoul.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/Verisoul.swift",
       "kind": "IntegerLiteral",
       "offset": 1723,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/Verisoul.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/Verisoul.swift",
       "kind": "FloatLiteral",
       "offset": 1786,
       "length": 3,
       "value": "1.0"
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/Verisoul.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/Verisoul.swift",
       "kind": "BooleanLiteral",
       "offset": 1899,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/Verisoul.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/Verisoul.swift",
       "kind": "BooleanLiteral",
-      "offset": 6552,
+      "offset": 8316,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/Verisoul.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/Verisoul.swift",
       "kind": "BooleanLiteral",
-      "offset": 6592,
+      "offset": 8356,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/VerisoulErrorCodes.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/VerisoulErrorCodes.swift",
       "kind": "StringLiteral",
       "offset": 324,
       "length": 21,
       "value": "\"WEBVIEW_UNAVAILABLE\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/VerisoulErrorCodes.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/VerisoulErrorCodes.swift",
       "kind": "StringLiteral",
       "offset": 460,
       "length": 21,
       "value": "\"SESSION_UNAVAILABLE\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/VerisoulErrorCodes.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/VerisoulErrorCodes.swift",
       "kind": "StringLiteral",
       "offset": 575,
       "length": 21,
       "value": "\"INVALID_ENVIRONMENT\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/VerisoulException.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/VerisoulException.swift",
       "kind": "StringLiteral",
       "offset": 1385,
       "length": 80,
       "value": "\"VerisoulException(errorCode='\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/VerisoulException.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/VerisoulException.swift",
       "kind": "StringLiteral",
       "offset": 1427,
       "length": 12,
       "value": "\"', message='\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/VerisoulException.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/VerisoulException.swift",
       "kind": "StringLiteral",
       "offset": 1462,
       "length": 3,
       "value": "\"')\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/VerisoulWebView.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/VerisoulWebView.swift",
       "kind": "StringLiteral",
       "offset": 135,
       "length": 17,
       "value": "\"verisoulHandler\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/VerisoulWebView.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/VerisoulWebView.swift",
       "kind": "IntegerLiteral",
       "offset": 299,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/VerisoulWebView.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/VerisoulWebView.swift",
       "kind": "BooleanLiteral",
       "offset": 491,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/runner\/work\/native-ios-sdk\/native-ios-sdk\/Sources\/VerisoulSDK\/VerisoulWebView.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.72\/Sources\/VerisoulSDK\/VerisoulWebView.swift",
       "kind": "BooleanLiteral",
       "offset": 527,
       "length": 5,

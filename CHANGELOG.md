@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.72] - 2026-10-19
+
+### Fixed
+- `session()` now recovers after a collection pass fails or times out. Before, every later `session()` call in the same app process waited 20 seconds and threw `SESSION_UNAVAILABLE` ("Session ID retrieval timed out after 20.0 seconds") until the app called `configure()` or `reinitialize()`. The next call now starts a fresh pass and keeps the same session ID while it is under 24 hours old.
+- `session()` now replaces an expired (24h+) session ID inside a running app process, the way `configure()` does, instead of failing every call.
+
+### Changed
+- When a collection pass ends without native data, `session()` throws `SESSION_UNAVAILABLE` with "Data collection failed" right away instead of polling for 20 seconds. The 20-second timeout for a pass that is still running is unchanged.
+
 ## [0.4.71] - 2026-08-23
 
 ### Added

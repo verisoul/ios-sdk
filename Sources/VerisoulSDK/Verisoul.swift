@@ -99,6 +99,49 @@ public final class Verisoul: NSObject {
         return syncDeviceData()
     }
 
+    /// Starts a new collection pass. Caller must hold `sessionLock`.
+    /// The pass clears itself from `dataCollectionTask` when it ends, so a later
+    /// `session()` starts a fresh pass instead of waiting on a finished one.
+    @discardableResult
+    private func startDataCollectionLocked() -> Task<Void, Never> {
+        let task = createDataCollectionTask()
+        dataCollectionGeneration += 1
+        let generation = dataCollectionGeneration
+        dataCollectionTask = task
+        Task { [weak self] in
+            await task.value
+            self?.clearDataCollectionTask(ifGeneration: generation)
+        }
+        return task
+    }
+
+    private func clearDataCollectionTask(ifGeneration generation: Int) {
+        sessionLock.lock()
+        if dataCollectionGeneration == generation {
+            dataCollectionTask = nil
+        }
+        sessionLock.unlock()
+    }
+
+    /// Replaces an expired session ID the way `configure()` would, so a process that
+    /// runs past the 24-hour expiry gets a new ID. Caller must hold `sessionLock`.
+    private func rotateExpiredSessionLocked() {
+        guard let fraudDetection = self.fraudDetection,
+              let s = sessionHelper.getSession(), s.isExpired() else { return }
+
+        UnifiedLogger.shared.info("Session ID expired, creating a new one", className: String(describing: Verisoul.self))
+        dataCollectionTask?.cancel()
+        dataCollectionTask = nil
+
+        let sessionId = sessionHelper.initSessionId(projectId: projectId, env: env, reinitialize: false)
+        fraudDetection.reset()
+        fraudDetection.setSessionId(sessionId: sessionId)
+        if touchCaptureEnabled {
+            fraudDetection.startGlobalCapture()
+        }
+        startDataCollectionLocked()
+    }
+
     private func waitForDataCollection(_ task: Task<Void, Never>, timeout: TimeInterval) async throws {
         let lock = NSLock()
         var didResume = false
@@ -224,8 +267,7 @@ public final class Verisoul: NSObject {
 
             UnifiedLogger.shared.setEventLogger(eventLogger: logger)
 
-            dataCollectionTask = createDataCollectionTask()
-            dataCollectionGeneration += 1
+            startDataCollectionLocked()
         } catch {
             UnifiedLogger.shared.error("Error during SDK configure: \(error.localizedDescription)", className: String(describing: Verisoul.self))
         }
@@ -279,9 +321,8 @@ public final class Verisoul: NSObject {
             if touchCaptureEnabled {
                 fraudDetection.startGlobalCapture()
             }
-            
-            dataCollectionTask = createDataCollectionTask()
-            dataCollectionGeneration += 1
+
+            startDataCollectionLocked()
         } catch {
             UnifiedLogger.shared.error("Error during reinitialization: \(error.localizedDescription)", className: String(describing: Verisoul.self))
         }
@@ -417,12 +458,15 @@ public final class Verisoul: NSObject {
         while true {
             // Refresh expired/missing session
             sessionLock.lock()
+            rotateExpiredSessionLocked()
             var currentTask = dataCollectionTask
+            if let task = currentTask, task.isCancelled {
+                // An earlier caller's timeout cancelled this pass, so it can't finish
+                currentTask = nil
+            }
             if currentTask == nil && sessionHelper.isNeedToSubmitDeviceData() {
-                UnifiedLogger.shared.info("Session expired or missing, starting fresh data collection", className: String(describing: Verisoul.self))
-                currentTask = createDataCollectionTask()
-                dataCollectionTask = currentTask
-                dataCollectionGeneration += 1
+                UnifiedLogger.shared.info("No active collection, starting fresh data collection", className: String(describing: Verisoul.self))
+                currentTask = startDataCollectionLocked()
             }
             let capturedGeneration = dataCollectionGeneration
             sessionLock.unlock()
@@ -457,6 +501,17 @@ public final class Verisoul: NSObject {
                 sessionLock.unlock()
                 if generationNow != capturedGeneration, hasNewTask {
                     continue
+                }
+
+                // The pass ended without native data. Fail now instead of polling; the next
+                // session() call starts a fresh pass.
+                if sessionHelper.isNeedToSubmitDeviceData() {
+                    clearDataCollectionTask(ifGeneration: capturedGeneration)
+                    UnifiedLogger.shared.error("Data collection failed", className: String(describing: Verisoul.self))
+                    throw VerisoulException(
+                        code: VerisoulErrorCodes.SESSION_UNAVAILABLE,
+                        message: "Data collection failed"
+                    )
                 }
             }
 

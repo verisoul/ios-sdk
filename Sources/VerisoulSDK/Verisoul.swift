@@ -43,16 +43,46 @@ public final class Verisoul: NSObject {
     private var eventLogger: WebSocketLogger?
     private var sessionHelper = SessionHelper.shared
     private let webViewTimeout: TimeInterval = 20.0
-    
+    // How long session() waits for a pass, counted only while the app is in the foreground
+    private var sessionTimeout: TimeInterval = 20.0
+
     private var dataCollectionTask: Task<Void, Never>?
     private var dataCollectionGeneration = 0
+    // Background epoch when the current pass started; a change means the pass was interrupted
+    private var dataCollectionEpoch = 0
+    // A pass was held because the app was in the background; starts on the next foreground
+    private var deferredPassPending = false
     private var lastReinitializeTime: TimeInterval = 0
     private var reinitializeDebounceInterval: TimeInterval = 1.0
     private var dataCollectionTaskOverride: (() -> Task<Void, Never>)?
     private var touchCaptureEnabled = true
     private let sessionLock = NSLock()
+    private let foregroundMonitor = ForegroundMonitor.shared
+
+    private override init() {
+        super.init()
+        foregroundMonitor.setOnForegroundEdge { [weak self] in
+            self?.handleForegroundEdge()
+        }
+    }
 
     // MARK: - VerisoulSDKInterface Method Implementations
+
+    internal func _setSessionTimeout(_ timeout: TimeInterval) {
+        sessionLock.lock()
+        sessionTimeout = timeout
+        sessionLock.unlock()
+    }
+
+    /// Pins the foreground state for tests and runs the same edge handling as a real transition.
+    /// Caller must not hold `sessionLock`.
+    internal func _setForegroundStateForTesting(_ foreground: Bool) {
+        foregroundMonitor.setForeground(foreground, fromTest: true)
+    }
+
+    internal var _foregroundWaiterCount: Int {
+        foregroundMonitor._waiterCount
+    }
 
     internal func _setDataCollectionTaskOverride(_ override: (() -> Task<Void, Never>)?) {
         sessionLock.lock()
@@ -89,7 +119,10 @@ public final class Verisoul: NSObject {
         lastReinitializeTime = 0
         dataCollectionTaskOverride = nil
         touchCaptureEnabled = true
+        deferredPassPending = false
+        sessionTimeout = 20.0
         sessionLock.unlock()
+        foregroundMonitor._resetForTesting(foreground: true)
     }
 
     private func createDataCollectionTask() -> Task<Void, Never> {
@@ -108,6 +141,8 @@ public final class Verisoul: NSObject {
         dataCollectionGeneration += 1
         let generation = dataCollectionGeneration
         dataCollectionTask = task
+        dataCollectionEpoch = foregroundMonitor.backgroundEpoch
+        deferredPassPending = false
         Task { [weak self] in
             await task.value
             self?.clearDataCollectionTask(ifGeneration: generation)
@@ -123,6 +158,46 @@ public final class Verisoul: NSObject {
         sessionLock.unlock()
     }
 
+    /// Starts a pass if the app is in the foreground. Otherwise holds it until the app comes to
+    /// the foreground, since iOS suspends background apps before collection can finish.
+    /// Caller must hold `sessionLock`.
+    private func startOrDeferPassLocked(_ reason: String) {
+        if foregroundMonitor.isForeground {
+            startDataCollectionLocked()
+        } else {
+            deferredPassPending = true
+            UnifiedLogger.shared.info("App is in the background, deferring data collection until it is in the foreground (\(reason))", className: String(describing: Verisoul.self))
+        }
+    }
+
+    /// Caller must hold `sessionLock`. Touch capture starts on the next foreground otherwise.
+    private func startTouchCaptureIfForegroundLocked(_ fraudDetection: FraudDetection) {
+        if touchCaptureEnabled && foregroundMonitor.isForeground {
+            fraudDetection.startGlobalCapture()
+        }
+    }
+
+    /// Runs when the app comes to the foreground: starts deferred touch capture and collection,
+    /// and restarts a pass that died. Called without `sessionLock` held.
+    private func handleForegroundEdge() {
+        sessionLock.lock()
+        defer { sessionLock.unlock() }
+
+        guard let fraudDetection = self.fraudDetection else { return }
+        // An ID that expired while the app was in the background gets replaced (and its pass
+        // started) before anything collects for the old one
+        rotateExpiredSessionLocked()
+        if touchCaptureEnabled {
+            fraudDetection.startGlobalCapture()
+        }
+
+        let hasLivePass = dataCollectionTask.map { !$0.isCancelled } ?? false
+        if deferredPassPending || (!hasLivePass && sessionHelper.isNeedToSubmitDeviceData()) {
+            UnifiedLogger.shared.info("App is in the foreground, starting data collection", className: String(describing: Verisoul.self))
+            startDataCollectionLocked()
+        }
+    }
+
     /// Replaces an expired session ID the way `configure()` would, so a process that
     /// runs past the 24-hour expiry gets a new ID. Caller must hold `sessionLock`.
     private func rotateExpiredSessionLocked() {
@@ -136,10 +211,16 @@ public final class Verisoul: NSObject {
         let sessionId = sessionHelper.initSessionId(projectId: projectId, env: env, reinitialize: false)
         fraudDetection.reset()
         fraudDetection.setSessionId(sessionId: sessionId)
-        if touchCaptureEnabled {
-            fraudDetection.startGlobalCapture()
-        }
-        startDataCollectionLocked()
+        startTouchCaptureIfForegroundLocked(fraudDetection)
+        startOrDeferPassLocked("expired session ID")
+    }
+
+    /// The stored session ID when its native data is done, it hasn't expired, and it belongs to
+    /// the current project and environment.
+    private func cachedSessionId() -> String? {
+        guard let s = sessionHelper.getSession(), !s.isExpired(), s.status.nativeDataCollection == .done,
+              s.projectId == projectId, s.env == env else { return nil }
+        return s.sessionId
     }
 
     private func waitForDataCollection(_ task: Task<Void, Never>, timeout: TimeInterval) async throws {
@@ -158,7 +239,15 @@ public final class Verisoul: NSObject {
 
         try await withTaskCancellationHandler {
             try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
-                let timeoutItem = DispatchWorkItem {
+                // The timeout counts only foreground time. A wall-clock timer keeps running while
+                // iOS suspends the app, then fires as soon as the user opens it.
+                let monitor = self.foregroundMonitor
+                let waitStart = monitor.foregroundTime()
+                let ticker = DispatchSource.makeTimerSource(queue: .global())
+                ticker.schedule(deadline: .now() + 0.25, repeating: 0.25, leeway: .milliseconds(50))
+                ticker.setEventHandler {
+                    guard monitor.foregroundTime() - waitStart >= timeout else { return }
+                    ticker.cancel()
                     task.cancel()
                     safeResume {
                         continuation.resume(throwing: VerisoulException(
@@ -167,11 +256,10 @@ public final class Verisoul: NSObject {
                         ))
                     }
                 }
-
-                DispatchQueue.global().asyncAfter(deadline: .now() + timeout, execute: timeoutItem)
+                ticker.resume()
 
                 let handler = {
-                    timeoutItem.cancel()
+                    ticker.cancel()
                     task.cancel()
                     safeResume {
                         continuation.resume(throwing: CancellationError())
@@ -191,7 +279,7 @@ public final class Verisoul: NSObject {
 
                 Task {
                     await task.value
-                    timeoutItem.cancel()
+                    ticker.cancel()
                     safeResume {
                         continuation.resume()
                     }
@@ -237,17 +325,31 @@ public final class Verisoul: NSObject {
         reinitialize: Bool = false,
         collectTouchData: Bool = true
     ) {
+        // Before taking sessionLock: on the main thread the first state read can run the
+        // foreground handler, which takes that lock
+        foregroundMonitor.installIfNeeded()
+
         sessionLock.lock()
         defer { sessionLock.unlock() }
-        
+
         do {
             UnifiedLogger.shared.info("Initializing Verisoul SDK...", className: String(describing: Verisoul.self))
+
+            let previousSessionId = sessionHelper.getSessionId()
+            let previousProjectId = self.projectId
+            let previousEnv = self.env
 
             self.env = env
             self.projectId = projectId
             self.touchCaptureEnabled = collectTouchData
 
             let sessionId = self.sessionHelper.initSessionId(projectId: projectId, env: env, reinitialize: reinitialize)
+
+            // A pass for an older ID must not mark the new one as collected
+            if sessionId != previousSessionId || projectId != previousProjectId || env != previousEnv {
+                dataCollectionTask?.cancel()
+                dataCollectionTask = nil
+            }
 
             UIDevice.current.isBatteryMonitoringEnabled = true
 
@@ -261,13 +363,11 @@ public final class Verisoul: NSObject {
             fraud.setSessionId(sessionId: sessionId)
             self.fraudDetection?.pause()
             self.fraudDetection = fraud
-            if touchCaptureEnabled {
-                fraud.startGlobalCapture()
-            }
+            startTouchCaptureIfForegroundLocked(fraud)
 
             UnifiedLogger.shared.setEventLogger(eventLogger: logger)
 
-            startDataCollectionLocked()
+            startOrDeferPassLocked("configure")
         } catch {
             UnifiedLogger.shared.error("Error during SDK configure: \(error.localizedDescription)", className: String(describing: Verisoul.self))
         }
@@ -287,7 +387,7 @@ public final class Verisoul: NSObject {
         }
 
         if enabled {
-            fraudDetection.startGlobalCapture()
+            startTouchCaptureIfForegroundLocked(fraudDetection)
         } else {
             fraudDetection.pause()
         }
@@ -318,11 +418,9 @@ public final class Verisoul: NSObject {
             guard let sessionId = sessionHelper.getSessionId() else { return  }
             fraudDetection.reset()
             fraudDetection.setSessionId(sessionId: sessionId)
-            if touchCaptureEnabled {
-                fraudDetection.startGlobalCapture()
-            }
+            startTouchCaptureIfForegroundLocked(fraudDetection)
 
-            startDataCollectionLocked()
+            startOrDeferPassLocked("reinitialize")
         } catch {
             UnifiedLogger.shared.error("Error during reinitialization: \(error.localizedDescription)", className: String(describing: Verisoul.self))
         }
@@ -448,16 +546,35 @@ public final class Verisoul: NSObject {
 
     public func session() async throws -> String {
         UnifiedLogger.shared.info("Retrieving session ID...", className: String(describing: Verisoul.self))
+        foregroundMonitor.installIfNeeded()
 
-        if let s = sessionHelper.getSession(), !s.isExpired(), s.status.nativeDataCollection == .done,
-           s.projectId == projectId, s.env == env {
-            UnifiedLogger.shared.info("Session ID retrieved from cache: \(s.sessionId)", className: String(describing: Verisoul.self))
-            return s.sessionId
+        if let sessionId = cachedSessionId() {
+            UnifiedLogger.shared.info("Session ID retrieved from cache: \(sessionId)", className: String(describing: Verisoul.self))
+            return sessionId
         }
-        
+
         while true {
+            // Collection runs only in the foreground, so a call made in the background waits
+            // until the user opens the app. An unconfigured SDK fails fast instead.
+            sessionLock.lock()
+            let configured = fraudDetection != nil
+            sessionLock.unlock()
+            if configured && !foregroundMonitor.isForeground {
+                UnifiedLogger.shared.info("App is in the background, waiting for it to enter the foreground", className: String(describing: Verisoul.self))
+                try await foregroundMonitor.waitUntilForeground()
+                if let sessionId = cachedSessionId() {
+                    UnifiedLogger.shared.info("Session ID retrieved after entering the foreground: \(sessionId)", className: String(describing: Verisoul.self))
+                    return sessionId
+                }
+            }
+
             // Refresh expired/missing session
             sessionLock.lock()
+            if fraudDetection != nil && !foregroundMonitor.isForeground {
+                // Back in the background before a pass could start; wait again
+                sessionLock.unlock()
+                continue
+            }
             rotateExpiredSessionLocked()
             var currentTask = dataCollectionTask
             if let task = currentTask, task.isCancelled {
@@ -469,6 +586,8 @@ public final class Verisoul: NSObject {
                 currentTask = startDataCollectionLocked()
             }
             let capturedGeneration = dataCollectionGeneration
+            let passEpoch = dataCollectionEpoch
+            let timeout = sessionTimeout
             sessionLock.unlock()
 
             if let task = currentTask {
@@ -476,10 +595,15 @@ public final class Verisoul: NSObject {
 
                 // Wait for data collection with timeout
                 do {
-                    try await waitForDataCollection(task, timeout: webViewTimeout)
+                    try await waitForDataCollection(task, timeout: timeout)
                 } catch is CancellationError {
                     throw CancellationError()
                 } catch let error as VerisoulException {
+                    // The native data can land while App Attest is still running
+                    if let sessionId = cachedSessionId() {
+                        UnifiedLogger.shared.info("Session ID retrieved at timeout: \(sessionId)", className: String(describing: Verisoul.self))
+                        return sessionId
+                    }
                     // Timeout occurred - rethrow immediately with the standardized error code
                     // Don't fall through to polling loop which would double the wait time
                     UnifiedLogger.shared.error("Data collection timed out: \(error.localizedDescription)", className: String(describing: Verisoul.self))
@@ -488,11 +612,10 @@ public final class Verisoul: NSObject {
                     // Other errors (like task cancellation on success) - continue to check session
                     UnifiedLogger.shared.info("Data collection completed", className: String(describing: Verisoul.self))
                 }
-                
-                if let s = sessionHelper.getSession(), !s.isExpired(), s.status.nativeDataCollection == .done,
-                   s.projectId == projectId, s.env == env {
-                    UnifiedLogger.shared.info("Session ID retrieved after data collection: \(s.sessionId)", className: String(describing: Verisoul.self))
-                    return s.sessionId
+
+                if let sessionId = cachedSessionId() {
+                    UnifiedLogger.shared.info("Session ID retrieved after data collection: \(sessionId)", className: String(describing: Verisoul.self))
+                    return sessionId
                 }
 
                 sessionLock.lock()
@@ -507,6 +630,12 @@ public final class Verisoul: NSObject {
                 // session() call starts a fresh pass.
                 if sessionHelper.isNeedToSubmitDeviceData() {
                     clearDataCollectionTask(ifGeneration: capturedGeneration)
+                    // The app went to the background during this pass, so iOS may have cut it
+                    // off. Wait for the foreground and start a fresh pass.
+                    if foregroundMonitor.backgroundEpoch != passEpoch {
+                        UnifiedLogger.shared.info("Data collection was interrupted by the app going to the background, retrying in the foreground", className: String(describing: Verisoul.self))
+                        continue
+                    }
                     UnifiedLogger.shared.error("Data collection failed", className: String(describing: Verisoul.self))
                     throw VerisoulException(
                         code: VerisoulErrorCodes.SESSION_UNAVAILABLE,
@@ -519,22 +648,23 @@ public final class Verisoul: NSObject {
         }
         
         UnifiedLogger.shared.info("No active collection found, polling for session...", className: String(describing: Verisoul.self))
-        let pollingStartTime = Date()
-        while Date().timeIntervalSince(pollingStartTime) < webViewTimeout {
-            if !sessionHelper.isNeedToSubmitDeviceData(),
-               let s = sessionHelper.getSession(),
-               !s.isExpired(),
-               s.projectId == projectId, s.env == env {
-                UnifiedLogger.shared.info("Session ID retrieved after polling: \(s.sessionId)", className: String(describing: Verisoul.self))
-                return s.sessionId
+        sessionLock.lock()
+        let pollingTimeout = sessionTimeout
+        sessionLock.unlock()
+        // Counts only foreground time, like the collection timeout
+        let pollingStart = foregroundMonitor.foregroundTime()
+        while foregroundMonitor.foregroundTime() - pollingStart < pollingTimeout {
+            if let sessionId = cachedSessionId() {
+                UnifiedLogger.shared.info("Session ID retrieved after polling: \(sessionId)", className: String(describing: Verisoul.self))
+                return sessionId
             }
             try await Task.sleep(nanoseconds: 200_000_000)
         }
-        
-        UnifiedLogger.shared.error("Failed to retrieve session ID in \(webViewTimeout) seconds.", className: String(describing: Verisoul.self))
+
+        UnifiedLogger.shared.error("Failed to retrieve session ID in \(pollingTimeout) seconds.", className: String(describing: Verisoul.self))
         throw VerisoulException(
             code: VerisoulErrorCodes.SESSION_UNAVAILABLE,
-            message: "Session ID retrieval timed out after \(webViewTimeout) seconds"
+            message: "Session ID retrieval timed out after \(pollingTimeout) seconds"
         )
     }
 

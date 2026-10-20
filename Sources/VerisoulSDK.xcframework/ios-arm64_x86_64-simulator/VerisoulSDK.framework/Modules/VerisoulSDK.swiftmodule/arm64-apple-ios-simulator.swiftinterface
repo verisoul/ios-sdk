@@ -112,7 +112,7 @@ public enum VerisoulEnvironment : Swift.String {
     get
   }
 }
-@objc @_inheritsConvenienceInitializers final public class Verisoul : ObjectiveC.NSObject {
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class Verisoul : ObjectiveC.NSObject {
   final public var version: Swift.String {
     get
   }
@@ -121,7 +121,6 @@ public enum VerisoulEnvironment : Swift.String {
   final public func setTouchCaptureEnabled(_ enabled: Swift.Bool)
   final public func reinitialize()
   final public func session() async throws -> Swift.String
-  @objc override dynamic public init()
   @objc deinit
 }
 @_inheritsConvenienceInitializers @objc public class VerisoulErrorCodes : ObjectiveC.NSObject {

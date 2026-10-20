@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.73] - 2026-10-19
+
+### Changed
+- The SDK collects data only while the app is in the foreground. When iOS launches the app in the background (silent push, background fetch, location), `configure()` holds collection until the app becomes active, and `session()` waits for the foreground, then collects and returns. A cached session is still returned right away. Don't await `session()` inside background handlers.
+- The `session()` timeout now counts only time spent in the foreground. Before, a call made shortly before iOS suspended the app failed with "Data collection timed out" as soon as the user opened it.
+
+### Fixed
+- `session()` returns the session ID at the timeout when the device data has already been posted and App Attest is still running.
+- A collection pass cut off by the app going to the background is retried once the app is in the foreground, instead of failing.
+- Touch and motion capture starts once the app is in the foreground.
+
 ## [0.4.72] - 2026-10-19
 
 ### Fixed

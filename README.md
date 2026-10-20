@@ -34,7 +34,7 @@ To integrate VerisoulSDK with CocoaPods:
    ```
 2. Add VerisoulSDK to your Podfile:
    ```ruby
-   pod 'VerisoulSDK', '~> 0.4.72'
+   pod 'VerisoulSDK', '~> 0.4.73'
    ```
 3. Run the following command to install the SDK:
    ```sh
@@ -110,6 +110,16 @@ do {
 }
 ```
 
+### Background launches
+
+The SDK collects data only while the app is in the foreground. iOS can launch an app in the background (for a silent push, background fetch, or location update) and suspend it a few seconds later, so the SDK waits for the foreground:
+
+- `configure()` can be called at launch. If the app is in the background, collection starts when the app comes to the foreground.
+- `session()` called while the app is in the background returns once the user opens the app. A cached session is returned right away.
+- The `session()` timeout counts only time spent in the foreground.
+
+Don't await `session()` inside background handlers, such as silent push or background fetch completion handlers and `BGTaskScheduler` tasks, or in other code that has to finish while the app is in the background.
+
 ### Provide Touch Events
 
 Starting in version 0.4.71, the Verisoul SDK captures a small number of touch
@@ -120,7 +130,7 @@ to `false`, so your app continues to receive touches without cancellation or
 delay.
 
 Touch and motion capture is enabled by default: collection begins
-automatically as soon as `configure()` is called.
+automatically once `configure()` is called and the app is in the foreground.
 
 To configure the SDK without starting touch and motion capture:
 

@@ -4285,711 +4285,746 @@
   },
   "ConstValues": [
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/.build\/DerivedData\/Build\/Intermediates.noindex\/ArchiveIntermediates\/VerisoulSDK\/IntermediateBuildFilesPath\/VerisoulSDK.build\/Release-iphoneos\/VerisoulSDK.build\/DerivedSources\/resource_bundle_accessor.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/.build\/DerivedData\/Build\/Intermediates.noindex\/ArchiveIntermediates\/VerisoulSDK\/IntermediateBuildFilesPath\/VerisoulSDK.build\/Release-iphoneos\/VerisoulSDK.build\/DerivedSources\/resource_bundle_accessor.swift",
       "kind": "StringLiteral",
       "offset": 307,
       "length": 25,
       "value": "\"VerisoulSDK_VerisoulSDK\""
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/.build\/DerivedData\/Build\/Intermediates.noindex\/ArchiveIntermediates\/VerisoulSDK\/IntermediateBuildFilesPath\/VerisoulSDK.build\/Release-iphoneos\/VerisoulSDK.build\/DerivedSources\/resource_bundle_accessor.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/.build\/DerivedData\/Build\/Intermediates.noindex\/ArchiveIntermediates\/VerisoulSDK\/IntermediateBuildFilesPath\/VerisoulSDK.build\/Release-iphoneos\/VerisoulSDK.build\/DerivedSources\/resource_bundle_accessor.swift",
       "kind": "Array",
       "offset": 979,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/.build\/DerivedData\/Build\/Intermediates.noindex\/ArchiveIntermediates\/VerisoulSDK\/IntermediateBuildFilesPath\/VerisoulSDK.build\/Release-iphoneos\/VerisoulSDK.build\/DerivedSources\/resource_bundle_accessor.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/.build\/DerivedData\/Build\/Intermediates.noindex\/ArchiveIntermediates\/VerisoulSDK\/IntermediateBuildFilesPath\/VerisoulSDK.build\/Release-iphoneos\/VerisoulSDK.build\/DerivedSources\/resource_bundle_accessor.swift",
       "kind": "StringLiteral",
       "offset": 1506,
       "length": 9,
       "value": "\".bundle\""
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/.build\/DerivedData\/Build\/Intermediates.noindex\/ArchiveIntermediates\/VerisoulSDK\/IntermediateBuildFilesPath\/VerisoulSDK.build\/Release-iphoneos\/VerisoulSDK.build\/DerivedSources\/resource_bundle_accessor.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/.build\/DerivedData\/Build\/Intermediates.noindex\/ArchiveIntermediates\/VerisoulSDK\/IntermediateBuildFilesPath\/VerisoulSDK.build\/Release-iphoneos\/VerisoulSDK.build\/DerivedSources\/resource_bundle_accessor.swift",
       "kind": "StringLiteral",
       "offset": 1658,
       "length": 53,
       "value": "\"unable to find bundle named VerisoulSDK_VerisoulSDK\""
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/DeviceAttest\/DeviceAttest.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/DeviceAttest\/DeviceAttest.swift",
       "kind": "StringLiteral",
       "offset": 1261,
       "length": 15,
       "value": "\"attest_key_id\""
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/DeviceDebugger\/DebuggerChecker.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/DeviceDebugger\/DebuggerChecker.swift",
       "kind": "IntegerLiteral",
       "offset": 931,
       "length": 2,
       "value": "-2"
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/DeviceDebugger\/DebuggerChecker.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/DeviceDebugger\/DebuggerChecker.swift",
       "kind": "StringLiteral",
       "offset": 978,
       "length": 8,
       "value": "\"ptrace\""
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/DeviceDebugger\/DebuggerChecker.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/DeviceDebugger\/DebuggerChecker.swift",
       "kind": "IntegerLiteral",
       "offset": 1187,
       "length": 2,
       "value": "31"
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/DeviceDebugger\/DebuggerChecker.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/DeviceDebugger\/DebuggerChecker.swift",
       "kind": "IntegerLiteral",
       "offset": 1191,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/DeviceDebugger\/DebuggerChecker.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/DeviceDebugger\/DebuggerChecker.swift",
       "kind": "IntegerLiteral",
       "offset": 1194,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/DeviceDebugger\/DebuggerChecker.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/DeviceDebugger\/DebuggerChecker.swift",
       "kind": "IntegerLiteral",
       "offset": 1197,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/DeviceDebugger\/DebuggerChecker.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/DeviceDebugger\/DebuggerChecker.swift",
       "kind": "IntegerLiteral",
       "offset": 1225,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/DeviceDebugger\/DebuggerChecker.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/DeviceDebugger\/DebuggerChecker.swift",
       "kind": "StringLiteral",
       "offset": 1241,
       "length": 75,
       "value": "\"Error occured when calling ptrace(). Denying debugger may not be reliable\""
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/ForegroundMonitor.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/ForegroundMonitor.swift",
       "kind": "BooleanLiteral",
       "offset": 859,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/ForegroundMonitor.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/ForegroundMonitor.swift",
       "kind": "BooleanLiteral",
       "offset": 890,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/ForegroundMonitor.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/ForegroundMonitor.swift",
       "kind": "BooleanLiteral",
       "offset": 925,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/ForegroundMonitor.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/ForegroundMonitor.swift",
       "kind": "IntegerLiteral",
       "offset": 958,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/ForegroundMonitor.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/ForegroundMonitor.swift",
       "kind": "IntegerLiteral",
       "offset": 1014,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/ForegroundMonitor.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/ForegroundMonitor.swift",
       "kind": "IntegerLiteral",
       "offset": 1092,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/ForegroundMonitor.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/ForegroundMonitor.swift",
       "kind": "Dictionary",
       "offset": 1162,
       "length": 3,
       "value": "[]"
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/ForegroundMonitor.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/ForegroundMonitor.swift",
       "kind": "Array",
       "offset": 1262,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/ForegroundMonitor.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/ForegroundMonitor.swift",
       "kind": "BooleanLiteral",
       "offset": 4136,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "StringLiteral",
-      "offset": 545,
+      "offset": 479,
       "length": 14,
       "value": "\"up_timestamp\""
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "StringLiteral",
-      "offset": 589,
+      "offset": 523,
       "length": 16,
       "value": "\"down_timestamp\""
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "StringLiteral",
-      "offset": 902,
+      "offset": 836,
       "length": 15,
       "value": "\"sample_number\""
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "StringLiteral",
-      "offset": 943,
+      "offset": 877,
       "length": 12,
       "value": "\"session_id\""
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "StringLiteral",
-      "offset": 981,
+      "offset": 915,
       "length": 12,
       "value": "\"project_id\""
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "Dictionary",
-      "offset": 1242,
+      "offset": 1176,
       "length": 3,
       "value": "[]"
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "IntegerLiteral",
-      "offset": 3176,
+      "offset": 3677,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "Array",
-      "offset": 3413,
+      "offset": 3863,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "FloatLiteral",
-      "offset": 3476,
+      "offset": 3926,
       "length": 3,
       "value": "1.0"
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "FloatLiteral",
-      "offset": 3482,
+      "offset": 3932,
       "length": 4,
       "value": "50.0"
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "BooleanLiteral",
-      "offset": 3521,
+      "offset": 3971,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "BooleanLiteral",
-      "offset": 3570,
+      "offset": 4020,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "BooleanLiteral",
-      "offset": 3620,
+      "offset": 4069,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "IntegerLiteral",
-      "offset": 8218,
+      "offset": 10822,
       "length": 3,
       "value": "200"
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "StringLiteral",
-      "offset": 8278,
+      "offset": 10882,
       "length": 36,
       "value": "\"com.fraudDetection.dataAccessQueue\""
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "StringLiteral",
-      "offset": 8429,
+      "offset": 11033,
       "length": 39,
       "value": "\"com.fraudDetection.motionManagerQueue\""
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "IntegerLiteral",
-      "offset": 14666,
+      "offset": 18203,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/FraudDetection\/FraudDetection.swift",
       "kind": "IntegerLiteral",
-      "offset": 14692,
+      "offset": 18229,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/InternalCore.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/InternalCore.swift",
       "kind": "StringLiteral",
       "offset": 134,
       "length": 8,
       "value": "\"native\""
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/InternalCore.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/InternalCore.swift",
       "kind": "StringLiteral",
       "offset": 162,
       "length": 9,
       "value": "\"flutter\""
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/InternalCore.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/InternalCore.swift",
       "kind": "StringLiteral",
       "offset": 195,
       "length": 14,
       "value": "\"react-native\""
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/InternalCore.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/InternalCore.swift",
       "kind": "StringLiteral",
       "offset": 537,
       "length": 13,
       "value": "\"sdk_version\""
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/InternalCore.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/InternalCore.swift",
       "kind": "StringLiteral",
       "offset": 574,
       "length": 10,
       "value": "\"sdk_name\""
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/InternalCore.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/InternalCore.swift",
       "kind": "StringLiteral",
       "offset": 608,
       "length": 10,
       "value": "\"sdk_type\""
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/InternalCore.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/InternalCore.swift",
       "kind": "StringLiteral",
       "offset": 656,
       "length": 7,
       "value": "\"1.0.0\""
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/InternalCore.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/InternalCore.swift",
       "kind": "StringLiteral",
       "offset": 683,
       "length": 5,
       "value": "\"ios\""
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/InternalCore.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/InternalCore.swift",
       "kind": "StringLiteral",
       "offset": 708,
       "length": 8,
       "value": "\"native\""
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/KeychainHelper.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/KeychainHelper.swift",
       "kind": "StringLiteral",
       "offset": 614,
       "length": 16,
       "value": "\"session_id_key\""
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/Logger\/UnifiedLogger.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/Logger\/UnifiedLogger.swift",
       "kind": "StringLiteral",
       "offset": 411,
       "length": 14,
       "value": "\"verisoul.sdk\""
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/Logger\/UnifiedLogger.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/Logger\/UnifiedLogger.swift",
       "kind": "StringLiteral",
       "offset": 437,
       "length": 6,
       "value": "\"main\""
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/Logger\/UnifiedLogger.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/Logger\/UnifiedLogger.swift",
       "kind": "IntegerLiteral",
       "offset": 634,
       "length": 3,
       "value": "100"
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/Logger\/UnifiedLogger.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/Logger\/UnifiedLogger.swift",
       "kind": "IntegerLiteral",
       "offset": 686,
       "length": 2,
       "value": "10"
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/Logger\/UnifiedLogger.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/Logger\/UnifiedLogger.swift",
       "kind": "StringLiteral",
       "offset": 737,
       "length": 23,
       "value": "\"com.verisoul.logqueue\""
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/Logger\/UnifiedLogger.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/Logger\/UnifiedLogger.swift",
       "kind": "Array",
       "offset": 825,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/Logger\/UnifiedLogger.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/Logger\/UnifiedLogger.swift",
       "kind": "BooleanLiteral",
       "offset": 860,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/Logger\/UnifiedLogger.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/Logger\/UnifiedLogger.swift",
       "kind": "BooleanLiteral",
       "offset": 1310,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/Networking\/DTO\/DeviceCheckRESPONSE.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/Networking\/DTO\/DeviceCheckRESPONSE.swift",
       "kind": "StringLiteral",
       "offset": 312,
       "length": 18,
       "value": "\"last_update_time\""
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/Networking\/DTO\/SendMessageREQUEST.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/Networking\/DTO\/SendMessageREQUEST.swift",
       "kind": "StringLiteral",
       "offset": 405,
       "length": 12,
       "value": "\"project_id\""
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/Networking\/DTO\/SendMessageREQUEST.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/Networking\/DTO\/SendMessageREQUEST.swift",
       "kind": "StringLiteral",
       "offset": 439,
       "length": 8,
       "value": "\"key_id\""
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/Networking\/DTO\/VerifyAssertionREQUEST.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/Networking\/DTO\/VerifyAssertionREQUEST.swift",
       "kind": "StringLiteral",
       "offset": 360,
       "length": 8,
       "value": "\"key_id\""
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/Networking\/DTO\/VerifyAssertionREQUEST.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/Networking\/DTO\/VerifyAssertionREQUEST.swift",
       "kind": "StringLiteral",
       "offset": 394,
       "length": 12,
       "value": "\"project_id\""
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/Networking\/DTO\/VerifyAttestationREQUEST.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/Networking\/DTO\/VerifyAttestationREQUEST.swift",
       "kind": "StringLiteral",
       "offset": 362,
       "length": 8,
       "value": "\"key_id\""
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/Networking\/DTO\/VerifyAttestationREQUEST.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/Networking\/DTO\/VerifyAttestationREQUEST.swift",
       "kind": "StringLiteral",
       "offset": 396,
       "length": 12,
       "value": "\"project_id\""
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/Networking\/NetworkManager.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/Networking\/NetworkManager.swift",
       "kind": "IntegerLiteral",
       "offset": 1651,
       "length": 1,
       "value": "3"
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/Networking\/NetworkManager.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/Networking\/NetworkManager.swift",
       "kind": "IntegerLiteral",
       "offset": 3124,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/Networking\/NetworkManager.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/Networking\/NetworkManager.swift",
       "kind": "IntegerLiteral",
       "offset": 6088,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/Sessions\/SessionData.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/Sessions\/SessionData.swift",
       "kind": "StringLiteral",
       "offset": 142,
       "length": 6,
       "value": "\"Done\""
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/Sessions\/SessionData.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/Sessions\/SessionData.swift",
       "kind": "StringLiteral",
       "offset": 168,
       "length": 9,
       "value": "\"Waiting\""
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/Sessions\/SessionData.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/Sessions\/SessionData.swift",
       "kind": "IntegerLiteral",
       "offset": 658,
       "length": 2,
       "value": "24"
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/Sessions\/SessionData.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/Sessions\/SessionData.swift",
       "kind": "IntegerLiteral",
       "offset": 663,
       "length": 2,
       "value": "60"
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/Sessions\/SessionData.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/Sessions\/SessionData.swift",
       "kind": "IntegerLiteral",
       "offset": 668,
       "length": 2,
       "value": "60"
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/Sessions\/UserDefaultsHelper.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/Sessions\/UserDefaultsHelper.swift",
       "kind": "StringLiteral",
       "offset": 225,
       "length": 13,
       "value": "\"KEY_SESSION\""
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/SystemCollection\/NetworkInfoCollector.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/SystemCollection\/NetworkInfoCollector.swift",
       "kind": "IntegerLiteral",
       "offset": 348,
       "length": 1,
       "value": "2"
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/SystemCollection\/NetworkInfoCollector.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/SystemCollection\/NetworkInfoCollector.swift",
       "kind": "IntegerLiteral",
       "offset": 370,
       "length": 2,
       "value": "30"
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/Verisoul.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/Verisoul.swift",
       "kind": "StringLiteral",
       "offset": 198,
       "length": 5,
       "value": "\"dev\""
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/Verisoul.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/Verisoul.swift",
       "kind": "StringLiteral",
       "offset": 215,
       "length": 9,
       "value": "\"staging\""
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/Verisoul.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/Verisoul.swift",
       "kind": "StringLiteral",
       "offset": 245,
       "length": 9,
       "value": "\"sandbox\""
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/Verisoul.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/Verisoul.swift",
       "kind": "StringLiteral",
       "offset": 272,
       "length": 6,
       "value": "\"prod\""
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/Verisoul.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/Verisoul.swift",
       "kind": "StringLiteral",
       "offset": 1103,
       "length": 2,
       "value": "\"\""
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/Verisoul.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/Verisoul.swift",
       "kind": "FloatLiteral",
       "offset": 1560,
       "length": 4,
       "value": "20.0"
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/Verisoul.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/Verisoul.swift",
       "kind": "FloatLiteral",
       "offset": 1704,
       "length": 4,
       "value": "20.0"
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/Verisoul.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/Verisoul.swift",
       "kind": "IntegerLiteral",
       "offset": 1808,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/Verisoul.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/Verisoul.swift",
       "kind": "IntegerLiteral",
       "offset": 1943,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/Verisoul.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/Verisoul.swift",
       "kind": "BooleanLiteral",
       "offset": 2075,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/Verisoul.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/Verisoul.swift",
       "kind": "IntegerLiteral",
       "offset": 2134,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/Verisoul.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/Verisoul.swift",
       "kind": "FloatLiteral",
       "offset": 2197,
       "length": 3,
       "value": "1.0"
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/Verisoul.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/Verisoul.swift",
       "kind": "BooleanLiteral",
       "offset": 2310,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/Verisoul.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/Verisoul.swift",
       "kind": "BooleanLiteral",
       "offset": 12564,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/Verisoul.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/Verisoul.swift",
       "kind": "BooleanLiteral",
       "offset": 12604,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/VerisoulErrorCodes.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/VerisoulErrorCodes.swift",
       "kind": "StringLiteral",
       "offset": 324,
       "length": 21,
       "value": "\"WEBVIEW_UNAVAILABLE\""
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/VerisoulErrorCodes.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/VerisoulErrorCodes.swift",
       "kind": "StringLiteral",
       "offset": 460,
       "length": 21,
       "value": "\"SESSION_UNAVAILABLE\""
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/VerisoulErrorCodes.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/VerisoulErrorCodes.swift",
       "kind": "StringLiteral",
       "offset": 575,
       "length": 21,
       "value": "\"INVALID_ENVIRONMENT\""
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/VerisoulException.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/VerisoulException.swift",
       "kind": "StringLiteral",
       "offset": 1385,
       "length": 80,
       "value": "\"VerisoulException(errorCode='\""
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/VerisoulException.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/VerisoulException.swift",
       "kind": "StringLiteral",
       "offset": 1427,
       "length": 12,
       "value": "\"', message='\""
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/VerisoulException.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/VerisoulException.swift",
       "kind": "StringLiteral",
       "offset": 1462,
       "length": 3,
       "value": "\"')\""
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/VerisoulWebView.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/VerisoulWebView.swift",
       "kind": "StringLiteral",
       "offset": 135,
       "length": 17,
       "value": "\"verisoulHandler\""
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/VerisoulWebView.swift",
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/VerisoulWebView.swift",
+      "kind": "BooleanLiteral",
+      "offset": 459,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/VerisoulWebView.swift",
+      "kind": "BooleanLiteral",
+      "offset": 495,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/VerisoulWebView.swift",
       "kind": "IntegerLiteral",
-      "offset": 299,
+      "offset": 569,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/VerisoulWebView.swift",
-      "kind": "BooleanLiteral",
-      "offset": 491,
-      "length": 5,
-      "value": "false"
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/VerisoulWebView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 692,
+      "length": 1,
+      "value": "0"
     },
     {
-      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/6eb0c002-d84f-4fbe-9530-52f15cd9f9d5\/scratchpad\/rel-0.4.73\/Sources\/VerisoulSDK\/VerisoulWebView.swift",
-      "kind": "BooleanLiteral",
-      "offset": 527,
-      "length": 5,
-      "value": "false"
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/VerisoulWebView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 988,
+      "length": 1,
+      "value": "8"
+    },
+    {
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/VerisoulWebView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1025,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/VerisoulWebView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1049,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/tmp\/claude-501\/-Users-nielketkar-verisoul\/bfbe052b-8510-4536-b65a-cf29ad753304\/scratchpad\/rel-0474\/Sources\/VerisoulSDK\/VerisoulWebView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1185,
+      "length": 2,
+      "value": "18"
     }
   ]
 }

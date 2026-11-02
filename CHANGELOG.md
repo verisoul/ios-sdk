@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.74] - 2026-11-02
+
+### Fixed
+- Fixed a crash in touch and motion capture (SIGSEGV in `FraudDetection.stop()`, or "NSConcreteHashTable was mutated while being enumerated"). Capture can stop on several threads at once: after the 10th touch sample, from the 5-minute stop timer, and from `configure()` or `reinitialize()`. Since 0.4.71 these could overlap and corrupt shared state. Capture state is now guarded by one lock, and only one caller tears it down.
+- `session()` no longer fails with "Data collection failed" when the collection page loads slowly. The SDK reloaded the page if it hadn't finished in 3 seconds, the reload cancelled the load still in progress, and the cancel counted as another retry, so a page that needed more than about 3 seconds failed at about 6 seconds. Each attempt now gets 8 seconds, cancellations no longer count as retries, and retries stop after 18 seconds so a failure is reported inside the 20-second `session()` timeout.
+
 ## [0.4.73] - 2026-10-19
 
 ### Changed

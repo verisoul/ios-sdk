@@ -1,10 +1,6 @@
 import UIKit
 import CoreMotion
 
-enum AccelerometerState: String {
-    case collecting, stopped
-}
-
 struct AccelerometerData: Codable {
     let timestamp: [Int]
     let x: [Double]
@@ -112,48 +108,85 @@ final class TouchCaptureGestureRecognizer: UIGestureRecognizer, UIGestureRecogni
 
 public class FraudDetection: NSObject {
 
+    // Capture state is shared across threads: stop() runs from send completions on the Swift
+    // concurrency pool, from the 5-minute work item on a global queue, and from pause()/reset()
+    // on whatever thread called configure()/reinitialize(). Every field below is read and
+    // written only while holding stateLock. It is a leaf lock: never call the logger,
+    // SessionHelper, UIKit or the network while holding it. Starting and stopping the motion
+    // manager is the one exception, so a stop can't race a start.
+    private let stateLock = NSLock()
     private var attachedWindows = NSHashTable<UIWindow>(options: .weakMemory)
     private var timer: Timer?
     private var sendCount = 0
     private var projectId: String?
     private var sessionId: String?
     private var networkManager: VerisoulNetworkingClientInterface
-    private var state = AccelerometerState.stopped
     private var payloadQueue: [SensorPayload] = []
     private let accelerometerUpdateInterval: TimeInterval = 1.0 / 50.0
     private var isCaptureActive = false
     private var didScheduleInitialSample = false
-
     private var isAccelerometerAvailable = true
+    // The 5-minute stop. Store it so stop() can cancel it.
+    private(set) var workItem: DispatchWorkItem?
+
     init(networkManager: VerisoulNetworkingClientInterface, projectId: String?) {
         self.networkManager = networkManager
         self.projectId = projectId
     }
 
+    private func withStateLock<T>(_ body: () -> T) -> T {
+        stateLock.lock()
+        defer { stateLock.unlock() }
+        return body()
+    }
+
     var isCaptureActiveForTesting: Bool {
-        isCaptureActive
+        withStateLock { isCaptureActive }
+    }
+
+    var sendCountForTesting: Int {
+        withStateLock { sendCount }
+    }
+
+    var hasPendingStopTimersForTesting: Bool {
+        withStateLock { workItem != nil || timer != nil }
+    }
+
+    /// Lets tests stand in for the 5-minute work item on the simulator, which has no
+    /// accelerometer and so never creates one.
+    func _setWorkItemForTesting(_ item: DispatchWorkItem?) {
+        withStateLock { workItem = item }
     }
 
     func reset() {
         pause()
-        sendCount = 0
-        didScheduleInitialSample = false
+        withStateLock {
+            sendCount = 0
+            didScheduleInitialSample = false
+        }
     }
 
     public func setSessionId(sessionId: String) {
-        self.sessionId = sessionId
+        withStateLock { self.sessionId = sessionId }
         self.flushPayloadQueue()
     }
 
     public func startGlobalCapture() {
         guard SessionHelper.shared.isNeedToSubmitTouchData() else { return }
-        guard !isCaptureActive else { return }
 
+        stateLock.lock()
+        guard !isCaptureActive else {
+            stateLock.unlock()
+            return
+        }
         isCaptureActive = true
         isAccelerometerAvailable = true
+        let scheduleInitialSample = !didScheduleInitialSample
+        didScheduleInitialSample = true
+        stateLock.unlock()
+
         setupMotionManager(updateInterval: accelerometerUpdateInterval)
-        if !didScheduleInitialSample {
-            didScheduleInitialSample = true
+        if scheduleInitialSample {
             DispatchQueue.global().asyncAfter(deadline: .now() + 1) { [weak self] in
                 self?.handleTouchEnded(touch: nil, downTime: Date())
             }
@@ -172,29 +205,50 @@ public class FraudDetection: NSObject {
     }
 
     private func stop(markCollectionDone: Bool) {
+        // Take everything that needs tearing down while holding the lock, so concurrent
+        // stop() calls each see a consistent state and only one of them tears it down.
+        stateLock.lock()
+        let wasActive = isCaptureActive
         isCaptureActive = false
-        motionManager.stopAccelerometerUpdates()
-        state = .stopped
         isAccelerometerAvailable = true
-        if workItem?.isCancelled == false {
-            workItem?.cancel()
-        }
+        motionManager.stopAccelerometerUpdates()
+        let pendingWorkItem = workItem
         workItem = nil
-        timer?.invalidate()
+        let pendingTimer = timer
         timer = nil
-        removeGestureRecognizers()
+        let windows = attachedWindows.allObjects
+        attachedWindows.removeAllObjects()
+        stateLock.unlock()
+
+        pendingWorkItem?.cancel()
+        if let pendingTimer {
+            // The attach-retry timer is scheduled on the main run loop and must be
+            // invalidated there.
+            if Thread.isMainThread {
+                pendingTimer.invalidate()
+            } else {
+                DispatchQueue.main.async { pendingTimer.invalidate() }
+            }
+        }
+        removeGestureRecognizers(from: windows)
         if markCollectionDone {
             SessionHelper.shared.setTouchDataCollectionIsDone()
         }
-        UnifiedLogger.shared.info("Stopped collecting data.", className: String(describing: FraudDetection.self))
+        if wasActive || pendingWorkItem != nil || pendingTimer != nil || !windows.isEmpty {
+            UnifiedLogger.shared.info("Stopped collecting data.", className: String(describing: FraudDetection.self))
+        }
     }
 
     @objc private func periodicAttachGesture() {
+        stateLock.lock()
         guard isCaptureActive else {
-            timer?.invalidate()
+            let staleTimer = timer
             timer = nil
+            stateLock.unlock()
+            staleTimer?.invalidate()
             return
         }
+        stateLock.unlock()
 
         guard let window = UIWindow.topMostWindow() else {
             UnifiedLogger.shared.warning("No topMostWindow found right now.", className: String(describing: FraudDetection.self))
@@ -202,19 +256,30 @@ public class FraudDetection: NSObject {
             return
         }
         attachGestureIfNeeded(to: window)
-        timer?.invalidate()
-        timer = nil
+        let retryTimer: Timer? = withStateLock {
+            let t = timer
+            timer = nil
+            return t
+        }
+        retryTimer?.invalidate()
     }
 
     private func scheduleAttachRetry() {
-        guard timer == nil else { return }
+        stateLock.lock()
+        defer { stateLock.unlock() }
+        guard timer == nil, isCaptureActive else { return }
         timer = Timer.scheduledTimer(withTimeInterval: 0.25, repeats: true) { [weak self] _ in
             self?.periodicAttachGesture()
         }
     }
 
     func attachGestureIfNeeded(to window: UIWindow) {
-        if attachedWindows.contains(window) {
+        let alreadyAttached: Bool = withStateLock {
+            if attachedWindows.contains(window) { return true }
+            attachedWindows.add(window)
+            return false
+        }
+        if alreadyAttached {
             UnifiedLogger.shared.debug("Already attached to window: \(window)", className: String(describing: FraudDetection.self))
             return
         }
@@ -228,12 +293,10 @@ public class FraudDetection: NSObject {
         }
 
         window.addGestureRecognizer(TouchCaptureGestureRecognizer(capturer: self))
-        attachedWindows.add(window)
     }
 
-    private func removeGestureRecognizers() {
-        let windows = attachedWindows.allObjects
-        attachedWindows.removeAllObjects()
+    private func removeGestureRecognizers(from windows: [UIWindow]) {
+        guard !windows.isEmpty else { return }
 
         let remove = {
             for window in windows {
@@ -266,31 +329,33 @@ public class FraudDetection: NSObject {
         return queue
     }()
 
-
-    // Store this if you may need to cancel it later
-    var workItem:DispatchWorkItem?
-
     private func setupMotionManager(updateInterval: TimeInterval) {
         guard motionManager.isAccelerometerAvailable else {
-            self.isAccelerometerAvailable = false
+            withStateLock { isAccelerometerAvailable = false }
             UnifiedLogger.shared.error("Accelerometer not available on this device.", className: String(describing: FraudDetection.self))
             return
         }
 
         UnifiedLogger.shared.info("Setting up motion manager...", className: String(describing: FraudDetection.self))
-        motionManager.accelerometerUpdateInterval = updateInterval
 
-        workItem = DispatchWorkItem {
+        let item = DispatchWorkItem { [weak self] in
             UnifiedLogger.shared.info("Stopping manager", className: String(describing: FraudDetection.self))
-            self.stop()
+            self?.stop()
         }
 
-        DispatchQueue.global().asyncAfter(deadline: .now() + 60 * 5,execute: workItem!)
-
+        stateLock.lock()
+        // A stop() that ran after startGlobalCapture() set isCaptureActive wins: don't start
+        // the accelerometer or the 5-minute timer for capture that is already over.
+        guard isCaptureActive else {
+            stateLock.unlock()
+            return
+        }
+        workItem?.cancel()
+        workItem = item
+        motionManager.accelerometerUpdateInterval = updateInterval
         motionManager.startAccelerometerUpdates(to: motionManagerQueue) { [weak self] data, error in
             guard let self = self, let data = data else { return }
             let timestamp = CACurrentMediaTime()
-            self.state = .collecting
 
             self.dataAccessQueue.async {
                 self.accelerometerBuffer.push(
@@ -301,23 +366,33 @@ public class FraudDetection: NSObject {
                 )
             }
         }
+        stateLock.unlock()
+
+        DispatchQueue.global().asyncAfter(deadline: .now() + 60 * 5, execute: item)
+    }
+
+    private func canSendSample() -> Bool {
+        withStateLock { isCaptureActive && sendCount < 10 }
     }
 
     internal func handleTouchEnded(touch: CGPoint?, downTime: Date) {
         UnifiedLogger.shared.debug("Touch ended at point: \(touch)", className: String(describing: FraudDetection.self))
-        guard isCaptureActive, sendCount < 10 else { return }
+        guard canSendSample() else { return }
 
         let touchTime = CACurrentMediaTime()
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [weak self] in
-            guard let self = self, self.isCaptureActive, self.sendCount < 10 else { return }
+            guard let self = self, self.canSendSample() else { return }
 
             self.dataAccessQueue.async {
+                let (accelerometerAvailable, sampleCount, sessionId, projectId) = self.withStateLock {
+                    (self.isAccelerometerAvailable, self.sendCount, self.sessionId, self.projectId)
+                }
                 let startTime = touchTime - 1.0
                 let endTime   = touchTime + 1.0
 
                 let relevantData: [(timestamp: TimeInterval, x: Double, y: Double, z: Double)] =
-                self.isAccelerometerAvailable
+                accelerometerAvailable
                     ? self.accelerometerBuffer.samples(inRange: startTime...endTime)
                     : [(timestamp: TimeInterval, x: Double, y: Double, z: Double)]()
 
@@ -351,10 +426,10 @@ public class FraudDetection: NSObject {
 
                 let sensorPayload = SensorPayload(
                     accelerometer: accelData,
-                    sampleNumber: touch != nil ? self.sendCount: -1,
+                    sampleNumber: touch != nil ? sampleCount : -1,
                     touch: touchData,
-                    sessionId: self.sessionId,
-                    projectId: self.projectId
+                    sessionId: sessionId,
+                    projectId: projectId
                 )
 
                 Task {
@@ -366,7 +441,8 @@ public class FraudDetection: NSObject {
 
 
     private func sendDataToEndpoint(_ payload: SensorPayload) async throws {
-        if payload.sampleNumber <= 10, isCaptureActive {
+        let isActive = withStateLock { isCaptureActive }
+        if payload.sampleNumber <= 10, isActive {
             UnifiedLogger.shared.info("Touch data send : \(payload.touch.x) , \(payload.touch.y)", className: String(describing: FraudDetection.self))
 
 
@@ -381,8 +457,13 @@ public class FraudDetection: NSObject {
 
                 try await self.networkManager.sendAccelometerData(payload: jsonObject)
 
-                sendCount += 1
-                if sendCount >= 10 {
+                // Sends complete concurrently. Only the one that brings the count to exactly 10
+                // stops capture; the rest only count.
+                let reachedLimit: Bool = withStateLock {
+                    sendCount += 1
+                    return sendCount == 10
+                }
+                if reachedLimit {
                     UnifiedLogger.shared.info("Reached 10 sends. Stopping.", className: String(describing: FraudDetection.self))
                     stop()
                 }
@@ -399,13 +480,15 @@ public class FraudDetection: NSObject {
 
 
     private func flushPayloadQueue() {
-        let queuedPayloads = self.payloadQueue
-        self.payloadQueue.removeAll()
+        let queuedPayloads: [SensorPayload] = withStateLock {
+            let payloads = payloadQueue
+            payloadQueue.removeAll()
+            return payloads
+        }
 
         for payload in queuedPayloads {
             Task {
-                var copy = payload
-                try await self.sendDataToEndpoint(copy)
+                try await self.sendDataToEndpoint(payload)
             }
         }
     }

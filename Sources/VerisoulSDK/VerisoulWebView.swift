@@ -6,13 +6,29 @@ public class VerisoulWebView: WKWebView, WKNavigationDelegate {
     private let nativeToWebHandler = "verisoulHandler"
     private var completion: ((Result<Void, Error>) -> Void)?
     private var startTime = CFAbsoluteTimeGetCurrent()
-    private var retryNumber = 0
     private var env: VerisoulEnvironment?
     private var projectId: String?
     private var sessionId: String?
     private var sessionHelper: SessionHelper?
     private var webViewLoaded = false
     private var didComplete = false
+    private var request: URLRequest?
+    private var attemptsMade = 0
+    // Bumped on every attempt and retry, so a watchdog from an earlier attempt does nothing
+    private var attemptId = 0
+
+    // How long one attempt may take before it is reloaded. Slow networks used to fail here:
+    // a 3-second watchdog reloaded the page, the reload cancelled the load still in flight
+    // (NSURLError -999), and the cancel was counted as one more retry.
+    var loadTimeout: TimeInterval = 8
+    var retryDelay: TimeInterval = 1
+    var maxAttempts = 3
+    // Stop retrying past this point so the failure surfaces inside session()'s 20-second timeout
+    var totalBudget: TimeInterval = 18
+    // Tests replace this to drive navigation callbacks without the network
+    var loadRequest: (WKWebView, URLRequest) -> Void = { webView, request in
+        webView.load(request)
+    }
 
     private let userContentController: WKUserContentController = {
         let controller = WKUserContentController()
@@ -35,7 +51,6 @@ public class VerisoulWebView: WKWebView, WKNavigationDelegate {
 
     public func setup() {
         // Note: WKWebView is part of the WebKit framework and is always available on iOS
-        self.retryNumber = 0
         self.configuration.userContentController = userContentController
         self.configuration.userContentController.add(self, name: nativeToWebHandler)
         self.configuration.defaultWebpagePreferences.allowsContentJavaScript = true
@@ -51,13 +66,21 @@ public class VerisoulWebView: WKWebView, WKNavigationDelegate {
     }
 
     public func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        if Self.isCancellation(error) { return }
         UnifiedLogger.shared.error("WebView failed: \(error.localizedDescription)", className: String(describing: VerisoulWebView.self))
-        triggerRetry()
+        retryOrFail()
     }
 
     public func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+        if Self.isCancellation(error) { return }
         UnifiedLogger.shared.error("WebView failed during provisional navigation: \(error.localizedDescription)", className: String(describing: VerisoulWebView.self))
-        triggerRetry()
+        retryOrFail()
+    }
+
+    /// Our own reload or stopLoading() cancels the navigation in flight. That's not a load failure.
+    static func isCancellation(_ error: Error) -> Bool {
+        let nsError = error as NSError
+        return nsError.domain == NSURLErrorDomain && nsError.code == NSURLErrorCancelled
     }
 
     // MARK: - Session Handling
@@ -69,14 +92,6 @@ public class VerisoulWebView: WKWebView, WKNavigationDelegate {
     ///   - completion: A completion handler that returns the session ID once the WebView finishes loading.
 
     public func startSession(env: VerisoulEnvironment, projectId: String, sessionId: String, completion: @escaping (Result<Void, Error>) -> Void) {
-        self.env = env
-        self.projectId = projectId
-        self.sessionId = sessionId
-        self.completion = completion
-        self.startTime = CFAbsoluteTimeGetCurrent()
-        self.webViewLoaded = false
-        self.didComplete = false
-
         var components = URLComponents()
         components.scheme = "https"
         components.host = Self.webViewHost(for: env)
@@ -86,29 +101,50 @@ public class VerisoulWebView: WKWebView, WKNavigationDelegate {
             URLQueryItem(name: "session_id", value: sessionId)
         ]
 
-        guard let url = components.url else {
-            UnifiedLogger.shared.error("Invalid URL constructed for Verisoul webview.",
-                                       className: String(describing: VerisoulWebView.self))
-            safeComplete(with: .failure(VerisoulException(
-                code: VerisoulErrorCodes.SESSION_UNAVAILABLE,
-                message: "Invalid URL constructed for Verisoul webview"
-            )))
-            return
-        }
-
         DispatchQueue.main.async {
-            let request = URLRequest(url: url)
-            self.navigationDelegate = self
-            self.load(request)
+            self.env = env
+            self.projectId = projectId
+            self.sessionId = sessionId
+            self.completion = completion
+            self.startTime = CFAbsoluteTimeGetCurrent()
+            self.didComplete = false
+            self.attemptsMade = 0
 
-            // Start manual timeout watchdog (e.g. 10 seconds)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                if !self.webViewLoaded {
-                    UnifiedLogger.shared.error("WebView load timed out. Triggering retry.",
-                                               className: String(describing: VerisoulWebView.self))
-                    self.triggerRetry()
-                }
+            guard let url = components.url else {
+                UnifiedLogger.shared.error("Invalid URL constructed for Verisoul webview.",
+                                           className: String(describing: VerisoulWebView.self))
+                self.safeComplete(with: .failure(VerisoulException(
+                    code: VerisoulErrorCodes.SESSION_UNAVAILABLE,
+                    message: "Invalid URL constructed for Verisoul webview"
+                )))
+                return
             }
+            self.request = URLRequest(url: url)
+            self.navigationDelegate = self
+            self.beginAttempt()
+        }
+    }
+
+    /// Loads the page and starts this attempt's watchdog. Runs on the main thread.
+    private func beginAttempt() {
+        guard !didComplete, let request else { return }
+        attemptsMade += 1
+        attemptId += 1
+        let thisAttempt = attemptId
+        webViewLoaded = false
+        if isLoading {
+            stopLoading()
+        }
+        loadRequest(self, request)
+
+        // The last attempt gets only what's left of the budget, so the whole load stays inside it
+        let remaining = totalBudget - (CFAbsoluteTimeGetCurrent() - startTime)
+        let timeout = max(0, min(loadTimeout, remaining))
+        DispatchQueue.main.asyncAfter(deadline: .now() + timeout) { [weak self] in
+            guard let self, self.attemptId == thisAttempt, !self.webViewLoaded, !self.didComplete else { return }
+            UnifiedLogger.shared.error("WebView load timed out after \(String(format: "%.1f", timeout)) seconds. Triggering retry.",
+                                       className: String(describing: VerisoulWebView.self))
+            self.retryOrFail()
         }
     }
     
@@ -132,27 +168,30 @@ public class VerisoulWebView: WKWebView, WKNavigationDelegate {
         completion = nil
     }
 
-    @objc private func triggerRetry() {
-        guard let env = self.env,
-              let projectId = self.projectId,
-              let sessionId = self.sessionId,
-              let completion = self.completion else {
-            return
-        }
+    /// Retries the load after `retryDelay`, or fails the session once the attempts or the time
+    /// budget run out. Runs on the main thread.
+    private func retryOrFail() {
+        guard !didComplete, request != nil else { return }
+        // Any watchdog still pending for the attempt that just ended is now stale
+        attemptId += 1
 
-        if retryNumber >= 3 {
+        let elapsed = CFAbsoluteTimeGetCurrent() - startTime
+        if attemptsMade >= maxAttempts || elapsed + retryDelay >= totalBudget {
             UnifiedLogger.shared.error("Error retrying webview - max retries reached",
                                        className: String(describing: VerisoulWebView.self))
-            // Signal failure instead of silently returning
+            if isLoading {
+                stopLoading()
+            }
             safeComplete(with: .failure(VerisoulException(
                 code: VerisoulErrorCodes.SESSION_UNAVAILABLE,
-                message: "WebView failed to load after \(retryNumber) retries"
+                message: "WebView failed to load after \(attemptsMade - 1) retries"
             )))
             return
         }
 
-        retryNumber += 1
-        startSession(env: env, projectId: projectId, sessionId: sessionId, completion: completion)
+        DispatchQueue.main.asyncAfter(deadline: .now() + retryDelay) { [weak self] in
+            self?.beginAttempt()
+        }
     }
 }
 

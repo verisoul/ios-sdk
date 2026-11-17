@@ -34,7 +34,7 @@ To integrate VerisoulSDK with CocoaPods:
    ```
 2. Add VerisoulSDK to your Podfile:
    ```ruby
-   pod 'VerisoulSDK', '~> 0.4.74'
+   pod 'VerisoulSDK', '~> 0.4.75'
    ```
 3. Run the following command to install the SDK:
    ```sh
@@ -87,6 +87,23 @@ The `configure()` method initializes the Verisoul SDK with your project credenti
 - `projectId`: Your unique Verisoul project identifier
 - `reinitialize`: Whether to create a new session during configuration. Defaults to `false`
 - `collectTouchData`: Whether to begin touch and motion capture. Defaults to `true`
+- `customHostname`: Optional. A custom hostname to load the SDK from. See [Custom hostname](#custom-hostname)
+
+### Custom hostname
+
+Available from version 0.4.75. If you have set up a [custom hostname](https://docs.verisoul.ai/integration/custom-hostname) for your project, pass it to `configure()` and the SDK loads from your hostname.
+
+```swift
+Verisoul.shared.configure(
+    env: .prod,
+    projectId: "your-project-id",
+    customHostname: "js.example.com"
+)
+```
+
+- Pass the hostname only, with no `https://`, port or path.
+- Use the hostname for the environment. With `.sandbox`, pass the sandbox hostname, such as `sandbox.js.example.com`.
+- When a custom hostname is set, the SDK always uses it. If the hostname is invalid or is not active for your project, `session()` fails with `SESSION_UNAVAILABLE`.
 
 ### Get Session ID
 

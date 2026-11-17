@@ -9,6 +9,8 @@ public class VerisoulWebView: WKWebView, WKNavigationDelegate {
     private var env: VerisoulEnvironment?
     private var projectId: String?
     private var sessionId: String?
+    private var host: String?
+    private var usesCustomHost = false
     private var sessionHelper: SessionHelper?
     private var webViewLoaded = false
     private var didComplete = false
@@ -68,12 +70,14 @@ public class VerisoulWebView: WKWebView, WKNavigationDelegate {
     public func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
         if Self.isCancellation(error) { return }
         UnifiedLogger.shared.error("WebView failed: \(error.localizedDescription)", className: String(describing: VerisoulWebView.self))
+        logCustomHostLoadFailed(code: String((error as NSError).code), description: error.localizedDescription)
         retryOrFail()
     }
 
     public func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
         if Self.isCancellation(error) { return }
         UnifiedLogger.shared.error("WebView failed during provisional navigation: \(error.localizedDescription)", className: String(describing: VerisoulWebView.self))
+        logCustomHostLoadFailed(code: String((error as NSError).code), description: error.localizedDescription)
         retryOrFail()
     }
 
@@ -92,9 +96,38 @@ public class VerisoulWebView: WKWebView, WKNavigationDelegate {
     ///   - completion: A completion handler that returns the session ID once the WebView finishes loading.
 
     public func startSession(env: VerisoulEnvironment, projectId: String, sessionId: String, completion: @escaping (Result<Void, Error>) -> Void) {
+        startSession(env: env, projectId: projectId, sessionId: sessionId, hostConfig: .standard, completion: completion)
+    }
+
+    /// Same as `startSession`, loading from the host in `hostConfig`. A custom hostname is used for
+    /// every attempt, with no fallback to the Verisoul host. An invalid one fails without loading.
+    func startSession(env: VerisoulEnvironment, projectId: String, sessionId: String, hostConfig: WebViewHostConfig,
+                      completion: @escaping (Result<Void, Error>) -> Void) {
+        let host: String
+        switch hostConfig {
+        case .standard:
+            host = Self.webViewHost(for: env)
+        case .custom(let customHost):
+            host = customHost
+        case .invalid(let reason):
+            DispatchQueue.main.async {
+                UnifiedLogger.shared.error("custom_host_invalid reason=\(reason)",
+                                           className: String(describing: VerisoulWebView.self))
+                self.attemptId += 1
+                self.request = nil
+                self.completion = completion
+                self.didComplete = false
+                self.safeComplete(with: .failure(VerisoulException(
+                    code: VerisoulErrorCodes.SESSION_UNAVAILABLE,
+                    message: CustomHostname.invalidMessage
+                )))
+            }
+            return
+        }
+
         var components = URLComponents()
         components.scheme = "https"
-        components.host = Self.webViewHost(for: env)
+        components.host = host
         components.path = "/webview.html"
         components.queryItems = [
             URLQueryItem(name: "project_id", value: projectId),
@@ -105,6 +138,8 @@ public class VerisoulWebView: WKWebView, WKNavigationDelegate {
             self.env = env
             self.projectId = projectId
             self.sessionId = sessionId
+            self.host = host
+            if case .custom = hostConfig { self.usesCustomHost = true } else { self.usesCustomHost = false }
             self.completion = completion
             self.startTime = CFAbsoluteTimeGetCurrent()
             self.didComplete = false
@@ -144,8 +179,16 @@ public class VerisoulWebView: WKWebView, WKNavigationDelegate {
             guard let self, self.attemptId == thisAttempt, !self.webViewLoaded, !self.didComplete else { return }
             UnifiedLogger.shared.error("WebView load timed out after \(String(format: "%.1f", timeout)) seconds. Triggering retry.",
                                        className: String(describing: VerisoulWebView.self))
+            self.logCustomHostLoadFailed(code: "timeout", description: "load timed out")
             self.retryOrFail()
         }
+    }
+
+    /// One line per failed attempt on a custom hostname, so a broken setup shows in the SDK logs.
+    private func logCustomHostLoadFailed(code: String, description: String) {
+        guard usesCustomHost, let host else { return }
+        UnifiedLogger.shared.error("custom_host_load_failed host=\(host) code=\(code) desc=\(description)",
+                                   className: String(describing: VerisoulWebView.self))
     }
     
     /// Maps the SDK environment to the WebView host.
@@ -216,6 +259,9 @@ extension VerisoulWebView: WKScriptMessageHandler {
         UnifiedLogger.shared.metric(value: (endTime - startTime),
                                     name: "web_view_session_duration",
                                     className: String(describing: VerisoulWebView.self))
+
+        UnifiedLogger.shared.info("webview_host=\(host ?? "unknown")",
+                                  className: String(describing: VerisoulWebView.self))
 
         safeComplete(with: .success(()))
     }

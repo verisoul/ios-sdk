@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.75] - 2026-11-16
+
+### Added
+- Optional custom hostname for the SDK WebView. Pass `customHostname` to `Verisoul.shared.configure(env:projectId:reinitialize:collectTouchData:customHostname:)` to load the SDK's WebView from the custom hostname set up for your Verisoul project (for example `js.example.com`) in place of the Verisoul host.
+  - Pass a bare hostname, with no scheme, port or path.
+  - Use the hostname for the environment. The sandbox environment uses the `sandbox.` hostname, for example `sandbox.js.example.com`.
+  - When a hostname is passed, every load uses it and the SDK does not fall back to the Verisoul host. If the hostname is invalid or is not active for the project, `session()` fails with `SESSION_UNAVAILABLE`.
+  - Existing calls to `configure` are unchanged.
+
 ## [0.4.74] - 2026-11-02
 
 ### Fixed

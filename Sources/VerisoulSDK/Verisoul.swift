@@ -34,6 +34,7 @@ public final class Verisoul: NSObject {
     // Private properties for SDK configuration and dependencies
     private var env: VerisoulEnvironment = .dev
     private var projectId: String = ""
+    private var hostConfig: WebViewHostConfig = .standard
     private var webView: VerisoulWebView?
     private var networking: VerisoulNetworkingClientInterface?
     private let deviceInfo = SystemInfoCollector()
@@ -325,6 +326,37 @@ public final class Verisoul: NSObject {
         reinitialize: Bool = false,
         collectTouchData: Bool = true
     ) {
+        configure(env: env, projectId: projectId, reinitialize: reinitialize,
+                  collectTouchData: collectTouchData, hostConfig: .standard, rawCustomHostname: nil)
+    }
+
+    /// Configures the SDK and loads its WebView from `customHostname`, a custom hostname set up
+    /// for your Verisoul project (for example "js.example.com").
+    ///
+    /// Pass a bare hostname: no scheme, port or path. When a hostname is passed, every load uses
+    /// it and the SDK does not fall back to the Verisoul host. An invalid hostname, or one that
+    /// cannot be reached, makes `session()` fail with SESSION_UNAVAILABLE. Pass nil to use the
+    /// Verisoul host.
+    public func configure(
+        env: VerisoulEnvironment,
+        projectId: String,
+        reinitialize: Bool = false,
+        collectTouchData: Bool = true,
+        customHostname: String?
+    ) {
+        configure(env: env, projectId: projectId, reinitialize: reinitialize,
+                  collectTouchData: collectTouchData,
+                  hostConfig: CustomHostname.resolve(customHostname), rawCustomHostname: customHostname)
+    }
+
+    private func configure(
+        env: VerisoulEnvironment,
+        projectId: String,
+        reinitialize: Bool,
+        collectTouchData: Bool,
+        hostConfig: WebViewHostConfig,
+        rawCustomHostname: String?
+    ) {
         // Before taking sessionLock: on the main thread the first state read can run the
         // foreground handler, which takes that lock
         foregroundMonitor.installIfNeeded()
@@ -341,7 +373,19 @@ public final class Verisoul: NSObject {
 
             self.env = env
             self.projectId = projectId
+            self.hostConfig = hostConfig
             self.touchCaptureEnabled = collectTouchData
+
+            switch hostConfig {
+            case .custom(let host):
+                UnifiedLogger.shared.info("custom_host_configured host=\(host)", className: String(describing: Verisoul.self))
+            case .invalid(let reason):
+                UnifiedLogger.shared.error(
+                    "custom_host_invalid reason=\(reason) value=\(String((rawCustomHostname ?? "").prefix(64)))",
+                    className: String(describing: Verisoul.self))
+            case .standard:
+                break
+            }
 
             let sessionId = self.sessionHelper.initSessionId(projectId: projectId, env: env, reinitialize: reinitialize)
 
@@ -548,6 +592,19 @@ public final class Verisoul: NSObject {
         UnifiedLogger.shared.info("Retrieving session ID...", className: String(describing: Verisoul.self))
         foregroundMonitor.installIfNeeded()
 
+        // A custom hostname was passed to configure but is unusable. Fail right away, before the
+        // cache: no load is attempted and the Verisoul host is not used in its place.
+        sessionLock.lock()
+        let currentHostConfig = hostConfig
+        sessionLock.unlock()
+        if case .invalid = currentHostConfig {
+            UnifiedLogger.shared.error(CustomHostname.invalidMessage, className: String(describing: Verisoul.self))
+            throw VerisoulException(
+                code: VerisoulErrorCodes.SESSION_UNAVAILABLE,
+                message: CustomHostname.invalidMessage
+            )
+        }
+
         if let sessionId = cachedSessionId() {
             UnifiedLogger.shared.info("Session ID retrieved from cache: \(sessionId)", className: String(describing: Verisoul.self))
             return sessionId
@@ -710,7 +767,7 @@ public final class Verisoul: NSObject {
                 return
             }
 
-            webView.startSession(env: env, projectId: projectId, sessionId: sessionId) { result in
+            webView.startSession(env: env, projectId: projectId, sessionId: sessionId, hostConfig: hostConfig) { result in
                 switch result {
                 case .success:
                     UnifiedLogger.shared.info("WebView initialized successfully.", className: String(describing: Verisoul.self))
